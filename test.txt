@@ -1,2 +1,3 @@
 https://github.com/nrlhozkan/ImageViewer.git
 https://nrlhozkan.github.io/ImageViewer/images
+https://nrlhozkan.github.io/ImageViewer/strip2
