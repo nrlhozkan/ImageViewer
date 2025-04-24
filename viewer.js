@@ -1,38 +1,44 @@
 (async function(){
-  // 1) Fetch over HTTPS from your GitHub Pages (or jsDelivr) URL:
-  const BASE = 'https://nrlhozkan.github.io/ImageViewer';
-  // const BASE = 'https://cdn.jsdelivr.net/gh/<your-username>/ImageViewer@main';
-  const images = await fetch(`${BASE}/images/index.json`)
-                        .then(r => r.json());
+  const BASE   = 'https://nrlhozkan.github.io/ImageViewer';
+  const images = await fetch(`${BASE}/images/index.json`).then(r => r.json());
   let idx     = 0;
   let channel = 'rgb';
 
-  // 2) Initialize OpenSeadragon (use the official control-icon path):
   const viewer = OpenSeadragon({
     element:   document.getElementById('viewer'),
     prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
     showZoomControl: false,
     defaultZoomLevel: 1,
-    gestureSettingsMouse: {
-      scrollToZoom: true,
-      clickToZoom:  false
-    }
+    gestureSettingsMouse: { scrollToZoom:true, clickToZoom:false }
   });
 
-  // 3) Helper to load current image:
+  // helper to load current image *and* preserve pan/zoom
   function loadImage() {
+    // 1) grab current pan/zoom
+    const oldZoom   = viewer.viewport.getZoom();
+    const oldCenter = viewer.viewport.getCenter();
+
+    // 2) open the new image
     viewer.open({
-      type: 'image',
-      url:  images[idx][channel],
-      crossOriginPolicy: 'Anonymous',
+      type:              'image',
+      url:               images[idx][channel],
+      crossOriginPolicy: 'Anonymous'
     });
-    document.title = `Image ${idx+1}/${images.length} — ${channel.toUpperCase()}`;
+
+    // 3) once it’s open, restore pan/zoom
+    viewer.addOnceHandler('open', () => {
+      viewer.viewport.zoomTo(oldZoom,   null, true);
+      viewer.viewport.panTo (oldCenter, true);
+      document.title = `Image ${idx+1}/${images.length} — ${channel.toUpperCase()}`;
+    });
   }
+
+  // initial load
   loadImage();
 
-  // 4) Keyboard controls:
+  // keyboard controls
   window.addEventListener('keydown', e => {
-    switch (e.key) {
+    switch(e.key) {
       case 'ArrowLeft':
         channel = 'an';
         loadImage();
