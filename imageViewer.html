@@ -1,26 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Zoomable Image Viewer</title>
+  <meta charset="UTF-8">
+  <title>Dynamic ImageViewer</title>
   <script src="https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/openseadragon.min.js"></script>
   <style>
-    body, html { margin:0; height:100%; }
-    #viewer { width:100%; height:100%; background:#000; }
-    /* optional: overlay simple instructions */
-    #instructions {
-      position: absolute; top:10px; left:10px;
-      color: rgba(255,255,255,0.8);
-      font: 14px sans-serif;
-      z-index: 100;
+    html, body { margin:0; padding:0; height:100%; overflow:hidden; }
+    #loader {
+      position: absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      background: rgba(0,0,0,0.75);
+      padding:20px; border-radius:8px;
+      color:#fff; text-align:center;
+      z-index: 1000;
+    }
+    #loader input { width:300px; padding:4px; }
+    #viewer { width:100%; height:100%; background:#000; display:none; position:relative; }
+
+    /* Info tab styling */
+    #infoTab {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      max-width: 250px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.4;
+      padding: 10px;
+      border-radius: 6px;
+      z-index: 999;
+    }
+    #infoTab h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: underline;
+    }
+    #infoTab p {
+      margin: 4px 0;
+    }
+    #infoTab code {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
     }
   </style>
 </head>
 <body>
-  <div id="viewer"></div>
-  <div id="instructions">
-    A/D next/prev image   W/Sswitch variant  mouse wheel to zoom
+
+  <div id="loader">
+    <p>Enter the URL of the folder containing the images and json file:</p>
+    <input id="jsonUrl" type="text" placeholder="upload the link" /><br><br>
+    <button id="loadBtn">Load Images</button>
   </div>
+
+  <div id="viewer">
+    <!-- Info tab -->
+    <div id="infoTab">
+      <h4>Controls</h4>
+      <p><code>A</code> / <code>D</code> : Prev / Next image pair</p>
+      <p><code>W</code> / <code>S</code> : RGB masked / RGB </p>
+      <p><code>Space</code> : Center image</p>
+      <p><code>+</code> / <code>-</code> : Zoom in / out</p>
+    </div>
+  </div>
+
+  <!-- external JS -->
   <script src="viewer.js"></script>
 </body>
 </html>
