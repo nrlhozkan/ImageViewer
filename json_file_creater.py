@@ -4,7 +4,7 @@ import re
 import json
 
 # 1) Your images folder (local)
-IMG_DIR     = r'C:\Users\AK127381\Desktop\ImageViewer\strip2'
+IMG_DIR     = r'E:\ImageViewer\strip2'
 # 2) The base URL you want in your JSON
 BASE_URL    = 'https://nrlhozkan.github.io/ImageViewer/strip2'
 # 3) Output file
