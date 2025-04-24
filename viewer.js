@@ -7,7 +7,7 @@
     // 2. init OpenSeadragon
     const viewer = OpenSeadragon({
       element: document.getElementById('viewer'),
-      prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
+      prefixUrl: 'https://github.com/nrlhozkan/ImageViewer/tree/main/images/',
       showZoomControl: false,
       defaultZoomLevel: 1,
       gestureSettingsMouse: {
