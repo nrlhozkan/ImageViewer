@@ -4,9 +4,9 @@ import re
 import json
 
 # 1) Your images folder (local)
-IMG_DIR     = r'C:\Users\AK127381\Desktop\ImageViewer\images'
+IMG_DIR     = r'C:\Users\AK127381\Desktop\ImageViewer\strip2'
 # 2) The base URL you want in your JSON
-BASE_URL    = 'https://nrlhozkan.github.io/ImageViewer/images'
+BASE_URL    = 'https://nrlhozkan.github.io/ImageViewer/strip2'
 # 3) Output file
 OUT_FILE    = os.path.join(IMG_DIR, 'index.json')
 
@@ -17,21 +17,20 @@ files = [
     and re.search(r'\.(jpe?g|png)$', f, re.I)
 ]
 
-# 5) Regex for AN vs primary
-an_re  = re.compile(r'^(?P<name>.+?)_AN\.(?:jpe?g|png)$', re.I)
+rgb_mask_re  = re.compile(r'^(?P<name>.+?)_mask\.(?:jpe?g|png)$', re.I)
 rgb_re = re.compile(r'^(?P<name>.+?)\.(?:jpe?g|png)$',  re.I)
 
 groups = {}
 for fn in files:
-    m = an_re.match(fn)
+    m = rgb_mask_re.match(fn)
     if m:
         name = m.group('name')
-        groups.setdefault(name, {})['an'] = fn
+        groups.setdefault(name, {})['rgb_mask'] = fn
         continue
 
     m = rgb_re.match(fn)
     # skip matching the AN file twice
-    if m and not fn.upper().endswith('_AN.JPG') and not fn.upper().endswith('_AN.PNG'):
+    if m and not fn.upper().endswith('_mask.PNG') and not fn.upper().endswith('_mask.JPG'):
         name = m.group('name')
         groups.setdefault(name, {})['rgb'] = fn
         continue
@@ -41,14 +40,14 @@ for fn in files:
 # 6) Build the JSON array with sequential numeric IDs
 index_list = []
 for seq, (name, vars) in enumerate(sorted(groups.items(), key=lambda x: x[0]), start=1):
-    if 'rgb' not in vars or 'an' not in vars:
+    if 'rgb' not in vars or 'rgb_mask' not in vars:
         print(f"⚠️  Skipping {name}: incomplete variants {list(vars)}")
         continue
 
     index_list.append({
         "id":  seq,
         "rgb": f"{BASE_URL}/{vars['rgb']}",
-        "an":  f"{BASE_URL}/{vars['an']}"
+        "rgb_mask":  f"{BASE_URL}/{vars['rgb_mask']}"
     })
 
 # 7) Write index.json

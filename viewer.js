@@ -84,7 +84,7 @@
           loadImage();
           break;
         case 'w': // AN variant
-          channel = 'an';
+          channel = 'rgb_mask';
           loadImage();
           break;
         case 's': // RGB variant
