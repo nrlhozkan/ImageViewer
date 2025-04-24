@@ -1,59 +1,99 @@
 (async function(){
   const BASE   = 'https://nrlhozkan.github.io/ImageViewer';
   const images = await fetch(`${BASE}/images/index.json`).then(r => r.json());
-  let idx     = 0;
-  let channel = 'rgb';
+  let idx        = 0;
+  let channel    = 'rgb';
+  let isFirstLoad = true;
 
   const viewer = OpenSeadragon({
-    element:   document.getElementById('viewer'),
-    prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
-    showZoomControl: false,
-    defaultZoomLevel: 1,
-    gestureSettingsMouse: { scrollToZoom:true, clickToZoom:false }
+    element:           document.getElementById('viewer'),
+    prefixUrl:         'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
+    showZoomControl:   false,
+
+    // ————— deep-zoom settings —————
+    maxZoomPixelRatio: 20,     // up to 20× native resolution
+    zoomPerScroll:     1.1,    // finer scroll-wheel zoom (default 2.0)
+    minZoomLevel:      0.1,    // zoom out to 10% if you like
+    defaultZoomLevel:  1,      // start “fit to screen”
+    // ————————————————————————————
+
+    gestureSettingsMouse: {
+      scrollToZoom: true,
+      clickToZoom:  false
+    },
+    crossOriginPolicy: 'Anonymous'
   });
 
-  // helper to load current image *and* preserve pan/zoom
-  function loadImage() {
-    // 1) grab current pan/zoom
-    const oldZoom   = viewer.viewport.getZoom();
-    const oldCenter = viewer.viewport.getCenter();
+  function loadImage(){
+    // save view if not first
+    let oldZoom, oldCenter;
+    if (!isFirstLoad) {
+      oldZoom   = viewer.viewport.getZoom();
+      oldCenter = viewer.viewport.getCenter();
+    }
 
-    // 2) open the new image
+    // load new image
     viewer.open({
-      type:              'image',
-      url:               images[idx][channel],
-      crossOriginPolicy: 'Anonymous'
+      type: 'image',
+      url:  images[idx][channel]
     });
 
-    // 3) once it’s open, restore pan/zoom
-    viewer.addOnceHandler('open', () => {
-      viewer.viewport.zoomTo(oldZoom,   null, true);
-      viewer.viewport.panTo (oldCenter, true);
+    // after open, either center or restore
+    viewer.addOnceHandler('open', ()=>{
+      if (isFirstLoad) {
+        // center on first load
+        const home = viewer.viewport.getHomeBounds();
+        viewer.viewport.panTo(home.getCenter(), true);
+        isFirstLoad = false;
+      } else {
+        // restore previous
+        viewer.viewport.zoomTo(oldZoom,   null, true);
+        viewer.viewport.panTo (oldCenter, true);
+      }
       document.title = `Image ${idx+1}/${images.length} — ${channel.toUpperCase()}`;
     });
   }
 
-  // initial load
+  // initial display
   loadImage();
 
-  // keyboard controls
+  // key bindings
   window.addEventListener('keydown', e => {
-    switch(e.key) {
-      case 'ArrowLeft':
-        channel = 'an';
+    const k = e.key.toLowerCase();
+
+    // SPACE: center current image
+    if (k === ' ' || e.code === 'Space') {
+      const home = viewer.viewport.getHomeBounds();
+      viewer.viewport.panTo(home.getCenter(), true);
+      return;
+    }
+
+    // WASD navigation
+    switch (k) {
+      case 'a': // previous image
+        idx = (idx - 1 + images.length) % images.length;
         loadImage();
         break;
-      case 'ArrowRight':
-        channel = 'rgb';
-        loadImage();
-        break;
-      case 'ArrowUp':
+      case 'd': // next image
         idx = (idx + 1) % images.length;
         loadImage();
         break;
-      case 'ArrowDown':
-        idx = (idx - 1 + images.length) % images.length;
+      case 'w': // switch to AN variant
+        channel = 'an';
         loadImage();
+        break;
+      case 's': // switch to RGB variant
+        channel = 'rgb';
+        loadImage();
+        break;
+      case '+': // optional: zoom in deeper
+      case '=':
+        viewer.viewport.zoomBy(1.5);
+        viewer.viewport.applyConstraints();
+        break;
+      case '-': // optional: zoom out
+        viewer.viewport.zoomBy(1/1.5);
+        viewer.viewport.applyConstraints();
         break;
     }
   });
