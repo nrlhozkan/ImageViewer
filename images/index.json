@@ -1,6 +1,57 @@
 [
-    { "id": 1, "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC03416.JPG", "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC03416_AN.png"},
-    { "id": 2, "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC03416.JPG", "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC03416_AN.png"}
-
+  {
+    "id": 1,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC03416.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC03416_AN.JPG"
+  },
+  {
+    "id": 2,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08426.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08426_AN.JPG"
+  },
+  {
+    "id": 3,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08461.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08461_AN.JPG"
+  },
+  {
+    "id": 4,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08477.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08477_AN.JPG"
+  },
+  {
+    "id": 5,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08486.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08486_AN.JPG"
+  },
+  {
+    "id": 6,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08547.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08547_AN.JPG"
+  },
+  {
+    "id": 7,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08580.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08580_AN.JPG"
+  },
+  {
+    "id": 8,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08587.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08587_AN.JPG"
+  },
+  {
+    "id": 9,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08773_F6.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08773_F6_AN.JPG"
+  },
+  {
+    "id": 10,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08902_F6.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08902_F6_AN.JPG"
+  },
+  {
+    "id": 11,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/images/DSC08968_F6.JPG",
+    "an": "https://nrlhozkan.github.io/ImageViewer/images/DSC08968_F6_AN.JPG"
+  }
 ]
-  
