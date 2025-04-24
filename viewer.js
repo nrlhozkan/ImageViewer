@@ -34,7 +34,7 @@
   window.addEventListener('keydown', e => {
     switch (e.key) {
       case 'ArrowLeft':
-        channel = 'rx';
+        channel = 'an';
         loadImage();
         break;
       case 'ArrowRight':
