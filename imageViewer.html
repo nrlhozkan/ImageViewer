@@ -51,19 +51,21 @@
 <body>
 
   <div id="loader">
-    <p>Enter the URL of the folder containing the images and json file:</p>
-    <input id="jsonUrl" type="text" placeholder="upload the link" /><br><br>
-    <button id="loadBtn">Load Images</button>
+    <p>Enter the URL of your batch folder:</p>
+    <input id="jsonUrl" type="text" placeholder="link" /><br><br>
+    <button id="loadBtn">OK</button>
   </div>
 
   <div id="viewer">
     <!-- Info tab -->
     <div id="infoTab">
       <h4>Controls</h4>
-      <p><code>A</code> / <code>D</code> : Prev / Next image pair</p>
-      <p><code>W</code> / <code>S</code> : RGB masked / RGB </p>
-      <p><code>Space</code> : Center image</p>
-      <p><code>+</code> / <code>-</code> : Zoom in / out</p>
+      <p><code>A</code> / <code>D</code> : prev / next image</p>
+      <p><code>W</code> / <code>S</code> : image / anomalies </p>
+      <p><code>Space</code> : reset image</p>
+      <p><code>+ / - / mouse wheel</code> : zoom </p>
+      <!-- <p><code>mouse wheel</code> : zoom </p> -->
+      <p><code>arrow keys / left mouse button</code>: pan
     </div>
   </div>
 
