@@ -1,49 +1,89 @@
-// viewer.js
+// test.js
 
 (async function(){
     const loaderEl       = document.getElementById('loader');
+    const startIndexEl   = document.getElementById('startIndex');
     const inputEl        = document.getElementById('jsonUrl');
     const btn            = document.getElementById('loadBtn');
     const viewerEl       = document.getElementById('viewer');
     const downloadZipBtn = document.getElementById('downloadZipBtn');
+    const stripEl        = document.getElementById('stripImageInfo');
+    const gammaEl        = document.getElementById('gammaInfo');
   
-    let images = [], idx = 0, channel = 'rgb', isFirst = true, viewer;
+    let images = [],
+        idx = 0,
+        startImageNumber = 1,
+        channel = 'rgb',
+        isFirst = true,
+        gamma = 1.0,
+        viewer;
+  
+    // Apply gamma correction via CSS filter
+    function applyGamma() {
+      // brightness: 1 = no change; gamma < 1 brightens, gamma > 1 darkens
+      viewerEl.style.filter = `brightness(${1 / gamma})`;
+    }
   
     btn.addEventListener('click', async () => {
-      // 1) Normalize the URL to index.json
+      // 1) Normalize URL to index.json
       let url = inputEl.value.trim();
       if (!url.match(/\.json(\?.*)?$/i)) {
         url = url.replace(/\/+$/, '') + '/index.json';
       }
   
-      // 2) Fetch your JSON
+      // 2) Extract numeric Strip ID
+      const folderUrl   = url.replace(/\/index\.json(\?.*)?$/i, '');
+      const rawFolderId = folderUrl.split('/').pop();
+      const stripId     = rawFolderId.replace(/\D/g, '');
+  
+      // 3) Read "Start at" (1-based)
+      const startVal = parseInt(startIndexEl.value, 10);
+      startImageNumber = (!isNaN(startVal) && startVal > 0) ? startVal : 1;
+      idx = startImageNumber - 1;
+  
+      // 4) Fetch JSON
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
         images = await res.json();
-      } catch (err) {
+      } catch(err) {
         return alert('Failed to load JSON:\n' + err);
       }
+      idx = Math.min(Math.max(idx, 0), images.length - 1);
   
-      // 3) Hide loader, show viewer and download button
+      // 5) Show viewer and controls
       loaderEl.style.display       = 'none';
       viewerEl.style.display       = 'block';
       downloadZipBtn.style.display = 'inline-block';
   
-      // 4) Initialize OpenSeadragon
+      // 6) Initialize OpenSeadragon
       viewer = OpenSeadragon({
-        element:           viewerEl,
-        prefixUrl:         'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
-        showZoomControl:   false,
-        maxZoomPixelRatio: 20,
-        zoomPerScroll:     1.1,
-        minZoomLevel:      0.1,
-        defaultZoomLevel:  1,
-        gestureSettingsMouse: { scrollToZoom:true, clickToZoom:false },
-        crossOriginPolicy: 'Anonymous'
+        element:             viewerEl,
+        prefixUrl:           'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
+        showZoomControl:     false,
+        maxZoomPixelRatio:   20,
+        zoomPerScroll:       1.1,
+        minZoomLevel:        0.1,
+        defaultZoomLevel:    1,
+        gestureSettingsMouse:{ scrollToZoom:true, clickToZoom:false },
+        crossOriginPolicy:   'Anonymous'
       });
+      // Disable built-in keyboard nav
+      if (viewer.innerTracker && viewer.innerTracker.keyHandler) {
+        viewer.innerTracker.keyHandler = null;
+      }
   
-      // 5) Function to load images while preserving pan/zoom
+      // Helpers to update overlays
+      function updateStripInfo(){
+        const current = idx + 1;
+        const maxImg  = startImageNumber + 110;
+        stripEl.textContent = `Strip: ${stripId} | Image: ${current}/${maxImg}`;
+      }
+      function updateGammaInfo(){
+        gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
+      }
+  
+      // 7) Load image preserving pan/zoom
       function loadImage(){
         let oldZoom, oldCenter;
         if (!isFirst) {
@@ -51,7 +91,7 @@
           oldCenter = viewer.viewport.getCenter();
         }
         viewer.open({ type:'image', url: images[idx][channel] });
-        viewer.addOnceHandler('open', ()=>{
+        viewer.addOnceHandler('open', () => {
           if (isFirst) {
             const home = viewer.viewport.getHomeBounds();
             viewer.viewport.panTo(home.getCenter(), true);
@@ -61,71 +101,73 @@
             viewer.viewport.panTo(oldCenter, true);
           }
           document.title = `Image ${idx+1}/${images.length} — ${channel.toUpperCase()}`;
+          applyGamma();
+          updateStripInfo();
+          updateGammaInfo();
         });
       }
   
-      // 6) Keyboard controls, including full “go home” on Space
+      // 8) Keyboard controls
       window.addEventListener('keydown', e => {
         const k = e.key.toLowerCase();
-        if (k === ' ' || e.code === 'Space') {
-          viewer.viewport.goHome(true);
-          return;
-        }
-        switch(k){
-          case 'a': idx = (idx - 1 + images.length) % images.length; loadImage(); break;
-          case 'd': idx = (idx + 1) % images.length; loadImage(); break;
-          case 'w': channel = 'rgb_mask'; loadImage(); break;
-          case 's': channel = 'rgb'; loadImage(); break;
-          case '+': case '=': viewer.viewport.zoomBy(1.5); viewer.viewport.applyConstraints(); break;
-          case '-': viewer.viewport.zoomBy(1/1.5); viewer.viewport.applyConstraints(); break;
+        const keysUsed = ['a','d','w','s','+','-',' '];
+        if (!keysUsed.includes(k) && e.code !== 'Space') return;
+        e.preventDefault();
+        switch (k) {
+          case 'a':
+            idx = (idx - 1 + images.length) % images.length;
+            loadImage();
+            break;
+          case 'd':
+            idx = (idx + 1) % images.length;
+            loadImage();
+            break;
+          case 'w':
+            if (channel !== 'rgb_mask') { channel = 'rgb_mask'; loadImage(); }
+            break;
+          case 's':
+            if (channel !== 'rgb') { channel = 'rgb'; loadImage(); }
+            break;
+          case '+':
+            gamma = Math.max(0.1, gamma - 0.1);
+            applyGamma();
+            updateGammaInfo();
+            break;
+          case '-':
+            gamma = gamma + 0.1;
+            applyGamma();
+            updateGammaInfo();
+            break;
+          case ' ':
+            viewer.viewport.goHome(true);
+            break;
         }
       });
   
-      // 7) Show the very first image
+      // Initial draw
       loadImage();
   
-      // 8) Download ZIP handler
+      // 9) ZIP download handler
       downloadZipBtn.addEventListener('click', async () => {
-        if (!images.length) {
-          return alert('No images loaded.');
-        }
-        const current  = images[idx];
+        if (!images.length) return alert('No images loaded.');
+        const obj      = images[idx];
         const baseName = `image_${idx+1}`;
         const zip      = new JSZip();
-  
         try {
-          // Fetch both images in parallel
-          const [resRgb, resMask] = await Promise.all([
-            fetch(current.rgb),
-            fetch(current.rgb_mask)
-          ]);
-          if (!resRgb.ok || !resMask.ok) {
-            throw new Error('Failed to fetch one or more images');
-          }
-  
-          // Convert to blobs
-          const [blobRgb, blobMask] = await Promise.all([
-            resRgb.blob(),
-            resMask.blob()
-          ]);
-  
-          // Add to zip
-          zip.file(`${baseName}_rgb.jpg`,      blobRgb);
-          zip.file(`${baseName}_rgb_mask.jpg`, blobMask);
-  
-          // Generate zip as a Blob
-          const zipBlob = await zip.generateAsync({ type: 'blob' });
-  
-          // Trigger download
-          const url  = URL.createObjectURL(zipBlob);
-          const link = document.createElement('a');
+          const [r1, r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
+          if (!r1.ok || !r2.ok) throw new Error('Image fetch failed');
+          const [b1, b2] = await Promise.all([r1.blob(), r2.blob()]);
+          zip.file(`${baseName}_rgb.jpg`, b1);
+          zip.file(`${baseName}_rgb_mask.jpg`, b2);
+          const zipBlob = await zip.generateAsync({ type:'blob' });
+          const url     = URL.createObjectURL(zipBlob);
+          const link    = document.createElement('a');
           link.href     = url;
           link.download = `${baseName}.zip`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
           URL.revokeObjectURL(url);
-  
         } catch (err) {
           alert('Failed to create ZIP:\n' + err);
         }

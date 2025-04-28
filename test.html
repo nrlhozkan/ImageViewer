@@ -12,7 +12,7 @@
       background: rgba(0,0,0,0.75);
       padding:20px; border-radius:8px;
       color:#fff; text-align:center;
-      z-index: 1000;
+      z-index:1000;
     }
     #loader input { width:300px; padding:4px; }
     #viewer { width:100%; height:100%; background:#000; display:none; position:relative; }
@@ -20,73 +20,71 @@
     /* Info tab styling */
     #infoTab {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
+      bottom: 10px; right: 10px;
       max-width: 250px;
       background: rgba(0,0,0,0.6);
-      color: #fff;
-      font-size: 13px;
-      line-height: 1.4;
-      padding: 10px;
-      border-radius: 6px;
-      z-index: 999;
+      color: #fff; font-size: 13px; line-height:1.4;
+      padding: 10px; border-radius:6px; z-index:999;
     }
-    #infoTab h4 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      text-align: center;
-      text-decoration: underline;
-    }
-    #infoTab p {
-      margin: 4px 0;
-    }
-    #infoTab code {
-      background: rgba(255,255,255,0.1);
-      padding: 2px 4px;
-      border-radius: 3px;
-      font-family: monospace;
-    }
-
-    /* Download button styling (optional) */
-    #downloadZipBtn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: none;
-      padding: 6px 12px;
-      font-size: 14px;
-      border: none;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.8);
-      cursor: pointer;
-      z-index: 1000;
-    }
+    #infoTab h4 { margin:0 0 6px; font-size:14px;
+                  text-align:center; text-decoration:underline; }
+    #infoTab p  { margin:4px 0; }
+    #infoTab code { background: rgba(255,255,255,0.1);
+                    padding:2px 4px; border-radius:3px;
+                    font-family:monospace; }
   </style>
 </head>
 <body>
 
   <div id="loader">
     <p>Enter the URL of your batch folder:</p>
-    <input id="jsonUrl" type="text" placeholder="link" /><br><br>
+    <input id="jsonUrl" type="text" placeholder="link" />
+    <p>Start at image #:</p>
+    <input id="startIndex" type="number" placeholder="1" min="1"
+           style="width:80px; padding:4px;" /><br><br>
     <button id="loadBtn">OK</button>
   </div>
 
   <div id="viewer">
-    <!-- Download ZIP button -->
-    <button id="downloadZipBtn">Download Image Pair as ZIP</button>
+    <!-- ZIP download button -->
+    <button
+      id="downloadZipBtn"
+      style="position:absolute; top:10px; right:10px; display:none;
+             padding:6px 12px; font-size:14px; border:none; border-radius:4px;
+             background:rgba(255,255,255,0.8); cursor:pointer; z-index:1000;"
+    >
+      Download Image Pair as ZIP
+    </button>
 
-    <!-- Info tab -->
+    <!-- Strip & Image overlay (top-left) -->
+    <div
+      id="stripImageInfo"
+      style="position:absolute; top:10px; left:10px; z-index:1000;
+             background:rgba(0,0,0,0.6); color:#fff; padding:4px 8px;
+             border-radius:4px; font-size:14px;"
+    ></div>
+
+    <!-- Gamma overlay (bottom-left) -->
+    <div
+      id="gammaInfo"
+      style="position:absolute; bottom:10px; left:10px; z-index:1000;
+             background:rgba(0,0,0,0.6); color:#fff; padding:4px 8px;
+             border-radius:4px; font-size:14px;"
+    ></div>
+
+    <!-- Controls info -->
     <div id="infoTab">
       <h4>Controls</h4>
       <p><code>A</code> / <code>D</code> : prev / next image</p>
-      <p><code>W</code> / <code>S</code> : image / anomalies </p>
+      <p><code>W</code> / <code>S</code> : image / anomalies</p>
       <p><code>Space</code> : reset image</p>
-      <p><code>+ / - / mouse wheel</code> : zoom </p>
+      <p><code>mouse wheel</code> : zoom</p>
       <p><code>arrow keys / left mouse button</code>: pan</p>
+      <p><code>+ / -</code> : brightness</p>
     </div>
   </div>
 
-  <!-- external JS -->
+  <!-- JSZip + your viewer logic -->
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
   <script src="test.js"></script>
 </body>
