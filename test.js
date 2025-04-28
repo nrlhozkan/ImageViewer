@@ -16,32 +16,38 @@
         channel = 'rgb',
         isFirst = true,
         gamma = 1.0,
+        startIdx = 0,
+        endIdx = 0,
         viewer;
   
-    // Apply gamma correction via CSS filter
+    // Apply gamma correction only to OpenSeadragon canvas elements
     function applyGamma() {
-      // brightness: 1 = no change; gamma < 1 brightens, gamma > 1 darkens
-      viewerEl.style.filter = `brightness(${1 / gamma})`;
+       // only filter the OSD canvas layer, not the overlay divs:
+       const brightnessValue = 1 / gamma;
+       const osdCanvasGroup = viewerEl.querySelector('.openseadragon-canvas');
+       if (osdCanvasGroup) {
+         osdCanvasGroup.style.filter = `brightness(${brightnessValue})`;
+       }
     }
   
     btn.addEventListener('click', async () => {
-      // 1) Normalize URL to index.json
+      // Normalize URL to index.json
       let url = inputEl.value.trim();
       if (!url.match(/\.json(\?.*)?$/i)) {
         url = url.replace(/\/+$/, '') + '/index.json';
       }
   
-      // 2) Extract numeric Strip ID
+      // Extract numeric Strip ID
       const folderUrl   = url.replace(/\/index\.json(\?.*)?$/i, '');
       const rawFolderId = folderUrl.split('/').pop();
       const stripId     = rawFolderId.replace(/\D/g, '');
   
-      // 3) Read "Start at" (1-based)
+      // Read "Start at" (1-based) and set start index
       const startVal = parseInt(startIndexEl.value, 10);
       startImageNumber = (!isNaN(startVal) && startVal > 0) ? startVal : 1;
-      idx = startImageNumber - 1;
+      startIdx = startImageNumber - 1;
   
-      // 4) Fetch JSON
+      // Fetch JSON
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
@@ -49,14 +55,18 @@
       } catch(err) {
         return alert('Failed to load JSON:\n' + err);
       }
-      idx = Math.min(Math.max(idx, 0), images.length - 1);
   
-      // 5) Show viewer and controls
+      // Compute allowed range
+      startIdx = Math.min(Math.max(startIdx, 0), images.length - 1);
+      endIdx = Math.min(images.length - 1, startIdx + 110);
+      idx = startIdx;
+  
+      // Show viewer and controls
       loaderEl.style.display       = 'none';
       viewerEl.style.display       = 'block';
       downloadZipBtn.style.display = 'inline-block';
   
-      // 6) Initialize OpenSeadragon
+      // Initialize OpenSeadragon
       viewer = OpenSeadragon({
         element:             viewerEl,
         prefixUrl:           'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
@@ -76,14 +86,14 @@
       // Helpers to update overlays
       function updateStripInfo(){
         const current = idx + 1;
-        const maxImg  = startImageNumber + 110;
-        stripEl.textContent = `Strip: ${stripId} | Image: ${current}/${maxImg}`;
+        const maxImageNumber = endIdx + 1;
+        stripEl.textContent = `Strip: ${stripId} | Image: ${current}/${maxImageNumber}`;
       }
       function updateGammaInfo(){
         gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
       }
   
-      // 7) Load image preserving pan/zoom
+      // Load image preserving pan/zoom
       function loadImage(){
         let oldZoom, oldCenter;
         if (!isFirst) {
@@ -107,7 +117,7 @@
         });
       }
   
-      // 8) Keyboard controls
+      // Keyboard controls: limited looping
       window.addEventListener('keydown', e => {
         const k = e.key.toLowerCase();
         const keysUsed = ['a','d','w','s','+','-',' '];
@@ -115,11 +125,13 @@
         e.preventDefault();
         switch (k) {
           case 'a':
-            idx = (idx - 1 + images.length) % images.length;
+            idx--;
+            if (idx < startIdx) idx = endIdx;
             loadImage();
             break;
           case 'd':
-            idx = (idx + 1) % images.length;
+            idx++;
+            if (idx > endIdx) idx = startIdx;
             loadImage();
             break;
           case 'w':
@@ -147,7 +159,7 @@
       // Initial draw
       loadImage();
   
-      // 9) ZIP download handler
+      // ZIP download handler remains unchanged...
       downloadZipBtn.addEventListener('click', async () => {
         if (!images.length) return alert('No images loaded.');
         const obj      = images[idx];
