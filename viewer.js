@@ -1,47 +1,137 @@
-// viewer.js
+// test.js
 
 (async function(){
-  const loaderEl = document.getElementById('loader');
-  const inputEl  = document.getElementById('jsonUrl');
-  const btn      = document.getElementById('loadBtn');
-  const viewerEl = document.getElementById('viewer');
+  const loaderEl       = document.getElementById('loader');
+  const startIndexEl   = document.getElementById('startIndex');
+  const inputEl        = document.getElementById('jsonUrl');
+  const btn            = document.getElementById('loadBtn');
+  const viewerEl       = document.getElementById('viewer');
+  const downloadZipBtn = document.getElementById('downloadZipBtn');
+  const stripEl        = document.getElementById('stripImageInfo');
+  const gammaEl        = document.getElementById('gammaInfo');
 
-  let images = [], idx = 0, channel = 'rgb', isFirst = true, viewer;
+  let images = [],
+      idx = 0,
+      startImageNumber = 1,
+      channel = 'rgb',
+      isFirst = true,
+      gamma = 1.0,
+      viewer;
+
+  // Apply gamma correction via CSS filter
+  function applyGamma() {
+      const brightnessValue = 1 / gamma;
+      const osdCanvasGroup = viewerEl.querySelector('.openseadragon-canvas');
+      if (osdCanvasGroup) {
+          osdCanvasGroup.style.filter = `brightness(${brightnessValue})`;
+      }
+  }
 
   btn.addEventListener('click', async () => {
-    // 1) Normalize the URL to index.json
+    // 1) Normalize URL to index.json
     let url = inputEl.value.trim();
     if (!url.match(/\.json(\?.*)?$/i)) {
       url = url.replace(/\/+$/, '') + '/index.json';
     }
 
-    // 2) Fetch your JSON
+    // 2) Extract numeric Strip ID
+    const folderUrl   = url.replace(/\/index\.json(\?.*)?$/i, '');
+    const rawFolderId = folderUrl.split('/').pop();
+    const stripId     = rawFolderId.replace(/\D/g, '');
+
+    // 3) Read "Start at" (1-based)
+    const startVal = parseInt(startIndexEl.value, 10);
+    startImageNumber = (!isNaN(startVal) && startVal > 0) ? startVal : 1;
+    idx = startImageNumber - 1;
+
+    // 4) Fetch JSON
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
       images = await res.json();
-    } catch (err) {
+    } catch(err) {
       return alert('Failed to load JSON:\n' + err);
     }
+    idx = Math.min(Math.max(idx, 0), images.length - 1);
 
-    // 3) Hide loader, show viewer
-    loaderEl.style.display = 'none';
-    viewerEl.style.display = 'block';
+    // 5) Show viewer and controls
+    loaderEl.style.display       = 'none';
+    viewerEl.style.display       = 'block';
+    downloadZipBtn.style.display = 'inline-block';
 
-    // 4) Initialize OpenSeadragon
+    // 6) Initialize OpenSeadragon
     viewer = OpenSeadragon({
-      element:           viewerEl,
-      prefixUrl:         'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
-      showZoomControl:   false,
-      maxZoomPixelRatio: 20,
-      zoomPerScroll:     1.1,
-      minZoomLevel:      0.1,
-      defaultZoomLevel:  1,
-      gestureSettingsMouse: { scrollToZoom:true, clickToZoom:false },
-      crossOriginPolicy: 'Anonymous'
+      element:             viewerEl,
+      prefixUrl:           'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
+      showZoomControl:     false,
+      maxZoomPixelRatio:   20,
+      zoomPerScroll:       1.1,
+      minZoomLevel:        0.1,
+      defaultZoomLevel:    1,
+      gestureSettingsMouse:{ scrollToZoom:true, clickToZoom:false },
+      crossOriginPolicy:   'Anonymous'
     });
+    if (viewer.innerTracker && viewer.innerTracker.keyHandler) {
+      viewer.innerTracker.keyHandler = null;
+    }
 
-    // 5) Function to load images while preserving pan/zoom
+    // --- PIXEL COORDINATE OVERLAY SETUP ---
+    const coordEl = document.createElement('div');
+    coordEl.id = 'coordInfo';
+    coordEl.style.cssText = `
+      display: none;
+      position: absolute;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 2px 4px;
+      font-family: monospace;
+      font-size: 12px;
+      pointer-events: none;
+      z-index: 1000;
+      transform: translate(8px, 8px);
+    `;
+    viewerEl.style.position = 'relative';   // ensure viewer is positioned
+    viewerEl.style.backgroundColor = '#eee';
+    viewerEl.appendChild(coordEl);
+
+    viewerEl.addEventListener('mousemove', e => {
+      const rect = viewerEl.getBoundingClientRect();
+      const webPoint = new OpenSeadragon.Point(
+        e.clientX - rect.left,
+        e.clientY - rect.top
+      );
+      // compute image pixel
+      const imgPoint = viewer.viewport.viewerElementToImageCoordinates(webPoint);
+      // fetch current image dimensions
+      const tiledImg = viewer.world.getItemAt(0);
+      if (!tiledImg) return;
+      const { x: imgW, y: imgH } = tiledImg.getContentSize();
+      // only show when inside image bounds
+      if (
+        imgPoint.x >= 0 && imgPoint.x <= imgW &&
+        imgPoint.y >= 0 && imgPoint.y <= imgH
+      ) {
+        coordEl.style.display = 'block';
+        coordEl.style.left    = `${webPoint.x}px`;
+        coordEl.style.top     = `${webPoint.y}px`;
+        coordEl.textContent   = `x: ${Math.round(imgPoint.x)}, y: ${Math.round(imgPoint.y)}`;
+      } else {
+        coordEl.style.display = 'none';
+      }
+    });
+    // --- END OVERLAY SETUP ---
+
+    // Helpers to update overlays
+    function updateStripInfo(){
+      const current = idx + 1;
+      const maxImg  = startImageNumber + 110;
+      stripEl.textContent = `Strip: ${stripId} | Image: ${current}/${maxImg}`;
+    }
+    function updateGammaInfo(){
+      gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
+    }
+
+    // 7) Load image preserving pan/zoom
     function loadImage(){
       let oldZoom, oldCenter;
       if (!isFirst) {
@@ -49,60 +139,67 @@
         oldCenter = viewer.viewport.getCenter();
       }
       viewer.open({ type:'image', url: images[idx][channel] });
-      viewer.addOnceHandler('open', ()=>{
+      viewer.addOnceHandler('open', () => {
         if (isFirst) {
-          // center on first load
           const home = viewer.viewport.getHomeBounds();
           viewer.viewport.panTo(home.getCenter(), true);
           isFirst = false;
         } else {
-          // restore previous pan/zoom
           viewer.viewport.zoomTo(oldZoom, null, true);
           viewer.viewport.panTo(oldCenter, true);
         }
         document.title = `Image ${idx+1}/${images.length} — ${channel.toUpperCase()}`;
+        applyGamma();
+        updateStripInfo();
+        updateGammaInfo();
       });
     }
 
-    // 6) Keyboard controls, including full “go home” on Space
+    // 8) Keyboard controls
     window.addEventListener('keydown', e => {
       const k = e.key.toLowerCase();
-
-      // FULL RESET for current image
-      if (k === ' ' || e.code === 'Space') {
-        viewer.viewport.goHome(true);   // animate back to initial pan & zoom
-        return;
-      }
-
-      switch(k){
-        case 'a': // previous image
-          idx = (idx - 1 + images.length) % images.length;
-          loadImage();
-          break;
-        case 'd': // next image
-          idx = (idx + 1) % images.length;
-          loadImage();
-          break;
-        case 'w': // AN variant
-          channel = 'rgb_mask';
-          loadImage();
-          break;
-        case 's': // RGB variant
-          channel = 'rgb';
-          loadImage();
-          break;
-        case '+': case '=':  // zoom in deeper
-          viewer.viewport.zoomBy(1.5);
-          viewer.viewport.applyConstraints();
-          break;
-        case '-':            // zoom out
-          viewer.viewport.zoomBy(1/1.5);
-          viewer.viewport.applyConstraints();
-          break;
+      const keysUsed = ['a','d','w','s','+','-',' '];
+      if (!keysUsed.includes(k) && e.code !== 'Space') return;
+      e.preventDefault();
+      switch (k) {
+        case 'a': idx = (idx - 1 + images.length) % images.length; loadImage(); break;
+        case 'd': idx = (idx + 1) % images.length; loadImage(); break;
+        case 'w': if (channel !== 'rgb_mask') { channel = 'rgb_mask'; loadImage(); } break;
+        case 's': if (channel !== 'rgb') { channel = 'rgb'; loadImage(); } break;
+        case '+': gamma = Math.max(0.1, gamma - 0.1); applyGamma(); updateGammaInfo(); break;
+        case '-': gamma += 0.1; applyGamma(); updateGammaInfo(); break;
+        case ' ': viewer.viewport.goHome(true); break;
       }
     });
 
-    // 7) Show the very first image
+    // Initial draw
     loadImage();
+
+    // 9) ZIP download handler
+    downloadZipBtn.addEventListener('click', async () => {
+      if (!images.length) return alert('No images loaded.');
+      const obj      = images[idx];
+      const baseName = `image_${idx+1}`;
+      const zip      = new JSZip();
+      try {
+        const [r1, r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
+        if (!r1.ok || !r2.ok) throw new Error('Image fetch failed');
+        const [b1, b2] = await Promise.all([r1.blob(), r2.blob()]);
+        zip.file(`${baseName}_rgb.jpg`, b1);
+        zip.file(`${baseName}_rgb_mask.jpg`, b2);
+        const zipBlob = await zip.generateAsync({ type:'blob' });
+        const url     = URL.createObjectURL(zipBlob);
+        const link    = document.createElement('a');
+        link.href     = url;
+        link.download = `${baseName}.zip`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        alert('Failed to create ZIP:\n' + err);
+      }
+    });
+
   });
 })();
