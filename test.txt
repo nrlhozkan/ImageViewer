@@ -6,3 +6,4 @@ https://nrlhozkan.github.io/ImageViewer/imageViewer.html
 https://github.com/nrlhozkan/ImageViewer
 
 https://nrlhozkan.github.io/ImageViewer/strip3
+https://nrlhozkan.github.io/ImageViewer/test.html
