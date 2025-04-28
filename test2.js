@@ -20,7 +20,6 @@
   
     // Apply gamma correction via CSS filter
     function applyGamma() {
-        // only filter the OSD canvas layer, not the overlay divs:
         const brightnessValue = 1 / gamma;
         const osdCanvasGroup = viewerEl.querySelector('.openseadragon-canvas');
         if (osdCanvasGroup) {
@@ -72,11 +71,68 @@
         gestureSettingsMouse:{ scrollToZoom:true, clickToZoom:false },
         crossOriginPolicy:   'Anonymous'
       });
-      // Disable built-in keyboard nav
       if (viewer.innerTracker && viewer.innerTracker.keyHandler) {
         viewer.innerTracker.keyHandler = null;
       }
-  
+
+      // --- PIXEL COORDINATE OVERLAY & CUSTOM CURSOR SETUP ---
+      // Prepare a colored plus-sign cursor using inline SVG
+      const plusSVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+          <line x1="8" y1="0" x2="8" y2="16" stroke="red" stroke-width="2" />
+          <line x1="0" y1="8" x2="16" y2="8" stroke="red" stroke-width="2" />
+        </svg>
+      `;
+      const plusCursor = 
+        `url("data:image/svg+xml;charset=utf8,${encodeURIComponent(plusSVG)}") 8 8, auto`;
+
+      const coordEl = document.createElement('div');
+      coordEl.id = 'coordInfo';
+      coordEl.style.cssText = `
+        display: none;
+        position: absolute;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        padding: 2px 4px;
+        font-family: monospace;
+        font-size: 12px;
+        pointer-events: none;
+        z-index: 1000;
+        transform: translate(8px, 8px);
+      `;
+      viewerEl.style.position = 'relative';   // ensure positioning
+      viewerEl.style.backgroundColor = '#eee';
+      viewerEl.style.cursor = 'default';      // default when outside image
+      viewerEl.appendChild(coordEl);
+
+      // Show coords & change cursor only when inside the actual image bounds
+      viewerEl.addEventListener('mousemove', e => {
+        const rect = viewerEl.getBoundingClientRect();
+        const webPoint = new OpenSeadragon.Point(
+          e.clientX - rect.left,
+          e.clientY - rect.top
+        );
+        const imgPoint = viewer.viewport.viewerElementToImageCoordinates(webPoint);
+        const tiledImg = viewer.world.getItemAt(0);
+        if (!tiledImg) return;
+        const { x: imgW, y: imgH } = tiledImg.getContentSize();
+
+        if (
+          imgPoint.x >= 0 && imgPoint.x <= imgW &&
+          imgPoint.y >= 0 && imgPoint.y <= imgH
+        ) {
+          coordEl.style.display = 'block';
+          coordEl.style.left    = `${webPoint.x}px`;
+          coordEl.style.top     = `${webPoint.y}px`;
+          coordEl.textContent   = `x: ${Math.round(imgPoint.x)}, y: ${Math.round(imgPoint.y)}`;
+          viewerEl.style.cursor  = plusCursor;  // custom red plus cursor
+        } else {
+          coordEl.style.display = 'none';
+          viewerEl.style.cursor  = 'default';   // revert outside
+        }
+      });
+      // --- END OVERLAY & CURSOR SETUP ---
+
       // Helpers to update overlays
       function updateStripInfo(){
         const current = idx + 1;
@@ -86,7 +142,7 @@
       function updateGammaInfo(){
         gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
       }
-  
+
       // 7) Load image preserving pan/zoom
       function loadImage(){
         let oldZoom, oldCenter;
@@ -110,7 +166,7 @@
           updateGammaInfo();
         });
       }
-  
+
       // 8) Keyboard controls
       window.addEventListener('keydown', e => {
         const k = e.key.toLowerCase();
@@ -118,39 +174,19 @@
         if (!keysUsed.includes(k) && e.code !== 'Space') return;
         e.preventDefault();
         switch (k) {
-          case 'a':
-            idx = (idx - 1 + images.length) % images.length;
-            loadImage();
-            break;
-          case 'd':
-            idx = (idx + 1) % images.length;
-            loadImage();
-            break;
-          case 'w':
-            if (channel !== 'rgb_mask') { channel = 'rgb_mask'; loadImage(); }
-            break;
-          case 's':
-            if (channel !== 'rgb') { channel = 'rgb'; loadImage(); }
-            break;
-          case '+':
-            gamma = Math.max(0.1, gamma - 0.1);
-            applyGamma();
-            updateGammaInfo();
-            break;
-          case '-':
-            gamma = gamma + 0.1;
-            applyGamma();
-            updateGammaInfo();
-            break;
-          case ' ':
-            viewer.viewport.goHome(true);
-            break;
+          case 'a': idx = (idx - 1 + images.length) % images.length; loadImage(); break;
+          case 'd': idx = (idx + 1) % images.length; loadImage(); break;
+          case 'w': if (channel !== 'rgb_mask') { channel = 'rgb_mask'; loadImage(); } break;
+          case 's': if (channel !== 'rgb') { channel = 'rgb'; loadImage(); } break;
+          case '+': gamma = Math.max(0.1, gamma - 0.1); applyGamma(); updateGammaInfo(); break;
+          case '-': gamma += 0.1; applyGamma(); updateGammaInfo(); break;
+          case ' ': viewer.viewport.goHome(true); break;
         }
       });
-  
+
       // Initial draw
       loadImage();
-  
+
       // 9) ZIP download handler
       downloadZipBtn.addEventListener('click', async () => {
         if (!images.length) return alert('No images loaded.');
@@ -176,7 +212,6 @@
           alert('Failed to create ZIP:\n' + err);
         }
       });
-  
+
     });
-  })();
-  
+})();
