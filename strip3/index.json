@@ -1,0 +1,552 @@
+[
+  {
+    "id": 1,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/1.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/1_mask.JPG"
+  },
+  {
+    "id": 2,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/2.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/2_mask.JPG"
+  },
+  {
+    "id": 3,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/3.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/3_mask.JPG"
+  },
+  {
+    "id": 4,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/4.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/4_mask.JPG"
+  },
+  {
+    "id": 5,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/5.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/5_mask.JPG"
+  },
+  {
+    "id": 6,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/6.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/6_mask.JPG"
+  },
+  {
+    "id": 7,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/7.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/7_mask.JPG"
+  },
+  {
+    "id": 8,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/8.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/8_mask.JPG"
+  },
+  {
+    "id": 9,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/9.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/9_mask.JPG"
+  },
+  {
+    "id": 10,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/10.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/10_mask.JPG"
+  },
+  {
+    "id": 11,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/11.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/11_mask.JPG"
+  },
+  {
+    "id": 12,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/12.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/12_mask.JPG"
+  },
+  {
+    "id": 13,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/13.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/13_mask.JPG"
+  },
+  {
+    "id": 14,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/14.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/14_mask.JPG"
+  },
+  {
+    "id": 15,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/15.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/15_mask.JPG"
+  },
+  {
+    "id": 16,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/16.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/16_mask.JPG"
+  },
+  {
+    "id": 17,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/17.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/17_mask.JPG"
+  },
+  {
+    "id": 18,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/18.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/18_mask.JPG"
+  },
+  {
+    "id": 19,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/19.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/19_mask.JPG"
+  },
+  {
+    "id": 20,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/20.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/20_mask.JPG"
+  },
+  {
+    "id": 21,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/21.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/21_mask.JPG"
+  },
+  {
+    "id": 22,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/22.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/22_mask.JPG"
+  },
+  {
+    "id": 23,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/23.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/23_mask.JPG"
+  },
+  {
+    "id": 24,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/24.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/24_mask.JPG"
+  },
+  {
+    "id": 25,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/25.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/25_mask.JPG"
+  },
+  {
+    "id": 26,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/26.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/26_mask.JPG"
+  },
+  {
+    "id": 27,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/27.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/27_mask.JPG"
+  },
+  {
+    "id": 28,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/28.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/28_mask.JPG"
+  },
+  {
+    "id": 29,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/29.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/29_mask.JPG"
+  },
+  {
+    "id": 30,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/30.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/30_mask.JPG"
+  },
+  {
+    "id": 31,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/31.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/31_mask.JPG"
+  },
+  {
+    "id": 32,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/32.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/32_mask.JPG"
+  },
+  {
+    "id": 33,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/33.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/33_mask.JPG"
+  },
+  {
+    "id": 34,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/34.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/34_mask.JPG"
+  },
+  {
+    "id": 35,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/35.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/35_mask.JPG"
+  },
+  {
+    "id": 36,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/36.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/36_mask.JPG"
+  },
+  {
+    "id": 37,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/37.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/37_mask.JPG"
+  },
+  {
+    "id": 38,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/38.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/38_mask.JPG"
+  },
+  {
+    "id": 39,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/39.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/39_mask.JPG"
+  },
+  {
+    "id": 40,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/40.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/40_mask.JPG"
+  },
+  {
+    "id": 41,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/41.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/41_mask.JPG"
+  },
+  {
+    "id": 42,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/42.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/42_mask.JPG"
+  },
+  {
+    "id": 43,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/43.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/43_mask.JPG"
+  },
+  {
+    "id": 44,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/44.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/44_mask.JPG"
+  },
+  {
+    "id": 45,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/45.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/45_mask.JPG"
+  },
+  {
+    "id": 46,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/46.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/46_mask.JPG"
+  },
+  {
+    "id": 47,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/47.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/47_mask.JPG"
+  },
+  {
+    "id": 48,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/48.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/48_mask.JPG"
+  },
+  {
+    "id": 49,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/49.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/49_mask.JPG"
+  },
+  {
+    "id": 50,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/50.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/50_mask.JPG"
+  },
+  {
+    "id": 51,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/51.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/51_mask.JPG"
+  },
+  {
+    "id": 52,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/52.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/52_mask.JPG"
+  },
+  {
+    "id": 53,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/53.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/53_mask.JPG"
+  },
+  {
+    "id": 54,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/54.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/54_mask.JPG"
+  },
+  {
+    "id": 55,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/55.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/55_mask.JPG"
+  },
+  {
+    "id": 56,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/56.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/56_mask.JPG"
+  },
+  {
+    "id": 57,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/57.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/57_mask.JPG"
+  },
+  {
+    "id": 58,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/58.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/58_mask.JPG"
+  },
+  {
+    "id": 59,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/59.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/59_mask.JPG"
+  },
+  {
+    "id": 60,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/60.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/60_mask.JPG"
+  },
+  {
+    "id": 61,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/61.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/61_mask.JPG"
+  },
+  {
+    "id": 62,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/62.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/62_mask.JPG"
+  },
+  {
+    "id": 63,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/63.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/63_mask.JPG"
+  },
+  {
+    "id": 64,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/64.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/64_mask.JPG"
+  },
+  {
+    "id": 65,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/65.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/65_mask.JPG"
+  },
+  {
+    "id": 66,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/66.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/66_mask.JPG"
+  },
+  {
+    "id": 67,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/67.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/67_mask.JPG"
+  },
+  {
+    "id": 68,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/68.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/68_mask.JPG"
+  },
+  {
+    "id": 69,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/69.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/69_mask.JPG"
+  },
+  {
+    "id": 70,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/70.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/70_mask.JPG"
+  },
+  {
+    "id": 71,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/71.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/71_mask.JPG"
+  },
+  {
+    "id": 72,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/72.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/72_mask.JPG"
+  },
+  {
+    "id": 73,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/73.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/73_mask.JPG"
+  },
+  {
+    "id": 74,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/74.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/74_mask.JPG"
+  },
+  {
+    "id": 75,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/75.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/75_mask.JPG"
+  },
+  {
+    "id": 76,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/76.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/76_mask.JPG"
+  },
+  {
+    "id": 77,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/77.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/77_mask.JPG"
+  },
+  {
+    "id": 78,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/78.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/78_mask.JPG"
+  },
+  {
+    "id": 79,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/79.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/79_mask.JPG"
+  },
+  {
+    "id": 80,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/80.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/80_mask.JPG"
+  },
+  {
+    "id": 81,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/81.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/81_mask.JPG"
+  },
+  {
+    "id": 82,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/82.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/82_mask.JPG"
+  },
+  {
+    "id": 83,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/83.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/83_mask.JPG"
+  },
+  {
+    "id": 84,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/84.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/84_mask.JPG"
+  },
+  {
+    "id": 85,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/85.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/85_mask.JPG"
+  },
+  {
+    "id": 86,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/86.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/86_mask.JPG"
+  },
+  {
+    "id": 87,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/87.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/87_mask.JPG"
+  },
+  {
+    "id": 88,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/88.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/88_mask.JPG"
+  },
+  {
+    "id": 89,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/89.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/89_mask.JPG"
+  },
+  {
+    "id": 90,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/90.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/90_mask.JPG"
+  },
+  {
+    "id": 91,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/91.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/91_mask.JPG"
+  },
+  {
+    "id": 92,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/92.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/92_mask.JPG"
+  },
+  {
+    "id": 93,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/93.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/93_mask.JPG"
+  },
+  {
+    "id": 94,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/94.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/94_mask.JPG"
+  },
+  {
+    "id": 95,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/95.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/95_mask.JPG"
+  },
+  {
+    "id": 96,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/96.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/96_mask.JPG"
+  },
+  {
+    "id": 97,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/97.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/97_mask.JPG"
+  },
+  {
+    "id": 98,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/98.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/98_mask.JPG"
+  },
+  {
+    "id": 99,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/99.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/99_mask.JPG"
+  },
+  {
+    "id": 100,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/100.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/100_mask.JPG"
+  },
+  {
+    "id": 101,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/101.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/101_mask.JPG"
+  },
+  {
+    "id": 102,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/102.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/102_mask.JPG"
+  },
+  {
+    "id": 103,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/103.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/103_mask.JPG"
+  },
+  {
+    "id": 104,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/104.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/104_mask.JPG"
+  },
+  {
+    "id": 105,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/105.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/105_mask.JPG"
+  },
+  {
+    "id": 106,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/106.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/106_mask.JPG"
+  },
+  {
+    "id": 107,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/107.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/107_mask.JPG"
+  },
+  {
+    "id": 108,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/108.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/108_mask.JPG"
+  },
+  {
+    "id": 109,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/109.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/109_mask.JPG"
+  },
+  {
+    "id": 110,
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip3/110.JPG",
+    "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip3/110_mask.JPG"
+  }
+]
