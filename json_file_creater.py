@@ -4,7 +4,7 @@ import re
 import json
 
 # 1) Your images folder (local)
-IMG_DIR     = r'E:\ImageViewer\strip2'
+IMG_DIR     = r'E:\20250426_Weitefeld_flight_1\test_strip'
 # 2) The base URL you want in your JSON
 BASE_URL    = 'https://nrlhozkan.github.io/ImageViewer/strip2'
 # 3) Output file
@@ -17,7 +17,7 @@ files = [
     and re.search(r'\.(jpe?g|png)$', f, re.I)
 ]
 
-rgb_mask_re  = re.compile(r'^(?P<name>.+?)_mask\.(?:jpe?g|png)$', re.I)
+rgb_mask_re  = re.compile(r'^(?P<name>.+?)_mask\.(?:jpe?g|png|)$', re.I)
 rgb_re = re.compile(r'^(?P<name>.+?)\.(?:jpe?g|png)$',  re.I)
 
 groups = {}

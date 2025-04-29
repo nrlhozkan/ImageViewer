@@ -16,8 +16,10 @@
         channel = 'rgb',
         isFirst = true,
         gamma = 1.0,
-        viewer;
-  
+        viewer,
+        stripId,
+        lastImageID;    // ← holds the ID of the last image in your JSON
+
     // Apply gamma correction via CSS filter
     function applyGamma() {
         const brightnessValue = 1 / gamma;
@@ -37,7 +39,7 @@
       // 2) Extract numeric Strip ID
       const folderUrl   = url.replace(/\/index\.json(\?.*)?$/i, '');
       const rawFolderId = folderUrl.split('/').pop();
-      const stripId     = rawFolderId.replace(/\D/g, '');
+      stripId           = rawFolderId.replace(/\D/g, '');
   
       // 3) Read "Start at" (1-based)
       const startVal = parseInt(startIndexEl.value, 10);
@@ -52,6 +54,9 @@
       } catch(err) {
         return alert('Failed to load JSON:\n' + err);
       }
+      // grab the ID of the very last image in the array
+      lastImageID = images[images.length - 1].id;
+      // clamp starting idx
       idx = Math.min(Math.max(idx, 0), images.length - 1);
   
       // 5) Show viewer and controls
@@ -76,7 +81,6 @@
       }
 
       // --- PIXEL COORDINATE OVERLAY & CUSTOM CURSOR SETUP ---
-      // Prepare a colored plus-sign cursor using inline SVG
       const plusSVG = `
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
           <line x1="8" y1="0" x2="8" y2="16" stroke="red" stroke-width="2" />
@@ -100,12 +104,42 @@
         z-index: 1000;
         transform: translate(8px, 8px);
       `;
-      viewerEl.style.position = 'relative';   // ensure positioning
-      viewerEl.style.backgroundColor = '#eee';
-      viewerEl.style.cursor = 'default';      // default when outside image
-      viewerEl.appendChild(coordEl);
 
-      // Show coords & change cursor only when inside the actual image bounds
+      // --- FINDING PARAMETERS PANEL ---
+      const infoEl = document.createElement('div');
+      infoEl.id = 'infoPanel';
+      infoEl.style.cssText = `
+        position: absolute;
+        top: 80px;
+        left: 10px;
+        background: rgba(255,255,255,0.9);
+        color: #000;
+        padding: 8px;
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 1.4;
+        border-radius: 4px;
+        z-index: 1000;
+      `;
+      infoEl.innerHTML = `
+        <strong>Finding Parameters</strong><br>
+        Strip: <span id="infoStrip"></span><br>
+        Image Number: <span id="infoImage"></span><br>
+        Pixel x: <span id="infoX"></span><br>
+        Pixel y: <span id="infoY"></span>
+      `;
+      viewerEl.style.position = 'relative';
+      viewerEl.style.backgroundColor = '#eee';
+      viewerEl.style.cursor = 'default';
+      viewerEl.appendChild(coordEl);
+      viewerEl.appendChild(infoEl);
+
+      const infoStripEl = document.getElementById('infoStrip');
+      const infoImageEl = document.getElementById('infoImage');
+      const infoXEl     = document.getElementById('infoX');
+      const infoYEl     = document.getElementById('infoY');
+      // --- END PANEL ---
+
       viewerEl.addEventListener('mousemove', e => {
         const rect = viewerEl.getBoundingClientRect();
         const webPoint = new OpenSeadragon.Point(
@@ -125,19 +159,36 @@
           coordEl.style.left    = `${webPoint.x}px`;
           coordEl.style.top     = `${webPoint.y}px`;
           coordEl.textContent   = `x: ${Math.round(imgPoint.x)}, y: ${Math.round(imgPoint.y)}`;
-          viewerEl.style.cursor  = plusCursor;  // custom red plus cursor
+          viewerEl.style.cursor  = plusCursor;
         } else {
           coordEl.style.display = 'none';
-          viewerEl.style.cursor  = 'default';   // revert outside
+          viewerEl.style.cursor  = 'default';
         }
       });
-      // --- END OVERLAY & CURSOR SETUP ---
+
+      // --- CTRL+CLICK HANDLER TO UPDATE PANEL ---
+      viewerEl.addEventListener('click', e => {
+        if (e.ctrlKey && e.button === 0) {
+          const rect = viewerEl.getBoundingClientRect();
+          const webPoint = new OpenSeadragon.Point(
+            e.clientX - rect.left,
+            e.clientY - rect.top
+          );
+          const imgPoint = viewer.viewport.viewerElementToImageCoordinates(webPoint);
+          const x = Math.round(imgPoint.x);
+          const y = Math.round(imgPoint.y);
+          s.textContent = stripId;
+          infoImageEl.textContent = images[idx].id;
+          infoXEl.textContent     = x;
+          infoYEl.textContent     = y;
+        }
+      });
+      // --- END CTRL+CLICK ---
 
       // Helpers to update overlays
       function updateStripInfo(){
-        const current = idx + 1;
-        const maxImg  = startImageNumber + 110;
-        stripEl.textContent = `Strip: ${stripId} | Image: ${current}/${maxImg}`;
+        const currentId = images[idx].id;
+        stripEl.textContent = `Strip: ${stripId} | Image: ${currentId}/${lastImageID}`;
       }
       function updateGammaInfo(){
         gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
@@ -160,7 +211,7 @@
             viewer.viewport.zoomTo(oldZoom, null, true);
             viewer.viewport.panTo(oldCenter, true);
           }
-          document.title = `Image ${idx+1}/${images.length} — ${channel.toUpperCase()}`;
+          document.title = `Image ${images[idx].id}/${lastImageID} — ${channel.toUpperCase()}`;
           applyGamma();
           updateStripInfo();
           updateGammaInfo();
@@ -191,7 +242,7 @@
       downloadZipBtn.addEventListener('click', async () => {
         if (!images.length) return alert('No images loaded.');
         const obj      = images[idx];
-        const baseName = `image_${idx+1}`;
+        const baseName = `image_${images[idx].id}`;
         const zip      = new JSZip();
         try {
           const [r1, r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
