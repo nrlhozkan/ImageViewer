@@ -177,7 +177,7 @@
           const imgPoint = viewer.viewport.viewerElementToImageCoordinates(webPoint);
           const x = Math.round(imgPoint.x);
           const y = Math.round(imgPoint.y);
-          s.textContent = stripId;
+          infoStripEl.textContent = stripId;
           infoImageEl.textContent = images[idx].id;
           infoXEl.textContent     = x;
           infoYEl.textContent     = y;
