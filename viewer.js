@@ -29,6 +29,16 @@
       }
   }
 
+  // Preload both rgb and mask for a given index
+  function preloadImagePair(index) {
+      if (index < 0 || index >= images.length) return;
+      const obj = images[index];
+      [obj.rgb, obj.rgb_mask].forEach(url => {
+          const img = new Image();
+          img.src = url;
+      });
+  }
+
   btn.addEventListener('click', async () => {
     // 1) Normalize URL to index.json
     let url = inputEl.value.trim();
@@ -41,12 +51,10 @@
     const rawFolderId = folderUrl.split('/').pop();
     stripId           = rawFolderId.replace(/\D/g, '');
 
-    // 3) Read "Start at" (1-based)
-    const startVal = parseInt(startIndexEl.value, 10);
-    startImageNumber = (!isNaN(startVal) && startVal > 0) ? startVal : 1;
-    idx = startImageNumber - 1;
+    // Capture starting input (could be an ID like "02858")
+    const startInput = startIndexEl.value.trim();
 
-    // 4) Fetch JSON
+    // 3) Fetch JSON
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
@@ -54,7 +62,18 @@
     } catch(err) {
       return alert('Failed to load JSON:\n' + err);
     }
+    // ID of the last image
     lastImageID = images[images.length - 1].id;
+
+    // 4) Determine initial index from ID or numeric
+    const foundIdx = images.findIndex(img => img.id === startInput);
+    if (foundIdx !== -1) {
+      idx = foundIdx;
+    } else {
+      const n = parseInt(startInput, 10);
+      startImageNumber = (!isNaN(n) && n > 0) ? n : 1;
+      idx = startImageNumber - 1;
+    }
     idx = Math.min(Math.max(idx, 0), images.length - 1);
 
     // 5) Show viewer and controls
@@ -196,7 +215,7 @@
       }
     });
 
-    // Helpers
+    // Helpers to update overlays
     function updateStripInfo(){
       const currentId = images[idx].id;
       stripEl.textContent = `Strip: ${stripId} | Image: ${currentId}/${lastImageID}`;
@@ -205,7 +224,7 @@
       gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
     }
 
-    // Load image with spinner
+    // Load image with spinner and preload surrounding pairs
     function loadImage(){
       spinner.style.display = 'block';
       let oldZoom, oldCenter;
@@ -228,6 +247,11 @@
         applyGamma();
         updateStripInfo();
         updateGammaInfo();
+        // Preload two pairs back and forward
+        preloadImagePair(idx - 2);
+        preloadImagePair(idx - 1);
+        preloadImagePair(idx + 1);
+        preloadImagePair(idx + 2);
       });
     }
 
@@ -244,7 +268,9 @@
         case 's': if (channel !== 'rgb') { channel = 'rgb'; loadImage(); } break;
         case '+': gamma = Math.max(0.1, gamma - 0.1); applyGamma(); updateGammaInfo(); break;
         case '-': gamma += 0.1; applyGamma(); updateGammaInfo(); break;
-        case ' ': viewer.viewport.goHome(true); break;
+        case ' ':
+          viewer.viewport.goHome(true);
+          break;
       }
     });
 
@@ -253,29 +279,52 @@
 
     // ZIP download handler unchanged...
     downloadZipBtn.addEventListener('click', async () => {
-      if (!images.length) return alert('No images loaded.');
-      const obj      = images[idx];
-      const baseName = `image_${images[idx].id}`;
-      const zip      = new JSZip();
+      if (!images.length) {
+        alert('No images loaded.');
+        return;
+      }
+    
+      const obj = images[idx];
+      const zip = new JSZip();
+    
       try {
-        const [r1, r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
-        if (!r1.ok || !r2.ok) throw new Error('Image fetch failed');
-        const [b1, b2] = await Promise.all([r1.blob(), r2.blob()]);
-        zip.file(`${baseName}_rgb.jpg`, b1);
-        zip.file(`${baseName}_rgb_mask.jpg`, b2);
-        const zipBlob = await zip.generateAsync({ type:'blob' });
-        const url     = URL.createObjectURL(zipBlob);
+        // Fetch both blobs in parallel
+        const [rRgb, rMask] = await Promise.all([
+          fetch(obj.rgb),
+          fetch(obj.rgb_mask)
+        ]);
+        if (!rRgb.ok || !rMask.ok) {
+          throw new Error('Image fetch failed');
+        }
+        const [bRgb, bMask] = await Promise.all([
+          rRgb.blob(),
+          rMask.blob()
+        ]);
+    
+        // Extract original filenames (with extension) from the URLs
+        const rgbFilename  = new URL(obj.rgb, location.href).pathname.split('/').pop();
+        const maskFilename = new URL(obj.rgb_mask, location.href).pathname.split('/').pop();
+    
+        // Add them to the ZIP under their real names
+        zip.file(rgbFilename,  bRgb);
+        zip.file(maskFilename, bMask);
+    
+        // Generate and download
+        const zipBlob = await zip.generateAsync({ type: 'blob' });
+        const zipUrl  = URL.createObjectURL(zipBlob);
         const link    = document.createElement('a');
-        link.href     = url;
-        link.download = `${baseName}.zip`;
+        link.href     = zipUrl;
+        // You can choose any naming convention for the ZIP itself:
+        link.download = `${stripId}_${obj.id}.zip`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        URL.revokeObjectURL(url);
+        URL.revokeObjectURL(zipUrl);
+    
       } catch (err) {
         alert('Failed to create ZIP:\n' + err);
       }
-    });
+    });      
 
   });
 })();

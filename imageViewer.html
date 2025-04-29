@@ -40,7 +40,7 @@
     <p>Enter the URL of your batch folder:</p>
     <input id="jsonUrl" type="text" placeholder="link" />
     <p>Number of first image:</p>
-    <input id="startIndex" type="number" placeholder="1" min="1"
+    <input id="startIndex" type="text" placeholder="like 02858"
            style="width:80px; padding:4px;" /><br><br>
     <button id="loadBtn">OK</button>
   </div>
@@ -59,7 +59,7 @@
     <!-- Strip & Image overlay (top-left) -->
     <div
       id="stripImageInfo"
-      style="position:absolute; top:10px; left:10px; z-index:1000;
+      style="position:absolute; top:50px; left:10px; z-index:1000;
              background:rgba(0,0,0,0.6); color:#fff; padding:4px 8px;
              border-radius:4px; font-size:14px;"
     ></div>
@@ -81,11 +81,12 @@
       <p><code>mouse wheel</code> : zoom</p>
       <p><code>arrow keys / left mouse button</code>: pan</p>
       <p><code>+ / -</code> : brightness</p>
+      <p><code>CTRL + left mouse button</code>: to update finding parameters </p>
     </div>
   </div>
 
   <!-- JSZip + your viewer logic -->
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
-  <script src="viewer.js"></script>
+  <script src="test2.js"></script>
 </body>
 </html>
