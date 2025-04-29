@@ -7,7 +7,8 @@ import json
 strip_name = 'strip4'
 BASE_FOLDER = r'C:\Users\AK127381\Desktop\ImageViewer'
 IMG_DIR     = os.path.join(BASE_FOLDER, strip_name)
-BASE_URL    = f'https://weitefeld.cg.jku.at/{strip_name}'
+# BASE_URL    = f'https://weitefeld.cg.jku.at/{strip_name}'
+BASE_URL    = f'https://nrlhozkan.github.io/ImageViewer/{strip_name}'
 COPY_DIR   = IMG_DIR
 OUT_FILE    = os.path.join(COPY_DIR, 'index.json')
 
