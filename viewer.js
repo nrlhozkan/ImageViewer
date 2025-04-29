@@ -1,4 +1,4 @@
-// viewer.js
+// test.js
 
 (async function(){
   const loaderEl       = document.getElementById('loader');
@@ -18,7 +18,7 @@
       gamma = 1.0,
       viewer,
       stripId,
-      lastImageID;    // ← holds the ID of the last image in your JSON
+      lastImageID;
 
   // Apply gamma correction via CSS filter
   function applyGamma() {
@@ -54,9 +54,7 @@
     } catch(err) {
       return alert('Failed to load JSON:\n' + err);
     }
-    // grab the ID of the very last image in the array
     lastImageID = images[images.length - 1].id;
-    // clamp starting idx
     idx = Math.min(Math.max(idx, 0), images.length - 1);
 
     // 5) Show viewer and controls
@@ -80,6 +78,21 @@
       viewer.innerTracker.keyHandler = null;
     }
 
+    // --- SPINNER STYLE INJECTION ---
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      #spinner { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                 width: 40px; height: 40px; border: 4px solid rgba(0,0,0,0.1); border-top: 4px solid #333;
+                 border-radius: 50%; animation: spin 1s linear infinite; z-index: 1001; }
+    `;
+    document.head.appendChild(styleEl);
+
+    // --- SPINNER ELEMENT ---
+    const spinner = document.createElement('div');
+    spinner.id = 'spinner';
+    viewerEl.appendChild(spinner);
+
     // --- PIXEL COORDINATE OVERLAY & CUSTOM CURSOR SETUP ---
     const plusSVG = `
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -87,8 +100,7 @@
         <line x1="0" y1="8" x2="16" y2="8" stroke="red" stroke-width="2" />
       </svg>
     `;
-    const plusCursor = 
-      `url("data:image/svg+xml;charset=utf8,${encodeURIComponent(plusSVG)}") 8 8, auto`;
+    const plusCursor = `url("data:image/svg+xml;charset=utf8,${encodeURIComponent(plusSVG)}") 8 8, auto`;
 
     const coordEl = document.createElement('div');
     coordEl.id = 'coordInfo';
@@ -138,8 +150,8 @@
     const infoImageEl = document.getElementById('infoImage');
     const infoXEl     = document.getElementById('infoX');
     const infoYEl     = document.getElementById('infoY');
-    // --- END PANEL ---
 
+    // Mouse move for coordinates
     viewerEl.addEventListener('mousemove', e => {
       const rect = viewerEl.getBoundingClientRect();
       const webPoint = new OpenSeadragon.Point(
@@ -166,7 +178,7 @@
       }
     });
 
-    // --- CTRL+CLICK HANDLER TO UPDATE PANEL ---
+    // CTRL+CLICK TO UPDATE PANEL
     viewerEl.addEventListener('click', e => {
       if (e.ctrlKey && e.button === 0) {
         const rect = viewerEl.getBoundingClientRect();
@@ -177,15 +189,14 @@
         const imgPoint = viewer.viewport.viewerElementToImageCoordinates(webPoint);
         const x = Math.round(imgPoint.x);
         const y = Math.round(imgPoint.y);
-        s.textContent = stripId;
+        infoStripEl.textContent = stripId;
         infoImageEl.textContent = images[idx].id;
         infoXEl.textContent     = x;
         infoYEl.textContent     = y;
       }
     });
-    // --- END CTRL+CLICK ---
 
-    // Helpers to update overlays
+    // Helpers
     function updateStripInfo(){
       const currentId = images[idx].id;
       stripEl.textContent = `Strip: ${stripId} | Image: ${currentId}/${lastImageID}`;
@@ -194,8 +205,9 @@
       gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
     }
 
-    // 7) Load image preserving pan/zoom
+    // Load image with spinner
     function loadImage(){
+      spinner.style.display = 'block';
       let oldZoom, oldCenter;
       if (!isFirst) {
         oldZoom   = viewer.viewport.getZoom();
@@ -203,6 +215,7 @@
       }
       viewer.open({ type:'image', url: images[idx][channel] });
       viewer.addOnceHandler('open', () => {
+        spinner.style.display = 'none';
         if (isFirst) {
           const home = viewer.viewport.getHomeBounds();
           viewer.viewport.panTo(home.getCenter(), true);
@@ -218,7 +231,7 @@
       });
     }
 
-    // 8) Keyboard controls
+    // Keyboard controls
     window.addEventListener('keydown', e => {
       const k = e.key.toLowerCase();
       const keysUsed = ['a','d','w','s','+','-',' '];
@@ -238,7 +251,7 @@
     // Initial draw
     loadImage();
 
-    // 9) ZIP download handler
+    // ZIP download handler unchanged...
     downloadZipBtn.addEventListener('click', async () => {
       if (!images.length) return alert('No images loaded.');
       const obj      = images[idx];
