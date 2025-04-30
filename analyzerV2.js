@@ -1,7 +1,9 @@
 (async function(){
   // Base strip URL prefix
-  const STRIP_BASE = 'https://nrlhozkan.github.io/ImageViewer/strip';
-  // const STRIP_BASE = 'https://weitefeld.cg.jku.at/strip';
+  // Determine strip base URL based on host
+const STRIP_BASE = window.location.hostname.includes('github.io')
+  ? 'https://nrlhozkan.github.io/ImageViewer/strip'
+  : window.location.origin + '/strip';
 
   // UI elements
   const viewerEl       = document.getElementById('viewer');
