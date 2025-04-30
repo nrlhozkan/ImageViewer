@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic ImageViewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/openseadragon.min.js"></script>
+  <style>
+    html, body { margin:0; padding:0; height:100%; overflow:hidden; }
+    #viewer { width:100%; height:100%; background: #888; display:block; position:relative; }
+
+    /* “Go to” controls — now at the top-left */
+    #gotoContainer {
+      position: absolute;
+      bottom: 40px; left: 10px;
+      z-index: 1000;
+      background: rgba(255,255,255,0.85);
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+      display: flex;
+      gap: 4px;
+    }
+    #gotoContainer input {
+      width: 220px;
+      padding: 4px;
+      font-size: 13px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+    }
+    #gotoContainer button {
+      padding: 4px 8px;
+      font-size: 13px;
+      border: 1px solid #888;
+      border-radius: 3px;
+      background: #eee;
+      cursor: pointer;
+    }
+
+    /* ZIP download button */
+    #downloadZipBtn {
+      position: absolute;
+      top: 10px; right: 10px;
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.8);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* Controls info (optional) */
+    #infoTab {
+      position: absolute;
+      bottom: 10px; right: 10px;
+      max-width: 250px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.4;
+      padding: 10px;
+      border-radius: 6px;
+      z-index: 999;
+    }
+    #infoTab h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: underline;
+    }
+    #infoTab p {
+      margin: 4px 0;
+    }
+    #infoTab code {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="viewer">
+    <!-- Go-to box -->
+    <div id="gotoContainer">
+      <input id="gotoInput"
+             placeholder="04 03220 3749 2319" />
+      <button id="gotoBtn">Go</button>
+    </div>
+
+    <!-- Download -->
+    <button id="downloadZipBtn">Download the Image Pair</button>
+
+    <!-- Overlays -->
+    <div id="stripImageInfo"></div>
+    <div id="gammaInfo"></div>
+
+    <!-- (Optional) Controls help -->
+    <div id="infoTab">
+      <h4>Controls</h4>
+      <p><code>A</code> / <code>D</code> : prev / next image</p>
+      <p><code>W</code> / <code>S</code> : image / anomalies</p>
+      <p><code>Space</code> : reset image</p>
+      <p><code>mouse wheel</code> : zoom</p>
+      <p><code>arrow keys / left mouse button</code>: pan</p>
+      <p><code>+ / -</code> : brightness</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
+  <script src="analyzerV2.js"></script>
+</body>
+</html>
