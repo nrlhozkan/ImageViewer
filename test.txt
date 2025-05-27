@@ -22,6 +22,8 @@ Strip 4, Image Number 03220, Pixel x: 3749, Pixel y: 2319
 
 04 02888 0000 0000
 
-https://nrlhozkan.github.io/ImageViewer/MyTestAnalyzer.html
+https://nrlhozkan.github.io/ImageViewer/imageAnalyzer.html
 
 https://weitefeld.cg.jku.at/MyTestAnalyzer.html
+
+https://nrlhozkan.github.io/ImageViewer/OurImageAnalyzer.html
