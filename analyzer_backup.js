@@ -2,8 +2,8 @@
 
 (async function(){
   // Base strip URL prefix
-  const STRIP_BASE = 'https://nrlhozkan.github.io/ImageViewer/strip';
-  // const STRIP_BASE = 'https://weitefeld.cg.jku.at/strip';
+  // const STRIP_BASE = 'https://nrlhozkan.github.io/ImageViewer/strip';
+  const STRIP_BASE = 'https://weitefeld.cg.jku.at/strip';
 
   // UI elements
   const viewerEl       = document.getElementById('viewer');
@@ -38,7 +38,7 @@
     // Add info panel for URLs
   const infoPanel = document.createElement('div');
   infoPanel.id = 'infoPanel';
-  infoPanel.style.cssText = `position:absolute; top:80px; left:10px;
+  infoPanel.style.cssText = `position:absolute; top:100px; left:10px;
     background:rgba(255,255,255,0.9); color:#000; padding:8px;
     font-family:sans-serif; font-size:14px; border-radius:4px; z-index:1000;`;
   infoPanel.innerHTML = `
@@ -52,7 +52,7 @@
   const stripEl = document.createElement('div');
   stripEl.id = 'stripImageInfo';
   stripEl.style.cssText = `
-    position:absolute; top:60px; left:10px;
+    position:absolute; top:40px; left:10px;
     background:rgba(0,0,0,0.6); color:#fff;
     padding:4px 8px; border-radius:4px; font-size:14px; z-index:1000;
   `;

@@ -1,9 +1,9 @@
-// analyzer.js
-
 (async function(){
   // Base strip URL prefix
-  const STRIP_BASE = 'https://nrlhozkan.github.io/ImageViewer/strip';
-  // const STRIP_BASE = 'https://weitefeld.cg.jku.at/strip';
+  // Determine strip base URL based on host
+const STRIP_BASE = window.location.hostname.includes('github.io')
+  ? 'https://nrlhozkan.github.io/ImageViewer/strip'
+  : window.location.origin + '/strip';
 
   // UI elements
   const viewerEl       = document.getElementById('viewer');
@@ -12,33 +12,67 @@
   const gotoInputEl    = document.getElementById('gotoInput');
   const gotoBtn        = document.getElementById('gotoBtn');
 
-  let images        = [],
-      idx           = 0,
-      channel       = 'rgb',
-      isFirst       = true,
-      gamma         = 1.0,
-      viewer,
-      stripId,
-      lastImageID,
-      pendingGoto   = null;
+  // ————— Deep-Link On Load —————
+  const params   = new URLSearchParams(window.location.search);
+  const autoGoto = params.get('goto');
+  if (autoGoto) {
+    gotoInputEl.value = autoGoto;
+    // slight delay to ensure handlers are registered
+    setTimeout(() => gotoBtn.click(), 0);
+  }
 
-  // ————— UI: Clear Marker Button —————
+  // State
+  let images                = [];
+  let idx                   = 0;
+  let channel               = 'rgb';
+  let isFirst               = true;
+  let gamma                 = 1.0;
+  let viewer;
+  let stripId;
+  let lastImageID;
+  let pendingGoto           = null;
+  let markerCoordinates     = null;    // persistent marker coords
+  let lastMarkerCoordinates = null;    // stored for restore
+
+  // ————— UI: Clear & Restore Marker Buttons —————
   const clearBtn = document.createElement('button');
   clearBtn.textContent = 'Clear Marker';
   clearBtn.style.marginLeft = '8px';
+  clearBtn.disabled = true;
   gotoContainer.appendChild(clearBtn);
+
+  const restoreBtn = document.createElement('button');
+  restoreBtn.textContent = 'Restore Marker';
+  restoreBtn.style.marginLeft = '8px';
+  restoreBtn.disabled = true;
+  gotoContainer.appendChild(restoreBtn);
+
   clearBtn.addEventListener('click', () => {
     if (viewer._lastMarker) {
       viewer.removeOverlay(viewer._lastMarker);
       viewer._lastMarker = null;
     }
+    // clear current marker, preserve lastMarkerCoordinates
+    markerCoordinates = null;
     pendingGoto = null;
+    clearBtn.disabled = true;
+    restoreBtn.disabled = !lastMarkerCoordinates;
   });
 
-    // Add info panel for URLs
+  restoreBtn.addEventListener('click', () => {
+    if (lastMarkerCoordinates) {
+      markerCoordinates = lastMarkerCoordinates;
+      loadImage(); // redraw without panning
+      clearBtn.disabled = false;
+      restoreBtn.disabled = true;
+    }
+  });
+
+  // ————— UI: Info Panel for URLs & Deep-Link —————
   const infoPanel = document.createElement('div');
   infoPanel.id = 'infoPanel';
-  infoPanel.style.cssText = `position:absolute; top:80px; left:10px;
+  infoPanel.style.cssText = `
+    position:absolute; top:80px; left:10px;
     background:rgba(255,255,255,0.9); color:#000; padding:8px;
     font-family:sans-serif; font-size:14px; border-radius:4px; z-index:1000;`;
   infoPanel.innerHTML = `
@@ -52,18 +86,15 @@
   const stripEl = document.createElement('div');
   stripEl.id = 'stripImageInfo';
   stripEl.style.cssText = `
-    position:absolute; top:60px; left:10px;
+    position:absolute; top:40px; left:10px;
     background:rgba(0,0,0,0.6); color:#fff;
-    padding:4px 8px; border-radius:4px; font-size:14px; z-index:1000;
-  `;
+    padding:4px 8px; border-radius:4px; font-size:14px; z-index:1000;`;
   const gammaEl = document.createElement('div');
   gammaEl.id = 'gammaInfo';
   gammaEl.style.cssText = `
     position:absolute; bottom:10px; left:10px;
     background:rgba(0,0,0,0.6); color:#fff;
-    padding:4px 8px; border-radius:4px; font-size:14px; z-index:1000;
-  `;
-  viewerEl.style.position = 'relative';
+    padding:4px 8px; border-radius:4px; font-size:14px; z-index:1000;`;
   viewerEl.appendChild(stripEl);
   viewerEl.appendChild(gammaEl);
 
@@ -94,8 +125,7 @@
       border-radius:50%;
       animation:spin 1s linear infinite;
       z-index:1001;
-    }
-  `;
+    }`;
   document.head.appendChild(style);
   const spinner = document.createElement('div');
   spinner.id = 'spinner';
@@ -109,10 +139,8 @@
     color:#fff; padding:2px 4px;
     font-family:monospace; font-size:12px;
     pointer-events:none; z-index:1000;
-    transform:translate(8px,8px);
-  `;
+    transform:translate(8px,8px);`;
   viewerEl.appendChild(coord);
-
   viewerEl.addEventListener('mousemove', e => {
     const r  = viewerEl.getBoundingClientRect();
     const wp = new OpenSeadragon.Point(
@@ -153,7 +181,7 @@
     loadImage();
   });
 
-  // ————— Go-To Handler —————
+  // ————— Go-To Handler with Deep-Link Generation —————
   gotoBtn.addEventListener('click', async () => {
     const parts = gotoInputEl.value.trim().split(/\s+/);
     if (parts.length !== 4) {
@@ -175,14 +203,29 @@
     if (idx < 0) {
       return alert('Image not found: ' + id);
     }
-    pendingGoto = { x: Number(x), y: Number(y) };
+    pendingGoto           = { x: Number(x), y: Number(y) };
+    markerCoordinates     = { x: Number(x), y: Number(y) };
+    lastMarkerCoordinates = { x: Number(x), y: Number(y) };
+
+    clearBtn.disabled   = false;
+    restoreBtn.disabled = true;
 
     // Show overlays
     viewerEl.style.display       = 'block';
     downloadZipBtn.style.display = 'inline-block';
 
-    // Show URLs when Go-to
-    infoURLsEl.textContent = `RGB: ${images[idx].rgb}\nMASK: ${images[idx].rgb_mask}`;
+    // Build & apply deep-link URL
+    const base    = window.location.origin + window.location.pathname;
+    const q       = new URLSearchParams({ goto: gotoInputEl.value.trim() }).toString();
+    const deepLink = `${base}?${q}`;
+    history.replaceState(null, '', `?${q}`);
+
+    // Show URLs + Deep-Link
+    infoURLsEl.textContent = `
+RGB: ${images[idx].rgb}
+MASK: ${images[idx].rgb_mask}
+Deep-link: ${deepLink}
+    `.trim();
 
     loadImage();
   });
@@ -214,42 +257,36 @@
         viewer.viewport.panTo(oldCenter, true);
       }
 
-      // Update strip & gamma info
       stripEl.textContent = `Strip: ${stripId} | Image: ${images[idx].id}/${lastImageID}`;
       applyGamma();
 
-      // Draw go-to marker
-      if (pendingGoto) {
-        const imgPt = new OpenSeadragon.Point(pendingGoto.x, pendingGoto.y);
+      if (markerCoordinates) {
+        if (viewer._lastMarker) {
+          viewer.removeOverlay(viewer._lastMarker);
+        }
+        const imgPt = new OpenSeadragon.Point(markerCoordinates.x, markerCoordinates.y);
         const vpPt  = viewer.viewport.imageToViewportCoordinates(imgPt);
-
         const svg = `
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
             <line x1="16" y1="0"  x2="16" y2="32" stroke="blue" stroke-width="4"/>
             <line x1="0"  y1="16" x2="32" y2="16" stroke="blue" stroke-width="4"/>
-          </svg>
-        `;
-
-        if (viewer._lastMarker) {
-          viewer.removeOverlay(viewer._lastMarker);
-        }
+          </svg>`;
         const marker = document.createElement('div');
-        marker.innerHTML = svg;
+        marker.innerHTML           = svg;
         marker.style.pointerEvents = 'none';
 
-        viewer.addOverlay({
-          element:   marker,
-          location:  vpPt,
-          placement: OpenSeadragon.Placement.CENTER
-        });
+        viewer.addOverlay({ element: marker, location: vpPt, placement: OpenSeadragon.Placement.CENTER });
         viewer._lastMarker = marker;
-        viewer.viewport.panTo(vpPt, true);
-        pendingGoto = null;
+
+        if (pendingGoto) {
+          viewer.viewport.panTo(vpPt, true);
+          pendingGoto = null;
+        }
       }
     });
   }
 
-  // ————— Download ZIP (unchanged) —————
+  // ————— Download ZIP —————
   downloadZipBtn.addEventListener('click', async () => {
     if (!images.length) return alert('No images loaded.');
     const obj = images[idx];

@@ -4,12 +4,13 @@ import re
 import json
 
 # --- Configuration ---
-strip_name = 'strip4'
-BASE_FOLDER = r'C:\Users\AK127381\Desktop\ImageViewer'
+strip_name = 'strip15'
+BASE_FOLDER = r'E:'
 IMG_DIR     = os.path.join(BASE_FOLDER, strip_name)
-# BASE_URL    = f'https://weitefeld.cg.jku.at/{strip_name}'
-BASE_URL    = f'https://nrlhozkan.github.io/ImageViewer/{strip_name}'
-COPY_DIR   = IMG_DIR
+BASE_URL    = f'https://weitefeld.cg.jku.at/{strip_name}'
+# BASE_URL    = f'https://nrlhozkan.github.io/ImageViewer/{strip_name}'
+COPPYFOLDER = r'C:\Users\AK127381\Desktop\ImageViewer\strips'
+COPY_DIR   =  os.path.join(COPPYFOLDER, strip_name)
 OUT_FILE    = os.path.join(COPY_DIR, 'index.json')
 
 # --- Gather only .jpg/.jpeg/.png files ---
@@ -65,6 +66,7 @@ index_list.sort(key=lambda e: int(e['id']))
 with open(OUT_FILE, 'w', encoding='utf-8') as fp:
     json.dump(index_list, fp, indent=2)
 
+# --- Summary ---
 if index_list:
     low, high = index_list[0]['id'], index_list[-1]['id']
     print(f"✅  Wrote {len(index_list)} entries (IDs {low}–{high}) to {OUT_FILE}")

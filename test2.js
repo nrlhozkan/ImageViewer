@@ -18,7 +18,7 @@
         gamma = 1.0,
         viewer,
         stripId,
-        lastImageID;    // ← holds the ID of the last image in your JSON
+        lastImageID;
 
     // Apply gamma correction via CSS filter
     function applyGamma() {
@@ -27,6 +27,16 @@
         if (osdCanvasGroup) {
             osdCanvasGroup.style.filter = `brightness(${brightnessValue})`;
         }
+    }
+
+    // Preload both rgb and mask for a given index
+    function preloadImagePair(index) {
+        if (index < 0 || index >= images.length) return;
+        const obj = images[index];
+        [obj.rgb, obj.rgb_mask].forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
     }
   
     btn.addEventListener('click', async () => {
@@ -40,13 +50,11 @@
       const folderUrl   = url.replace(/\/index\.json(\?.*)?$/i, '');
       const rawFolderId = folderUrl.split('/').pop();
       stripId           = rawFolderId.replace(/\D/g, '');
+
+      // Capture starting input (could be an ID like "02858")
+      const startInput = startIndexEl.value.trim();
   
-      // 3) Read "Start at" (1-based)
-      const startVal = parseInt(startIndexEl.value, 10);
-      startImageNumber = (!isNaN(startVal) && startVal > 0) ? startVal : 1;
-      idx = startImageNumber - 1;
-  
-      // 4) Fetch JSON
+      // 3) Fetch JSON
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
@@ -54,9 +62,18 @@
       } catch(err) {
         return alert('Failed to load JSON:\n' + err);
       }
-      // grab the ID of the very last image in the array
+      // ID of the last image
       lastImageID = images[images.length - 1].id;
-      // clamp starting idx
+
+      // 4) Determine initial index from ID or numeric
+      const foundIdx = images.findIndex(img => img.id === startInput);
+      if (foundIdx !== -1) {
+        idx = foundIdx;
+      } else {
+        const n = parseInt(startInput, 10);
+        startImageNumber = (!isNaN(n) && n > 0) ? n : 1;
+        idx = startImageNumber - 1;
+      }
       idx = Math.min(Math.max(idx, 0), images.length - 1);
   
       // 5) Show viewer and controls
@@ -80,6 +97,21 @@
         viewer.innerTracker.keyHandler = null;
       }
 
+      // --- SPINNER STYLE INJECTION ---
+      const styleEl = document.createElement('style');
+      styleEl.textContent = `
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        #spinner { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                   width: 40px; height: 40px; border: 4px solid rgba(0,0,0,0.1); border-top: 4px solid #333;
+                   border-radius: 50%; animation: spin 1s linear infinite; z-index: 1001; }
+      `;
+      document.head.appendChild(styleEl);
+
+      // --- SPINNER ELEMENT ---
+      const spinner = document.createElement('div');
+      spinner.id = 'spinner';
+      viewerEl.appendChild(spinner);
+
       // --- PIXEL COORDINATE OVERLAY & CUSTOM CURSOR SETUP ---
       const plusSVG = `
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -87,8 +119,7 @@
           <line x1="0" y1="8" x2="16" y2="8" stroke="red" stroke-width="2" />
         </svg>
       `;
-      const plusCursor = 
-        `url("data:image/svg+xml;charset=utf8,${encodeURIComponent(plusSVG)}") 8 8, auto`;
+      const plusCursor = `url("data:image/svg+xml;charset=utf8,${encodeURIComponent(plusSVG)}") 8 8, auto`;
 
       const coordEl = document.createElement('div');
       coordEl.id = 'coordInfo';
@@ -138,8 +169,8 @@
       const infoImageEl = document.getElementById('infoImage');
       const infoXEl     = document.getElementById('infoX');
       const infoYEl     = document.getElementById('infoY');
-      // --- END PANEL ---
 
+      // Mouse move for coordinates
       viewerEl.addEventListener('mousemove', e => {
         const rect = viewerEl.getBoundingClientRect();
         const webPoint = new OpenSeadragon.Point(
@@ -166,7 +197,7 @@
         }
       });
 
-      // --- CTRL+CLICK HANDLER TO UPDATE PANEL ---
+      // CTRL+CLICK TO UPDATE PANEL
       viewerEl.addEventListener('click', e => {
         if (e.ctrlKey && e.button === 0) {
           const rect = viewerEl.getBoundingClientRect();
@@ -183,7 +214,6 @@
           infoYEl.textContent     = y;
         }
       });
-      // --- END CTRL+CLICK ---
 
       // Helpers to update overlays
       function updateStripInfo(){
@@ -194,8 +224,9 @@
         gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
       }
 
-      // 7) Load image preserving pan/zoom
+      // Load image with spinner and preload surrounding pairs
       function loadImage(){
+        spinner.style.display = 'block';
         let oldZoom, oldCenter;
         if (!isFirst) {
           oldZoom   = viewer.viewport.getZoom();
@@ -203,6 +234,7 @@
         }
         viewer.open({ type:'image', url: images[idx][channel] });
         viewer.addOnceHandler('open', () => {
+          spinner.style.display = 'none';
           if (isFirst) {
             const home = viewer.viewport.getHomeBounds();
             viewer.viewport.panTo(home.getCenter(), true);
@@ -215,10 +247,15 @@
           applyGamma();
           updateStripInfo();
           updateGammaInfo();
+          // Preload two pairs back and forward
+          preloadImagePair(idx - 2);
+          preloadImagePair(idx - 1);
+          preloadImagePair(idx + 1);
+          preloadImagePair(idx + 2);
         });
       }
 
-      // 8) Keyboard controls
+      // Keyboard controls
       window.addEventListener('keydown', e => {
         const k = e.key.toLowerCase();
         const keysUsed = ['a','d','w','s','+','-',' '];
@@ -231,38 +268,63 @@
           case 's': if (channel !== 'rgb') { channel = 'rgb'; loadImage(); } break;
           case '+': gamma = Math.max(0.1, gamma - 0.1); applyGamma(); updateGammaInfo(); break;
           case '-': gamma += 0.1; applyGamma(); updateGammaInfo(); break;
-          case ' ': viewer.viewport.goHome(true); break;
+          case ' ':
+            viewer.viewport.goHome(true);
+            break;
         }
       });
 
       // Initial draw
       loadImage();
 
-      // 9) ZIP download handler
+      // ZIP download handler unchanged...
       downloadZipBtn.addEventListener('click', async () => {
-        if (!images.length) return alert('No images loaded.');
-        const obj      = images[idx];
-        const baseName = `image_${images[idx].id}`;
-        const zip      = new JSZip();
+        if (!images.length) {
+          alert('No images loaded.');
+          return;
+        }
+      
+        const obj = images[idx];
+        const zip = new JSZip();
+      
         try {
-          const [r1, r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
-          if (!r1.ok || !r2.ok) throw new Error('Image fetch failed');
-          const [b1, b2] = await Promise.all([r1.blob(), r2.blob()]);
-          zip.file(`${baseName}_rgb.jpg`, b1);
-          zip.file(`${baseName}_rgb_mask.jpg`, b2);
-          const zipBlob = await zip.generateAsync({ type:'blob' });
-          const url     = URL.createObjectURL(zipBlob);
+          // Fetch both blobs in parallel
+          const [rRgb, rMask] = await Promise.all([
+            fetch(obj.rgb),
+            fetch(obj.rgb_mask)
+          ]);
+          if (!rRgb.ok || !rMask.ok) {
+            throw new Error('Image fetch failed');
+          }
+          const [bRgb, bMask] = await Promise.all([
+            rRgb.blob(),
+            rMask.blob()
+          ]);
+      
+          // Extract original filenames (with extension) from the URLs
+          const rgbFilename  = new URL(obj.rgb, location.href).pathname.split('/').pop();
+          const maskFilename = new URL(obj.rgb_mask, location.href).pathname.split('/').pop();
+      
+          // Add them to the ZIP under their real names
+          zip.file(rgbFilename,  bRgb);
+          zip.file(maskFilename, bMask);
+      
+          // Generate and download
+          const zipBlob = await zip.generateAsync({ type: 'blob' });
+          const zipUrl  = URL.createObjectURL(zipBlob);
           const link    = document.createElement('a');
-          link.href     = url;
-          link.download = `${baseName}.zip`;
+          link.href     = zipUrl;
+          // You can choose any naming convention for the ZIP itself:
+          link.download = `${stripId}_${obj.id}.zip`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-          URL.revokeObjectURL(url);
+          URL.revokeObjectURL(zipUrl);
+      
         } catch (err) {
           alert('Failed to create ZIP:\n' + err);
         }
-      });
+      });      
 
     });
 })();
