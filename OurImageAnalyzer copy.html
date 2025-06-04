@@ -52,13 +52,16 @@
     #gammaInfo      { bottom:10px; left:10px; }
 
     #rectInfo, #markerInfo {
-      position:absolute; top:180px; left:10px;
+      position:absolute; left:10px;
       background:rgba(255,255,255,0.9); color:#000;
       padding:6px 8px; border-radius:4px;
       font-family:sans-serif; font-size:13px;
       z-index:1000; white-space:pre-wrap;
       margin-top:4px;
     }
+    /* Initially, rectInfo sits at top:180px; markerInfo will be positioned dynamically */
+    #rectInfo   { top: 180px; }
+    #markerInfo { /* top is set by JS */ }
 
     #infoTab {
       position:absolute; bottom:10px; right:10px;
@@ -75,6 +78,37 @@
       background:rgba(255,255,255,0.1);
       padding:2px 4px; border-radius:3px;
       font-family:monospace;
+    }
+
+    /* ─── “Classes” panel: position set by JS ─── */
+    #classPanel {
+      position: absolute;
+      /* top/left will be calculated in JS */
+      width: 200px;
+      background: white;
+      border: 1px solid #bbb;
+      padding: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      z-index: 1002;
+      display: none;
+    }
+    #classPanel h3 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
+    #classPanel select {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    #classPanel textarea {
+      width: 100%;
+      resize: vertical;
+      margin-bottom: 8px;
+    }
+    #classPanel button {
+      width: 100%;
+      padding: 6px 0;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -101,6 +135,20 @@
     <div id="rectInfo"></div>
     <div id="markerInfo"></div>
 
+    <!-- “Classes” panel -->
+    <div id="classPanel">
+      <h3>Classes</h3>
+      <select id="classSelect">
+        <option value="" disabled selected>Select a class</option>
+        <option value="objects">Objects</option>
+        <option value="shelters">Shelters</option>
+        <option value="persons">Persons</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <textarea id="classInfo" placeholder="Enter info…" rows="3"></textarea>
+      <button id="saveClassBtn">Save</button>
+    </div>
+
     <div id="infoTab">
       <h4>Controls</h4>
       <p><code>A</code> / <code>D</code> : prev / next image</p>
@@ -115,6 +163,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
-  <script src="our_analyzer.js"></script>
+  <script src="our_analyzer copy 2.js"></script>
 </body>
 </html>

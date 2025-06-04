@@ -23,15 +23,6 @@
   const rectInfoEl     = document.getElementById('rectInfo');
   const markerInfoEl   = document.getElementById('markerInfo');
 
-  // ───── “Classes” panel elements ─────
-  const classPanelEl   = document.getElementById('classPanel');
-  const classSelectEl  = document.getElementById('classSelect');
-  const classInfoEl    = document.getElementById('classInfo');
-  const saveClassBtn   = document.getElementById('saveClassBtn');
-
-  // ————— Constants —————
-  const PANEL_GAP = 8; // 8px gap between stacked panels
-
   // ————— Inject custom cursors —————
   const style = document.createElement('style');
   style.textContent = `
@@ -70,26 +61,21 @@
     return String(n).padStart(4,'0');
   }
 
-  // ————— Initialize OpenSeadragon (no grey icons) —————
+  // ————— Initialize OpenSeadragon —————
   viewer = OpenSeadragon({
     element: viewerEl,
     prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/images/',
     showZoomControl: false,
-    showNavigationControl: false,
-    showNavigator: false,
-    gestureSettingsMouse:{ scrollToZoom:true, clickToZoom:false },
     maxZoomPixelRatio: 20,
     zoomPerScroll: 1.1,
     minZoomLevel: 0.1,
     defaultZoomLevel: 1,
+    gestureSettingsMouse:{ scrollToZoom:true, clickToZoom:false },
     crossOriginPolicy: 'Anonymous'
   });
 
-  // ————— Suppress shortcuts while in the Classes panel —————
+  // ————— Cursor modes + disable nav while drawing —————
   document.addEventListener('keydown', e => {
-    if (classPanelEl.style.display === 'block' && classPanelEl.contains(e.target)) {
-      return;
-    }
     if (e.key === 'Alt') {
       viewerEl.classList.add('alt-mode');
       viewer.setMouseNavEnabled(false);
@@ -100,9 +86,6 @@
     }
   });
   document.addEventListener('keyup', e => {
-    if (classPanelEl.style.display === 'block' && classPanelEl.contains(e.target)) {
-      return;
-    }
     if (e.key === 'Alt') {
       viewerEl.classList.remove('alt-mode');
       viewer.setMouseNavEnabled(true);
@@ -113,7 +96,7 @@
     }
   });
 
-  // ————— Update “Go” input & deep-link —————
+  // ————— Update input & deep-link (padded) —————
   function updateInputField() {
     if (rawStrip == null || rawImage == null) return;
     const parts = [ rawStrip, rawImage ];
@@ -150,34 +133,16 @@
     gammaEl.textContent = `γ=${gamma.toFixed(2)}`;
   }
 
-  // ————— Clear marker —————
+  // ————— Clear marker/rectangle —————
   function clearMarker() {
     if (viewer._lastMarker) viewer.removeOverlay(viewer._lastMarker);
     viewer._lastMarker = null;
     markerCoordinates = null;
     clearMarkerBtn.disabled = true;
     markerInfoEl.textContent = '';
-
-    if (!rectCoordinates) {
-      // No rectangle: hide panel and reset markerInfo
-      classPanelEl.style.display = 'none';
-      markerInfoEl.style.top = '180px';
-    } else {
-      // Rectangle still exists: stack rectInfo → markerInfo → classPanel
-      rectInfoEl.style.display = 'block';
-      const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
-      markerInfoEl.style.top = rectBottom + 'px';
-      const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
-      classPanelEl.style.top  = markerBottom + 'px';
-      classPanelEl.style.left = '10px';
-      classPanelEl.style.display = 'block';
-      // Keep markerInfo where it is (no further shift)
-    }
-
+    rectInfoEl.style.top = '180px';
     updateInputField();
   }
-
-  // ————— Clear rectangle —————
   function clearRectangle() {
     if (rectOverlayEl) viewerEl.removeChild(rectOverlayEl);
     rectOverlayEl = null;
@@ -188,25 +153,8 @@
     }
     rectCoordinates = null;
     clearRectBtn.disabled = true;
-
-    // Hide rectInfo element entirely
-    rectInfoEl.style.display = 'none';
     rectInfoEl.textContent = '';
-
-    if (!markerCoordinates) {
-      // No marker: hide panel and reset markerInfo
-      classPanelEl.style.display = 'none';
-      markerInfoEl.style.top = '180px';
-    } else {
-      // Marker still exists: stack markerInfo → classPanel
-      markerInfoEl.style.top = '180px';
-      const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
-      classPanelEl.style.top  = markerBottom + 'px';
-      classPanelEl.style.left = '10px';
-      classPanelEl.style.display = 'block';
-      // Keep markerInfo at 180px (no further shift)
-    }
-
+    markerInfoEl.style.top = '180px';
     updateInputField();
   }
 
@@ -227,24 +175,14 @@
     viewer.addOverlay({ element: marker, location: vp, placement: OpenSeadragon.Placement.CENTER });
     viewer._lastMarker = marker;
 
-    // Position markerInfo
-    if (rectCoordinates) {
-      rectInfoEl.style.display = 'block';
-      const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
-      markerInfoEl.style.top = rectBottom + 'px';
-    } else {
-      markerInfoEl.style.top = '180px';
-    }
     markerInfoEl.textContent =
       `Marker\nX pixel: ${pad4(Math.round(markerCoordinates.x))}, Y pixel: ${pad4(Math.round(markerCoordinates.y))}`;
     clearMarkerBtn.disabled = false;
 
-    // Always place classPanel immediately below markerInfo:
-    const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
-    classPanelEl.style.top  = markerBottom + 'px';
-    classPanelEl.style.left = '10px';
-    classPanelEl.style.display = 'block';
-    // Keep markerInfo where it is (no further shift)
+    if (rectCoordinates) {
+      const next = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + 4;
+      markerInfoEl.style.top = next + 'px';
+    }
   }
 
   // ————— Draw rectangle —————
@@ -256,17 +194,6 @@
       viewer.removeHandler('update-viewport', updateHandler);
     }
 
-    // Ensure rectInfo is visible, then update its contents
-    rectInfoEl.style.display = 'block';
-    const x0 = Math.round(rectCoordinates.x);
-    const y0 = Math.round(rectCoordinates.y + rectCoordinates.height);
-    rectInfoEl.textContent =
-      `Bounding Box\n` +
-      `X pixel: ${pad4(x0)}, Y pixel: ${pad4(y0)}\n` +
-      `Height: ${pad4(Math.round(rectCoordinates.height))}, Width: ${pad4(Math.round(rectCoordinates.width))}`;
-    clearRectBtn.disabled = false;
-
-    // Create/update the rectangle overlay
     rectOverlayEl = document.createElement('div');
     Object.assign(rectOverlayEl.style, {
       position:'absolute', border:'4px solid blue',
@@ -284,30 +211,21 @@
         width: (br.x - tl.x)+'px', height: (br.y - tl.y)+'px'
       });
     };
+
     viewer.addHandler('animation', updateHandler);
     viewer.addHandler('update-viewport', updateHandler);
     updateHandler();
 
-    // Now position panels:
-    if (markerCoordinates) {
-      // Both rectangle & marker exist:
-      const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
-      markerInfoEl.style.top = rectBottom + 'px';
-      const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
-      classPanelEl.style.top  = markerBottom + 'px';
-      classPanelEl.style.left = '10px';
-      classPanelEl.style.display = 'block';
-      // Keep markerInfo where it is (no further shift)
-    } else {
-      // Only rectangle exists:
-      const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
-      classPanelEl.style.top  = rectBottom + 'px';
-      classPanelEl.style.left = '10px';
-      classPanelEl.style.display = 'block';
-      // Hide markerInfo off-screen:
-      markerInfoEl.style.top = '180px';
-      markerInfoEl.textContent = '';
-    }
+    const x0 = Math.round(rectCoordinates.x);
+    const y0 = Math.round(rectCoordinates.y + rectCoordinates.height);
+    rectInfoEl.textContent =
+      `Bounding Box\n` +
+      `X pixel: ${pad4(x0)}, Y pixel: ${pad4(y0)}\n` +
+      `Height: ${pad4(Math.round(rectCoordinates.height))}, Width: ${pad4(Math.round(rectCoordinates.width))}`;
+    clearRectBtn.disabled = false;
+
+    const next = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + 4;
+    markerInfoEl.style.top = next + 'px';
   }
 
   // ————— “Go” button —————
@@ -387,7 +305,6 @@
   // ————— Alt-drag rectangle —————
   viewerEl.addEventListener('pointerdown', e => {
     if (e.altKey && e.button === 0) {
-      // Don’t hide the panel here—
       e.preventDefault();
       const r = viewerEl.getBoundingClientRect();
       let raw = viewer.viewport.viewerElementToImageCoordinates(
@@ -426,9 +343,6 @@
 
   // ————— Keyboard nav & gamma —————
   window.addEventListener('keydown', e => {
-    if (classPanelEl.style.display === 'block' && classPanelEl.contains(e.target)) {
-      return;
-    }
     const k = e.key.toLowerCase();
     if (!['a','d','w','s','+','-',' '].includes(k) && e.code !== 'Space') return;
     e.preventDefault();
@@ -556,31 +470,4 @@
       }
     });
   }
-
-  // ───── When “Save” is clicked ─────
-  saveClassBtn.addEventListener('click', () => {
-    const chosenClass = classSelectEl.value;
-    const extraInfo   = classInfoEl.value.trim();
-
-    console.log('=== Annotation Saved ===');
-    console.log('  Class/Info: ' + chosenClass + (extraInfo ? ` (${extraInfo})` : ''));
-
-    if (markerCoordinates) {
-      const mx = Math.round(markerCoordinates.x);
-      const my = Math.round(markerCoordinates.y);
-      console.log(`  → Marker → x:${pad4(mx)}, y:${pad4(my)}`);
-    }
-    if (rectCoordinates) {
-      const rx = Math.round(rectCoordinates.x);
-      const ry = Math.round(rectCoordinates.y);
-      const rw = Math.round(rectCoordinates.width);
-      const rh = Math.round(rectCoordinates.height);
-      console.log(`  → Rect   → x:${pad4(rx)}, y:${pad4(ry)}, w:${pad4(rw)}, h:${pad4(rh)}`);
-    }
-
-    classInfoEl.value   = '';
-    classSelectEl.value = 'none';
-    classPanelEl.style.display = 'none';
-  });
-
 })();

@@ -579,7 +579,7 @@
     }
 
     classInfoEl.value   = '';
-    classSelectEl.value = 'none';
+    classSelectEl.value = 'objects';
     classPanelEl.style.display = 'none';
   });
 

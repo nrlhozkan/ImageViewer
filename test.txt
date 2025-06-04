@@ -19,6 +19,7 @@ https://nrlhozkan.github.io/ImageViewer/strip4
 Strip 4, Image Number 03220, Pixel x: 3749, Pixel y: 2319
 
 04 03220 3749 2319
+04 03220 3551 3382 0181 0257
 
 04 02888 0000 0000
 
