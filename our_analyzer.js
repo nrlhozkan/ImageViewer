@@ -580,7 +580,7 @@
 
     classInfoEl.value   = '';
     classSelectEl.value = 'none';
-    classPanelEl.style.display = 'none';
+    classPanelEl.style.display = 'none1';
   });
 
 })();
