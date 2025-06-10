@@ -1,4 +1,4 @@
-// our_analyzer.js
+// our_analyzer_v2.js
 (async function(){
   // ————— Base strip URL prefix —————
   const STRIP_BASE = window.location.protocol === 'file:'
@@ -22,8 +22,7 @@
   const gammaEl        = document.getElementById('gammaInfo');
   const rectInfoEl     = document.getElementById('rectInfo');
   const markerInfoEl   = document.getElementById('markerInfo');
-
-  // ───── “Classes” panel elements ─────
+  const downloadDataBtn = document.getElementById('downloadDataBtn');
   const classPanelEl   = document.getElementById('classPanel');
   const classSelectEl  = document.getElementById('classSelect');
   const classInfoEl    = document.getElementById('classInfo');
@@ -171,7 +170,6 @@
       classPanelEl.style.top  = markerBottom + 'px';
       classPanelEl.style.left = '10px';
       classPanelEl.style.display = 'block';
-      // Keep markerInfo where it is (no further shift)
     }
 
     updateInputField();
@@ -204,7 +202,6 @@
       classPanelEl.style.top  = markerBottom + 'px';
       classPanelEl.style.left = '10px';
       classPanelEl.style.display = 'block';
-      // Keep markerInfo at 180px (no further shift)
     }
 
     updateInputField();
@@ -244,7 +241,6 @@
     classPanelEl.style.top  = markerBottom + 'px';
     classPanelEl.style.left = '10px';
     classPanelEl.style.display = 'block';
-    // Keep markerInfo where it is (no further shift)
   }
 
   // ————— Draw rectangle —————
@@ -297,7 +293,6 @@
       classPanelEl.style.top  = markerBottom + 'px';
       classPanelEl.style.left = '10px';
       classPanelEl.style.display = 'block';
-      // Keep markerInfo where it is (no further shift)
     } else {
       // Only rectangle exists:
       const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
@@ -387,7 +382,6 @@
   // ————— Alt-drag rectangle —————
   viewerEl.addEventListener('pointerdown', e => {
     if (e.altKey && e.button === 0) {
-      // Don’t hide the panel here—
       e.preventDefault();
       const r = viewerEl.getBoundingClientRect();
       let raw = viewer.viewport.viewerElementToImageCoordinates(
@@ -465,25 +459,80 @@
     loadImage();
   });
 
-  // ————— Download ZIP —————
+  // ───────── Download a custom strip & range of RGB images ─────────
   downloadZipBtn.addEventListener('click', async () => {
-    if (!images.length) return alert('No images loaded');
-    const obj = images[idx], zip = new JSZip();
-    try {
-      const [r1,r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
-      if (!r1.ok||!r2.ok) throw new Error();
-      const [b1,b2] = await Promise.all([r1.blob(), r2.blob()]);
-      zip.file(obj.rgb.split('/').pop(), b1);
-      zip.file(obj.rgb_mask.split('/').pop(), b2);
-      const blob = await zip.generateAsync({ type:'blob' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `${rawStrip}_${rawImage}.zip`;
-      document.body.appendChild(a);
-      a.click(); a.remove();
-    } catch {
-      alert('ZIP error');
+    // 1) Ask for strip number (allow leading zeros, but store as integer folder)
+    let stripRaw = prompt('Enter strip number (e.g. 06):', '');
+    if (!stripRaw) return;
+    const stripNum = parseInt(stripRaw, 10).toString();
+
+    // 2) Ask for start & end image numbers
+    const startRaw = prompt('Enter START image number (e.g. 00566):', '');
+    if (!startRaw) return;
+    const endRaw = prompt('Enter END image number (e.g. 01006):', '');
+    if (!endRaw) return;
+
+    const startNum = Number(startRaw);
+    const endNum = Number(endRaw);
+    if (isNaN(startNum) || isNaN(endNum) || startNum > endNum) {
+      return alert('Invalid start/end range');
     }
+
+    // 3) Load the chosen strip’s index.json
+    let indexList;
+    try {
+      const res = await fetch(`${STRIP_BASE}${stripNum}/index.json`);
+      if (!res.ok) throw new Error();
+      indexList = await res.json();
+    } catch {
+      return alert(`Could not load strip ${stripNum}`);
+    }
+
+    // 4) Filter to images in the requested range, sorted ascending
+    const toDownload = indexList
+      .filter(o => {
+        const id = Number(o.id);
+        return id >= startNum && id <= endNum;
+      })
+      .sort((a, b) => Number(a.id) - Number(b.id));
+
+    if (!toDownload.length) {
+      return alert(`No images in strip ${stripNum} between ${startRaw} and ${endRaw}`);
+    }
+
+    // 5) Create the ZIP
+    const zip = new JSZip();
+    for (const obj of toDownload) {
+      try {
+        const resp = await fetch(obj.rgb);
+        if (!resp.ok) throw new Error();
+        const blob = await resp.blob();
+        const filename = obj.rgb.split('/').pop();
+        zip.file(filename, blob);
+      } catch (e) {
+        console.warn(`Failed to fetch ${obj.rgb}`, e);
+      }
+    }
+
+    // 6) Generate and download the ZIP
+    const zipBlob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(zipBlob);
+    a.download = `strip${stripNum}_${startRaw}-${endRaw}.zip`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+
+  // ───────── NEW: Download data.txt (no PHP) ─────────
+  downloadDataBtn.addEventListener('click', () => {
+    // Create a temporary <a> so that “download” attribute is honored
+    const a = document.createElement('a');
+    a.href = 'data.txt';         // assumes data.txt is served at this relative path
+    a.download = 'data.txt';     // tells browser to save it as “data.txt”
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   });
 
   // ————— Auto-goto on page load —————
@@ -558,28 +607,58 @@
   }
 
   // ───── When “Save” is clicked ─────
-  saveClassBtn.addEventListener('click', () => {
+  saveClassBtn.addEventListener('click', async () => {
     const chosenClass = classSelectEl.value;
     const extraInfo   = classInfoEl.value.trim();
 
-    console.log('=== Annotation Saved ===');
-    console.log('  Class/Info: ' + chosenClass + (extraInfo ? ` (${extraInfo})` : ''));
-
+    // Gather marker & rect coords (or empty strings)
+    let mx = '', my = '', rx = '', ry = '', rw = '', rh = '';
     if (markerCoordinates) {
-      const mx = Math.round(markerCoordinates.x);
-      const my = Math.round(markerCoordinates.y);
-      console.log(`  → Marker → x:${pad4(mx)}, y:${pad4(my)}`);
+      mx = Math.round(markerCoordinates.x);
+      my = Math.round(markerCoordinates.y);
     }
     if (rectCoordinates) {
-      const rx = Math.round(rectCoordinates.x);
-      const ry = Math.round(rectCoordinates.y);
-      const rw = Math.round(rectCoordinates.width);
-      const rh = Math.round(rectCoordinates.height);
-      console.log(`  → Rect   → x:${pad4(rx)}, y:${pad4(ry)}, w:${pad4(rw)}, h:${pad4(rh)}`);
+      rx = Math.round(rectCoordinates.x);
+      ry = Math.round(rectCoordinates.y);
+      rw = Math.round(rectCoordinates.width);
+      rh = Math.round(rectCoordinates.height);
     }
 
+    const payload = {
+      strip:     rawStrip  || '',
+      image:     rawImage  || '',
+      class:     chosenClass,
+      info:      extraInfo || '',
+      marker_x:  mx,
+      marker_y:  my,
+      rect_x:    rx,
+      rect_y:    ry,
+      rect_w:    rw,
+      rect_h:    rh
+    };
+
+    // POST to saveData.php
+    try {
+      const response = await fetch('saveData.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!result.success) {
+        alert('Failed to save: ' + (result.error || 'Unknown error'));
+        console.error('saveData.php error:', result.error);
+      } else {
+        console.log('Annotation appended to data.txt');
+      }
+    } catch (err) {
+      alert('Could not contact saveData.php');
+      console.error(err);
+    }
+
+    // Clear & hide the panel
     classInfoEl.value   = '';
-    classSelectEl.value = 'objects';
+    classSelectEl.value = '';
     classPanelEl.style.display = 'none';
   });
 

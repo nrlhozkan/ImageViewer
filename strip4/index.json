@@ -33,5 +33,10 @@
     "id": "03220",
     "rgb": "https://nrlhozkan.github.io/ImageViewer/strip4/1_03220_004337109_1300_RGB.jpg",
     "rgb_mask": "https://nrlhozkan.github.io/ImageViewer/strip4/1_03220_004337109_1300_RGB_mask.png"
+  },
+
+  {
+    "id": "03221", 
+    "rgb": "https://nrlhozkan.github.io/ImageViewer/strip4/1_03221_004337209_1300_RGB.jpg"
   }
 ]

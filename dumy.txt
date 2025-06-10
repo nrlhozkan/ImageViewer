@@ -1,0 +1,405 @@
+15 61392 6643 0214 1 "Shelter" 15 61392 6615 0242 0050 0050 "Hunting stand, good geolocation"
+07 23205 1638 2136 2 "Looks like some object , can't be sure,  maybe some shelter , maybe tree, can't recognize" 07 23205 1619 2142 0027 0045 "Clear GPS location, it is likely a tree trunk in an old bomb crater."
+09 31059 7900 2525 1 "Shelter (looks like a raised hide of a hunter)" 09 31059 7872 2559 0062 0063 "Hunting stand, good geolocation"
+13 47493 3749 2319 3 "potential body, lying face down" 13 47493 3707 2323 0037 0052 "Tree stump, good geolocation"
+05 16440 2559 1546 3 "Maybe a shelter" 05 16440 2537 1569 0057 0041 "Large tree stump"
+13 47525 4338 1220 1 "shelter" 13 47525 4256 1306 0156 0182 "Shed with tractor, good geolocation"
+05 16474 2486 0093 2 "blueish pixels" 05 16474 2473 0113 0033 0026 "Good geolocation, no abnormalities, large metal sheets"
+13 47525 3764 1341 1 "self made shelter?" 13 47525 3683 1400 0094 0129 "Shelter with trailer, good geolocation"
+08 27225 8335 2109 1 "Perch (Hochsitz), i.e. possible shelter" 08 27225 8280 2140 0064 0079 "Hunting stand, good geolocation"
+08 27240 0241 4172 2 "(Rosty?) Plane leaning against a tree to form a possible shelter" 08 27240 0194 4229 0099 0078 "Hunting stand, good geolocation, not accessible due to broken ladder"
+15 61414 2403 0121 1 "Shelter" 15 61414 2362 0191 0105 0084 "Hunting stand, good geolocation"
+08 27258 2727 2047 1 "Shelter" 08 27258 2704 2072 0054 0053 "Hunting stand, good geolocation"
+08 27328 0633 2237 1 "Shelter with 2 shelters directly next to it" 08 27328 0583 2300 0118 0077 "Hunting stand, good geolocation"
+08 27328 1151 2071 1 "Shelter with 2 shelters directly next to it" 08 27328 1093 2122 0086 0082 "Hunting stand, good geolocation"
+08 27333 8339 4315 1 "Shelter" 08 27333 8308 4353 0071 0066 "Hunting stand, good geolocation"
+13 47684 0119 1681 3 "Potentially shape of human body lying on the ground." 13 47684 0075 1713 0061 0080 "Good geolocation, no abnormalities"
+14 57173 2378 2960 2 "Strange, very bright, longish object with redish edges very brigthness saturation falls off, it has attachments that could be extremities, but it could also be a lighting effect." 14 57173 2375 2976 0036 0009 "Good geolocation, no abnormalities"
+14 57276 7189 2476 2 "Oval shaped object, visible over several frames. It is in the middle of forest where it doesn't seem to belong. I cannot tell what it could be. Looks kind of dark." 14 57276 7176 2489 0024 0035 "Tree trunk, good geolocation"
+02 05783 6106 1664 2 "something bright blue, looks like cloth" 02 05783 6093 1669 0052 0084 "Immediate vicinity of Elkenrother Weiher. GPS very accurate. No matching object found. No abnormalities in the surroundings."
+02 05750 0786 5756 1 "blue or gray square, maybe something like shelter, differs from the forest color" 02 05750 0753 5788 0060 0063 "Definitely a hunting stand, no abnormalities in the surroundings."
+10 34048 3480 4464 1 "A possible shelter" 10 34048 3449 4475 0041 0055 "Hunting stand, good geolocation"
+07 23689 1225 2491 2 "In a region of about 200 pixels are turquoise colored things spread and it's not identifiable what they are." 07 23689 1201 2496 0012 0031 "Good geolocation, no abnormalities, possibly marking on tree"
+07 23724 7844 0754 1 "Looks like some sort of shelter or roof of something." 07 23724 7796 0795 0074 0068 "Tarp, tent, self-made, possibly by children, near edge of town, inconspicuous"
+08 26808 1094 4132 2 "a bright spot on a dark trunk which cannot be a shadow of tree" 08 26808 1054 4153 0036 0073 "Good geolocation, no abnormalities"
+07 23761 2550 0603 1 "Could be some kind of shelter." 07 23761 2536 0623 0036 0034 "Hunting stand"
+12 44134 3829 0800 1 "Possible shelter, maybe a perch" 12 44134 3796 0817 0087 0064 "Hunting stand, good geolocation"
+13 47789 1408 0944 2 "a long oval shaped object with color that do not fit the rest of the enviroment" 13 47789 1403 0948 0012 0013 "Small barrel, very old, partially overgrown and filled with soil. Inconspicuous."
+13 47790 6838 4794 2 "looks like a blue tent or something" 13 47790 6828 4800 0017 0016 "Blue balloon. Note: Behind the ID are six more points in the immediate vicinity that are not listed individually here."
+13 47799 7936 3102 2 "possible shelter" 13 47799 7895 3120 0060 0062 "Fallen trees in the forest, nothing unusual."
+04 12471 5394 3241 1 "High stand - inconspicuous" 04 12471 5332 3287 0090 0131 "Hunting stand, good geolocation"
+04 12551 0145 0182 2 "Possible Shelter?" 04 12551 0134 0200 0026 0031 "Empty concrete pipes"
+12 44157 0068 2402 1 "Possible shelter, maybe a tarp" 12 44157 0031 2437 0057 0080 "Hunting stand, good geolocation"
+15 61287 1590 3698 2 "A long red object surrounded by forest near a path, maybe 2 to 3 meters in length." 15 61287 1552 3706 0019 0064 "Red metal barrier"
+15 61296 6332 0119 1 "A small man made hut. Might be for hunting but hard to tell." 15 61296 6293 0148 0052 0059 "Hunting stand, good geolocation"
+09 30929 6077 2853 2 "could be a standing Person and is also close to what appears to be a Hochsitz at (5784,2132)" 09 30929 6044 2869 0043 0051 "Tree stump, good geolocation"
+09 30945 7395 0410 1 "rectangular shape - could be a shelter" 09 30945 7359 0434 0063 0061 "Hunting stand, good geolocation"
+09 30987 1069 0208 1 "rectangular shape - could be a shelter" 09 30987 1026 0237 0050 0076 "Hunting stand, good geolocation"
+09 31025 1120 4749 1 "rectangular shape - could be a shelter" 09 31025 1088 4765 0042 0058 "Hunting stand, good geolocation"
+11 40407 0420 3488 1 "seems to be a shelter perhaps" 11 40407 0406 3498 0039 0037 "Orchard, good geolocation, no abnormalities"
+15 61243 4976 4844 2 "Red/Orange blob" 15 61243 4969 4849 0012 0014 "Red metal barrier"
+11 40407 0342 2862 1 "A shelter" 11 40407 0322 2886 0046 0045 "Orchard, good geolocation, no abnormalities"
+11 40407 0307 2820 1 "An RV or a shelter or a house" 11 40407 0241 2847 0079 0119 "Orchard, good geolocation, no abnormalities"
+03 09120 6052 0248 1 "some human-made rectangular object, partially occluded by trees" 03 09120 6015 0257 0032 0053 "Water hole, no findings"
+11 40407 5616 3833 1 "a shelter or a house" 11 40407 5475 3800 0092 0161 "Hunting stand, good geolocation"
+03 09361 7196 0344 3 "weirdly colored (pink) object in a lake in a forest  (possibly clothing)" 03 09361 7181 0357 0032 0035 "On the water / water surface no findings"
+11 40408 0327 1377 1 "shelter" 11 40408 0283 1407 0058 0085 "Orchard, good geolocation, no abnormalities"
+11 40408 0246 1816 1 "shelter or a house" 11 40408 0191 1858 0068 0103 "Orchard, good geolocation, no abnormalities"
+11 40409 0358 0068 1 "shelter" 11 40409 0326 0100 0074 0059 "Orchard, good geolocation, no abnormalities"
+05 15909 1820 4190 1 "It looks like a wooden plank structure. After looking at the adjacent images, unfortunately, I couldn't figure out what it was." 05 15909 1783 4223 0055 0071 "Wooden hut with scrap, garden"
+13 47369 4390 1420 2 "Color Anomaly: A blue spot between the trees, approximately the size of a person. The spot appears for ca 15 frames, then vanishes, maybe because of the perspective changing or because it is moving. Could also be a blue tarp or a trash bags on the ground." 13 47369 4376 1432 0022 0023 "Wood storage, good geolocation, no abnormalities"
+13 47434 4424 2966 2 "Color Anomaly: Small blue-ish spot, similar to the shape of a person sitting." 13 47434 4419 2972 0012 0010 "Good geolocation, no abnormalities"
+06 19360 4498 1041 2 "A white square with a rectangle shape around it" 06 19360 4490 1049 0016 0017 "Tree stump"
+06 19360 2777 1880 2 "White object placed on top of vegetation" 06 19360 2757 1897 0037 0031 "Tree stump"
+06 19368 4374 0409 1 "Shelter" 06 19368 4349 0437 0062 0054 "Hunting stand, good geolocation"
+06 19373 2384 2701 2 "Black spots which does not seem as shadows" 06 19373 2376 2709 0025 0019 "No abnormalities, good geolocation"
+06 19381 2331 0360 1 "Container" 06 19381 2240 0467 0216 0201 "Hunting stand"
+15 61483 0138 2123 1 "Shelter" 15 61483 0110 2144 0046 0048 "Hunting stand, good geolocation"
+03 09116 8167 0901 2 "A BLUE BARREL" 03 09116 8149 0916 0035 0034 "Blue barrel"
+03 09482 2639 5360 1 "a blue box" 03 09482 2615 5378 0043 0031 "Chicken coop"
+10 34113 5188 5768 2 "Shape resembeling to a person/body leaning backwards against a fallen tree trunk, supported on the ellbows, brown/beige top, blueish/gray trousers, head north, feet south." 10 34113 5177 5780 0019 0018 "Good geolocation, no abnormalities"
+01 02970 4040 4390 3 "Person standing" 01 02970 4029 4407 0029 0021 "No abnormalities, good geolocation"
+10 34146 0444 0286 2 "A shape reminding of a mummy sleeping bag, northeast to southwest, not fitting into the surrounding area" 10 34146 0430 0304 0037 0027 "Swampy area with tall grass, no abnormalities"
+10 34146 2397 0545 2 "A white box like object, conspicuously rectangular, not fitting into the surrounding area" 10 34146 2387 0554 0019 0018 "Good geolocation, no abnormalities"
+08 27433 3540 1979 3 "Two people." 08 27433 3516 2007 0037 0038 "Good geolocation, no abnormalities"
+14 57000 6881 0270 1 "different color, could be a shed" 14 57000 6870 0288 0043 0046 "Pasture, good geolocation, no abnormalities"
+13 47745 3826 0261 1 "Shelter" 13 47745 3776 0321 0091 0089 "Hunting stand, good geolocation"
+07 23571 7830 2984 3 "an object that looks like a human being possibly standing given the shadow next to it behind some trees" 07 23571 7818 2989 0020 0032 "No abnormalities, good geolocation"
+08 27443 5883 3883 2 "Possibly a piece of clothes" 08 27443 5872 3889 0020 0018 "GPS location somewhat erratic, based on DLR imagery it was the edge of a clearing. On site a horse paddock was found. Object likely a feeding rack or large feed bucket."
+13 47756 5795 0327 2 "A light blue, neon point in the field" 13 47756 5789 0336 0015 0014 "Field, no abnormalities"
+15 61396 6680 0450 1 "Structure (probably for hunting)." 15 61396 6656 0474 0051 0051 "Hunting stand, good geolocation"
+14 57031 3233 0334 2 "sth gray" 14 57031 3216 0344 0019 0048 "Fallen birch, good geolocation"
+14 57057 0357 0396 2 "possibly a blue jean?" 14 57057 0341 0405 0024 0035 "Wood storage, good geolocation, no abnormalities"
+12 44757 5322 2374 1 "Shelter" 12 44757 5286 2399 0052 0062 "Stone as road boundary"
+06 19450 2450 3100 2 "A vertical object with a white middle part" 06 19450 2443 3102 0017 0015 "Light tree bark"
+12 44810 6520 5434 1 "Look like a shelter (Elevated platform)" 12 44810 6430 5458 0094 0114 "Hunting stand, good geolocation"
+15 61429 5988 0656 1 "Shelter" 15 61429 5958 0694 0071 0058 "Hunting stand, good geolocation"
+01 03161 2497 5868 3 "looks like a human to me" 01 03161 2466 5880 0047 0067 "No abnormalities, good geolocation"
+01 03143 1474 3134 3 "standing person" 01 03143 1459 3142 0018 0034 "No abnormalities, good geolocation"
+11 40992 1790 2252 1 "A box in the middle of the forest." 11 40992 1749 2289 0069 0070 "Hunting stand, good geolocation"
+11 40998 0924 2420 2 "Something blue scattered across the ground." 11 40998 0906 2455 0054 0039 "Hunting stand, otherwise just swamp. No abnormalities."
+11 41074 3733 2075 1 "Rectangular cover on top of the trees." 11 41074 3702 2103 0055 0059 "Hunting stand, good geolocation"
+02 05867 5441 0105 1 "Jagdstand" 02 05867 5404 0146 0106 0080 "Hunting stand, not accessible, surrounded by swamp"
+02 05967 1163 0781 1 "Grazing livestock" 02 05967 1015 0884 0172 0408 "Hut, near crime scene"
+15 60972 3090 4954 1 "hunter's peak" 15 60972 3043 4995 0096 0100 "Hunting stand, good geolocation"
+15 60972 4660 2410 1 "shelter, blue corrogated metal roof, not self made" 15 60972 4553 2477 0177 0178 "Storage hut, toilet, good geolocation"
+15 60972 3980 2690 1 "building or maybe storage, not self made" 15 60972 3857 2806 0235 0264 "Shooting range, good geolocation"
+15 60972 3700 3120 1 "shelter, blue corrugated metal roof, not self made" 15 60972 3675 3157 0062 0062 "Ventilation shooting range, good geolocation"
+15 61027 3504 2023 1 "shelter, blue corrugated metal roof, left of which a possible hunter's peak" 15 61027 3476 2049 0054 0054 "Hunting stand, good geolocation"
+06 19446 6356 3496 1 "Pile of wood, could be shelter." 06 19446 6239 3655 0280 0210 "Felled tree trunks"
+06 19446 2567 5247 2 "artificial thing in the entrance of watter, could be plastic barell" 06 19446 2549 5262 0035 0034 "Styrofoam / plastic"
+11 40410 0499 0098 1 "shelter" 11 40410 0456 0132 0064 0090 "Orchard, good geolocation, no abnormalities"
+06 19460 3576 0150 1 "raised hide (hunting hide)" 06 19460 3696 0214 0102 0101 "Hunting stand, good geolocation, seat no longer present"
+06 19482 3250 0458 1 "Hunting hide" 06 19482 3203 0530 0104 0101 "Hunting stand, good geolocation"
+06 19501 8174 0276 1 "Hunting hide" 06 19501 8024 0421 0187 0183 "Hunting stand, good geolocation"
+11 40417 2282 4679 2 "shelter" 11 40417 2274 4685 0014 0015 "Clearing with thorns, good geolocation, no abnormalities"
+06 19507 4963 0405 2 "potential hide" 06 19507 4950 0416 0025 0028 "GPS accurate, likely an old tree trunk. No abnormalities in the surroundings."
+14 57071 1566 2213 2 "Looks like a bench, something in rectangular form" 14 57071 1552 2223 0021 0029 "Wood storage, good geolocation, no abnormalities"
+07 23881 2005 0180 2 "I think it could be a shelter, it looks like a red roof." 07 23881 1952 0220 0061 0067 "Good geolocation, no abnormalities"
+14 57076 1184 2888 2 "Something blue, attached to a tree, maybe a bag" 14 57076 1172 2893 0013 0021 "Wood storage, good geolocation, no abnormalities"
+14 57381 4614 2613 1 "Looks like a tent or something similar" 14 57381 4580 2636 0056 0056 "Hunting stand, good geolocation"
+14 57388 1587 5109 2 "Maybe a blue jacket?" 14 57388 1579 5114 0010 0013 "Completely overgrown, visual contact to point possible, no blue jacket"
+14 57146 1081 0867 1 "small building made out of wood" 14 57146 0961 0962 0164 0236 "Freizeitheim Niederdreisbach, no abnormalities"
+14 57455 5322 0460 1 "Maybe some space to hide? Looks like a shelter" 14 57455 5293 0485 0063 0064 "Hunting stand"
+14 57161 8055 0399 1 "a shelter, but in a more open area" 14 57161 8019 0430 0057 0055 "Wooden lounger, bench, good geolocation"
+11 40425 3518 0060 1 "shelter" 11 40425 3474 0128 0106 0104 "Hunting stand, good geolocation"
+05 16294 7829 0767 1 "raised hunting stand" 05 16294 7726 0833 0106 0142 "Hunting stand, good geolocation"
+07 23303 3760 1455 1 "Human-made (NOT SELF MADE) shelter. Likely a hunting tower." 07 23303 3700 1502 0080 0095 "Hunting stand, good geolocation"
+07 23290 7629 4491 1 "A rather large shed. Located away from any other buildings - can be used for shelter." 07 23290 7473 4626 0281 0282 "Hut empty"
+11 40440 8086 3051 1 "shelter" 11 40440 8005 3072 0062 0114 "Hunting stand"
+05 16344 0133 0804 1 "cambing bus (possible shelter?)" 05 16344 0000 0946 0272 0277 "Tool shed, locked"
+12 44649 5055 3682 1 "a shelter and something next to it (x:5140, y:3810)" 12 44649 5022 3713 0070 0053 "Trees, good geolocation, no abnormalities"
+09 30595 6730 3443 3 "Full body lying" 09 30595 6730 3443 0014 0023 "GPS location clear, likely a small, uncovered hunting stand (only about 1 meter high)."
+06 19406 6240 1220 1 "A person with a big shelter just a few meters away" 06 19406 6321 1154 0258 0235 "Hut locked, box empty"
+12 44739 5940 0355 1 "shelter, ladder next to it" 12 44739 5901 0386 0058 0065 "Hunting stand, good geolocation"
+10 34408 2490 0214 2 "a yellow thing that looks different from the surroundings. suspected body part" 10 34408 2483 0220 0012 0010 "GPS location clear. Based on DLR imagery comparison likely a small field of moss-covered stones."
+10 34408 2770 2395 2 "a white blob next to a hint of red. suspected body part" 10 34408 2761 2404 0014 0015 "GPS location clear. Based on DLR imagery comparison likely a small field of moss-covered stones."
+11 40456 4610 0350 1 "shelter" 11 40456 4564 0383 0061 0080 "Hunting stand, good geolocation"
+14 57708 0374 0099 1 "something like a wooden box" 14 57708 0308 0167 0138 0075 "Hunting stand, good geolocation"
+12 44162 5686 1004 1 "Possible shelter, looks like a shed" 12 44162 5649 1026 0055 0062 "Hunting stand, good geolocation"
+12 44225 7333 2033 2 "Unusually rectangular yellow object, could be a bag or a tarp of some sort" 12 44225 7323 2043 0019 0017 "Clearing with pond / waterhole. No abnormalities."
+11 40501 0899 0132 2 "human" 11 40501 0884 0145 0021 0034 "Clearing with stream, good geolocation, no abnormalities"
+14 57778 3610 0263 1 "building - farm" 14 57778 3154 0464 0404 0788 "Horse stable, good geolocation"
+11 40514 6944 0237 2 "human" 11 40514 6933 0246 0022 0022 "On the road, good geolocation, no abnormalities"
+05 16092 3514 0886 1 "Does not look like the other dead tries. Might be  some branches rearranged by a human." 05 16092 3405 0934 0150 0176 "Broken / snapped tree, not manmade shelter, no signs of person"
+05 16145 7447 1123 2 "May be some improvised roofing" 05 16145 7444 1131 0013 0018 "Pond with stones"
+05 16174 6232 1123 1 "Such a tower could be used as shelter." 05 16174 6152 1174 0099 0125 "Hunting stand, good geolocation"
+05 16174 8334 1602 1 "Such a tower could be used as shelter." 05 16174 8175 1721 0198 0209 "Hunting stand, good geolocation"
+06 19803 7737 0173 1 "the pixels around it seems a bit out of place, the image is a bit bright hence not providing a better view but, something seems out of place(when looked differently it looked like a blue shirt, or maybe a garbage bag)" 06 19803 7725 0222 0221 0267 "Good geolocation, garbage bin with blue lid"
+08 27376 6707 1820 1 "Possible self made shelter, possible hiding spot." 08 27376 6671 1864 0075 0084 "Hunting stand, good geolocation"
+04 12575 5676 0862 2 "Not marked as an anomaly, but noticeable." 04 12575 5662 0872 0036 0028 "Abandoned tracks, black tarp"
+04 12634 7789 1833 2 "White long oval in pond/unter tree" 04 12634 7780 1839 0015 0019 "Stone"
+04 12592 7165 1710 2 "strange shadow" 04 12592 7151 1719 0033 0026 "Abandoned tracks, black tarp"
+04 12620 8291 0130 2 "shapes in pond" 04 12620 8274 0151 0041 0048 "Wood plank"
+07 23763 7776 5949 2 "Patch of bright white pixels. Could be a big plastic bag or a huge rock" 07 23763 7738 5991 0069 0050 "Tarp, tent, self-made, possibly by children, near edge of town, inconspicuous"
+07 23763 2500 0808 2 "Something cube like that resembles a small structure" 07 23763 2478 0829 0029 0034 "Hunting stand collapsed"
+07 23790 7300 0840 1 "A shed that leads to an open area with tools" 07 23790 6991 0998 0345 0448 "Fenced, locked private property with shed"
+07 23851 1058 0763 3 "Something very red on the road, it seems to be stationary since it didnt move in the following images" 07 23851 1047 0760 0022 0023 "Good geolocation, no abnormalities"
+09 30929 5788 2131 1 "a simple shelter," 09 30929 5751 2162 0063 0074 "Hunting stand, good geolocation"
+09 30945 7394 0397 1 "a white cover,(shelter?)" 09 30945 7360 0435 0066 0062 "Hunting stand"
+12 44337 7413 0701 1 "a white cube (shelter?)" 12 44337 7332 0753 0098 0122 "Hunting stand, good geolocation"
+12 44352 8136 4070 1 "some buildings all together (probably a farm)" 12 44352 8029 4163 0128 0148 "Active hunting hut, JAB on site"
+08 27015 4746 0814 2 "i think someone is sitting" 08 27015 4733 0826 0024 0031 "Good geolocation, no abnormalities"
+15 61505 0738 4243 1 "small quadratic man-made thing in forest" 15 61505 0706 4268 0050 0053 "Hunting stand, good geolocation"
+15 61529 7055 2433 1 "very unlikely: something bigger man-made at the edge of a small forest. I think you can see this thing quite good from a street next to it." 15 61529 6999 2484 0092 0098 "Shed, good geolocation"
+14 57486 1543 0319 2 "elongated shape, clear colors" 14 57486 1536 0321 0017 0016 "Field, no abnormalities"
+09 30889 8231 2941 1 "shelter similar form" 09 30889 8169 3025 0123 0118 "Hunting stand, good geolocation"
+03 09383 1669 0776 2 "could either be a human silhouette or just a part of a tree" 03 09383 1659 0792 0036 0022 "Next to tree trunk, car part made of plastic, gray, 150cm"
+09 30614 6400 4091 1 "high stand for hunters along a path" 09 30614 6332 4132 0088 0115 "Hunting stand, good geolocation"
+09 30659 2823 2377 1 "high stand for hunters" 09 30659 2769 2419 0113 0139 "Hunting stand, good geolocation"
+09 30659 4444 0741 1 "high stand for hunters" 09 30659 4402 0784 0082 0075 "Hunting stand, good geolocation"
+09 30721 3553 1488 1 "high stand for hunters" 09 30721 3480 1547 0121 0114 "Hunting stand, good geolocation"
+09 30771 3976 3406 1 "high stand for hunters along a street" 09 30771 3947 3428 0064 0055 "Hunting stand, good geolocation"
+09 30771 1952 0356 1 "trailor or hut at a street" 09 30771 1897 0442 0134 0127 "Hunting stand, good geolocation"
+09 30791 8227 0172 1 "high stand for hunters" 09 30791 8144 0221 0152 0207 "Hunting stand, good geolocation"
+09 30791 0729 3682 1 "high stand for hunters" 09 30791 0679 3724 0111 0201 "Hunting stand, good geolocation, according to map collapsed, still standing, trail camera"
+09 30808 5755 0713 1 "shelter? (white rectangle next to a tree)" 09 30808 5741 0729 0034 0036 "Completely overgrown, point not accessible, not visible either"
+05 16220 7999 2047 3 "suspicious shape" 05 16220 7978 2072 0042 0043 "On the water / water surface no findings"
+05 15865 6142 0280 2 "something unusual , cannot verify" 05 15865 6128 0289 0021 0040 "Object in private garden"
+07 23802 6008 1855 3 "backpack / Rucksack ?" 07 23802 6003 1864 0018 0009 "Blue trash bag"
+15 61585 3227 3054 1 "something man-made in the forest." 15 61585 3226 3052 0021 0014 "Several huts on a horse pasture, one locked, one negative"
+12 44335 7462 0476 1 "Shelter" 12 44335 7398 0503 0101 0122 "Hunting stand, good geolocation"
+12 44351 8072 3443 1 "Shelter" 12 44351 7993 3477 0077 0103 "All huts individually checked, negative"
+08 27021 6515 1247 1 "Could be a hidden shelter" 08 27021 6482 1296 0082 0078 "Good geolocation, no abnormalities"
+11 40726 0860 4423 3 "small structure that casts a shadow (body, anthill or other)" 11 40726 0838 4436 0026 0034 "Just a stone, good geolocation, no abnormalities"
+11 40728 1080 4642 3 "small structure that casts a shadow (body, anthill or other)" 11 40728 1047 4661 0046 0057 "Just a stone, good geolocation, no abnormalities"
+07 23525 3728 0502 2 "weird looking cube, might be a tree stump but does not much resemble any of the surrounding stumps or vegetation" 07 23525 3707 0524 0048 0045 "Large tree stump"
+07 23563 7438 0293 1 "big white sheet or roof, looks like there is a chair next to it, might be some form of shelter" 07 23563 7283 0444 0283 0285 "Hut locked, box empty"
+08 27043 7988 0320 1 "Could be larger parts of trash, could be a shelter, colored blue pixels inbetween larger anomalies" 08 27043 7975 0335 0034 0027 "Wooden shed, no abnormalities"
+07 23350 7235 0837 3 "no idea, its doesnt fit in the scenery" 07 23350 7222 0848 0025 0036 "Tree stumps, no abnormalities."
+07 23730 7713 1695 1 "Shelter" 07 23730 7680 1727 0073 0064 "Hunting stand"
+04 12351 5568 0619 2 "I think I found an anomaly that could potentialy be a decomposing body in a deserted forest area" 04 12351 5548 0661 0068 0045 "Just mud"
+14 57491 1567 0919 2 "elongated shape, clear color (same as 57486-57490)" 14 57491 1556 0927 0014 0017 "Field, no abnormalities"
+14 57486 1543 0319 2 "Looks like a piece of clothes (blue) the size of a torso compared to the rest of the environment." 14 57486 1535 0320 0016 0017 "Field, no abnormalities"
+14 57486 5735 3811 1 "possible shelter" 14 57486 5698 3836 0106 0071 "Hunting stand"
+11 40731 5918 0436 1 "It is probably a high seat." 11 40731 5887 0459 0051 0059 "Hunting stand, good geolocation"
+11 40670 6956 4580 2 "blue indefinable object" 11 40670 6920 4600 0040 0050 "Hunting stand, good geolocation"
+10 34417 3573 5305 2 "looks like a upper body part with head, although it's very bright (image is very bright in general at this area)" 10 34417 3562 5343 0054 0026 "Fire pit near a small body of water. In my opinion, a typical place to sit in peace and make a small fire (romantic spot). There was a grill grate in the ashes and remains of wood. But no signs of the missing person or recent stay."
+12 44034 2842 0113 1 "Little hut at the border of the forest" 12 44034 2772 0178 0125 0099 "Wooden hut, good geolocation"
+12 44037 3575 0393 1 "Unusual dark thing with yellwo in the middle, maybe a jacket or shirt" 12 44037 3554 0419 0048 0041 "Wooden hut, good geolocation, yellow plastic bag with yellow carrying strap"
+06 19703 6233 1855 2 "I am not sure what it is, but the black/dark color seems anomaly there since it is not shades of trees" 06 19703 6216 1873 0026 0031 "No abnormalities, good geolocation, on the field"
+08 26908 4342 0999 1 "shelter" 08 26908 4330 1010 0023 0026 "Good geolocation, no abnormalities"
+12 44119 7385 0173 2 "red in a green field, looks like blood" 12 44119 7373 0183 0023 0019 "Very accurate GPS location, no clear object in DLR imagery. Most likely a fallen tree. No abnormalities, not even in the surroundings."
+12 44129 3783 0164 1 "small hut" 12 44129 3750 0203 0095 0061 "Hunting stand, good geolocation"
+15 61602 3207 4620 1 "A small hut / cottage, wich could be used as a shelter." 15 61602 3173 4661 0066 0050 "Several huts on a horse pasture, one locked, one negative"
+15 61505 0734 4247 1 "Cabin in the woods" 15 61505 0704 4268 0051 0058 "Hunting stand, good geolocation"
+15 61518 8248 0935 1 "Cabin in the woods" 15 61518 8198 0971 0105 0105 "Shed, good geolocation"
+14 57531 2414 5939 2 "elongated shape, clear colors (last occurance of object found in images 57486-57531)" 14 57531 2414 5944 0017 0016 "Cleared area in a power line corridor, nothing unusual."
+11 40617 5623 5903 1 "Shelter" 11 40617 5575 5985 0116 0090 "Hunting stand, good geolocation, no abnormalities"
+10 34418 5887 2323 3 "Could be a body, might be a little bright and big" 10 34418 5862 2337 0026 0043 "Very accurate GPS location, no clear object in DLR imagery. Most likely a fallen tree. No abnormalities, not even in the surroundings."
+08 27118 5524 4563 3 "It is quite difficult to see what is there. I have seen close by cut down wood pieces and the one from coordinates could also be just that. There were anomalies on the marked coordinates, plus on the real image, I see a lengthy shadow. Furthermore, this is the only case from the other close by wood pieces, which stood out." 08 27118 5506 4576 0033 0043 "Feeding site with trail camera for JAB, several tree trunks"
+08 27118 4605 3944 1 "This looks like a small shelter where someone could be hiding." 08 27118 4527 3993 0154 0122 "Hunting stand, good geolocation"
+10 34452 5258 2749 2 "Large unusual looking block. In full sun very bright, so maybe wood, but somewhat unusually wide" 10 34452 5221 2771 0045 0051 "Very accurate GPS location, no clear object in DLR imagery. Most likely a fallen tree. No abnormalities, not even in the surroundings."
+12 44356 7880 4567 1 "Possible shelter (unlikely - looks like it is actively used by others)" 12 44356 7700 4841 0371 0392 "All huts individually checked, negative"
+08 27137 3865 0724 1 "A small square like shelter. Although the anomaly view did not detect this, from the real image, it seemed like a shelter to me." 08 27137 3826 0767 0080 0067 "Hunting stand, good geolocation"
+12 44356 6564 3464 1 "Hunter's stand (shelter)" 12 44356 6485 3503 0083 0127 "Hunting stand, good geolocation"
+08 27162 1649 1876 1 "A possibly square like shelter" 08 27162 1623 1905 0052 0051 "Hunting stand, good geolocation"
+08 27186 4757 2693 1 "A square like shelter." 08 27186 4683 2757 0121 0134 "Hunting stand, good geolocation"
+08 27156 3098 0483 2 "dark spot in lighter area" 08 27156 3081 0484 0021 0019 "GPS slightly erratic. Former forest area, now cleared due to wind or bark beetle. Object cannot be clearly identified. No abnormalities in surroundings."
+06 19651 4310 0917 1 "a little hut, kind of like one for hunters" 06 19651 4244 0953 0089 0089 "Hunting stand, good geolocation"
+11 41037 7488 3116 1 "A square like structure. I am unsure if it is related to the (mining?) site from the bottom right of the photo." 11 41037 7453 3147 0059 0065 "Hunting stand, good geolocation"
+11 40616 5593 2787 1 "Shelter" 11 40616 5559 2818 0061 0059 "Fallen trees, good geolocation, no abnormalities"
+11 40616 6881 2150 1 "Strange object / Possible Shelter" 11 40616 6839 2175 0047 0064 "Hunting stand, good geolocation"
+11 40660 7158 3189 2 "Abnormal Color / Possible Shelter" 11 40660 7122 3216 0054 0059 "Hunting stand, good geolocation"
+11 40729 5908 0267 1 "Potential Shelter with Potential Campsite to its Northwest" 11 40729 5881 0293 0048 0055 "Hunting stand, good geolocation"
+01 03018 2317 2124 2 "Some sort of structure. If you zoom in, you see the trees above that are green, and under, a blueish structure." 01 03018 2288 2151 0052 0059 "Definitely a hunting stand, no abnormalities in surroundings."
+06 19620 0588 3929 2 "A blueish structure that seems like a camping tent" 06 19620 0557 3969 0066 0069 "Hunting stand, no abnormalities."
+14 57486 5737 3807 1 "A shelter with a ladder attached to it. While it does not look like a shelter made on the spot, I think it is worth investigating." 14 57486 5700 3837 0108 0070 "Hunting stand, good geolocation"
+14 57575 0443 1658 1 "A tower like structure with a ladder attached to it." 14 57575 0407 1718 0130 0062 "Hunting stand"
+14 57574 0449 1520 1 "Possible Hideout" 14 57574 0417 1586 0132 0063 "Hunting stand"
+14 57486 5743 3809 1 "Possible Hideout (second report since i reported the first with an email address that cannot send emails anymore due to size constraints and i dont know if that results in issues)" 14 57486 5679 3836 0109 0093 "Hunting stand"
+14 57486 1544 0314 2 "clothing like blue spot in the size of a torso compared to the rest of the screen (roads etc) (second report since i reported the first with an email address that cannot send emails anymore due to size constraints and i dont know if that results in issues)" 14 57486 1535 0321 0016 0017 "Cleared area in a power line corridor, nothing unusual."
+14 57573 0438 1391 1 "Possible hideout (second report since i reported the first time with an email address that cannot send emails anymore due to size constraints and i dont know if that results in issues)" 14 57573 0392 1457 0133 0064 "Hunting stand"
+01 02990 0294 1539 3 "Looks like 3 people." 01 02990 0226 1594 0083 0091 "Group of people, excluded - not checked"
+01 03011 2110 0953 1 "Strange square structure in the trees" 01 03011 2079 0977 0054 0057 "(Directly near the above ID, therefore completed)"
+06 19660 4213 2376 1 "Some kind of shelter or hut." 06 19660 4159 2424 0080 0094 "Next to hunting stand, good geolocation"
+06 19620 0600 3926 2 "Some kind of blue thing of about 2x2 metres which could be a shelter or tent." 06 19620 0555 3969 0074 0087 "Hunting stand, no abnormalities."
+01 03061 1401 1300 3 "anomaly on tree trunk" 01 03061 1389 1319 0035 0023 "Tree trunk"
+11 41094 3735 5495 1 "A square man made structure. Could be a tent or a raised stand. Roof seems to be blueish." 11 41094 3703 5532 0064 0061 "Hunting stand, good geolocation"
+06 19656 5026 5056 3 "Lying body?" 06 19656 4935 5138 0154 0154 "Uprooted tree, no abnormalities."
+07 23422 0144 1306 1 "Raised hide" 07 23422 0107 1342 0087 0086 "Hunting stand, good geolocation"
+06 19631 0646 5832 2 "looks like something reflective on the roof of a small shed/hut" 06 19631 0609 5870 0072 0069 "Hunting stand, no abnormalities."
+11 40980 1285 0457 1 "Shelter" 11 40980 1244 0485 0063 0066 "Hunting stand, good geolocation"
+11 40980 7118 0246 1 "Shelter" 11 40980 7051 0290 0091 0123 "Container, good geolocation"
+11 41175 2141 4125 1 "Shelter" 11 41175 2104 4164 0076 0073 "Hunting stand, good geolocation"
+01 02970 6648 1065 1 "shelter" 01 02970 6574 1148 0130 0132 "Little house on water protection area, fenced, no access"
+01 02988 0315 1153 3 "few people lying or sitting on the grass in a wooded area" 01 02988 0265 1216 0081 0093 "Group of people, excluded - not checked"
+01 03033 5672 0271 1 "shelter" 01 03033 5625 0338 0154 0121 "Hunting stand, good geolocation"
+03 09474 2448 4434 1 "this looks like a freely accessible chicken coop, a kind of shelter where the perpetrator could be" 03 09474 2395 4559 0183 0217 "Chicken coop"
+03 09470 6996 4162 2 "that doesn't fit in the terrain, it could be a body part or clothing item in blue" 03 09470 6985 4174 0019 0023 "Blue canister behind hedge"
+06 19660 4283 2394 1 "could be a hiding place" 06 19660 4160 2425 0082 0091 "Next to hunting stand, good geolocation"
+14 57496 1579 1538 2 "backpack?" 14 57496 1568 1546 0017 0017 "Cleared area in a power line corridor, nothing unusual."
+14 57497 2357 1645 2 "lying/crouching person?" 14 57497 2347 1650 0022 0025 "Cleared area in a power line corridor, nothing unusual."
+15 61296 6329 0122 1 "high seat or tarpaulin" 15 61296 6293 0169 0075 0061 "Hunting stand"
+15 61390 6517 0034 1 "high seat" 15 61390 6485 0065 0057 0060 "Hunting stand, good geolocation"
+06 19683 5355 1090 1 "Non suspicious shed" 06 19683 5221 1225 0272 0302 "Hut empty"
+06 19712 3665 0811 3 "cyclist on the road" 06 19712 3647 0846 0065 0054 "Cyclist, excluded - not checked"
+06 19743 5245 0767 1 "a nice roof, in front of a bench in front of a road. It could be a small shed or (probably) a bus stop with a nice roof" 06 19743 5217 0796 0068 0051 "Covered sign"
+06 19762 7295 0865 1 "Its not clear what it is. It could be a very shed behind the bushes with a wooden contraption next to it" 06 19762 7265 0896 0064 0050 "Hunting stand, good geolocation"
+01 03199 6733 0342 0 "Looks like a body/trash bag - the shadow from the tree nearby makes it hard to determine the actual shape" 01 03199 6711 0360 0039 0035 NA
+01 03192 6357 0464 0 "There is a Human" 01 03192 6346 0474 0017 0017 NA
+07 23205 5561 1428 0 "Since the pictures of my batch were taken near some village , I dont think that something should be there , but I see some strange object in this area , maybe broken tree , but I am not sure" 07 23205 5550 1433 0010 0021 NA
+05 16390 0372 1440 0 "Bright green color anomaly" 05 16390 0360 1451 0024 0026 NA
+03 09345 0155 3286 0 "Bright orange spots near waterline - potentially washed up clothing or tarp" 03 09345 0025 3329 0147 0170 NA
+05 16494 2119 1540 0 "Possible shelter" 05 16494 2083 1568 0036 0042 NA
+08 27243 1716 1363 0 "possibly a shelter structure (but really hard to identify)" 08 27243 1682 1398 0083 0077 NA
+08 27307 1363 2722 0 "human-aligned tree logs reminding me of a wooden shelter, but hard to tell from above if the tree logs are just beside each other or if its really a shelter" 08 27307 1327 2747 0063 0087 NA
+08 27328 0388 2758 0 "Shelter with 2 shelters directly next to it" 08 27328 0215 2845 0146 0232 NA
+06 19341 0515 5798 0 "A blue thing which does not seem as it was created by nature" 06 19341 0501 5809 0026 0025 NA
+06 19341 6740 0509 0 "Something laying there but it could be just a root" 06 19341 6730 0535 0038 0022 NA
+07 23658 0149 0256 0 "It looks a lot like a person standing besides the road/path." 07 23658 0130 0278 0039 0043 NA
+07 23658 5270 5540 0 "It could be just wood but the shape is slightly suspicious." 07 23658 5256 5549 0050 0034 NA
+07 23658 3463 5111 0 "In this particular image, this region of about 14 pixels wide looks like the face of a rotten, dead body." 07 23658 3454 5120 0019 0016 NA
+07 23658 8378 5631 0 "It looks like something black in the water pond and it doesn't look natural." 07 23658 8375 5632 0008 0009 NA
+07 23689 7898 2067 0 "Region of 30 pixels that somehow stands out from the surrounding." 07 23689 7870 2092 0051 0050 NA
+07 23689 7252 1092 0 "A long-ish (few metres long) something that has unusual blue tones." 07 23689 7227 1107 0039 0040 NA
+08 26805 3849 0290 0 "orange colour like someone is sited" 08 26805 3840 0313 0038 0025 NA
+07 23767 7462 0318 0 "Could be some sort of shelter." 07 23767 7419 0360 0093 0079 NA
+07 23719 5376 1055 0 "There are two apparently abandoned buildings which could be possible shelter." 07 23719 5135 1593 0829 0485 NA
+03 09305 3049 0522 0 "Shape looks out of place, not sure if its something though" 03 09305 3008 0548 0096 0091 NA
+11 40827 5751 0128 0 "I am quite unsure of what I found and what to describe it. I see a circle like form (could be a rock) and a bit to the right, it seems like there is a continuation of some sort, something attached to that. All this seemed weird to me and I said it is better to report it." 11 40827 5724 0156 0049 0054 NA
+11 40407 1916 0704 0 "shelter or a car" 11 40407 1889 0728 0059 0054 NA
+03 09187 5833 0961 0 "weirdly rectangular object in a forest (camouflaged tent?)" 03 09187 5772 0996 0081 0092 NA
+05 15974 4116 0564 0 "Two white stripes of something in the shadow." 05 15974 4097 0585 0040 0056 NA
+09 31244 6714 4149 0 "Looks like a person lying down" 09 31244 6704 4174 0036 0028 NA
+14 56961 1483 0887 0 "different colored area of approx. 2  m^2, possibly a canvas or tarp" 14 56961 1468 0913 0047 0029 NA
+03 09072 4497 0371 0 "something wrapped in a human body shape" 03 09072 4457 0383 0032 0072 NA
+10 34101 3772 5629 0 "An olive triangle not fitting into the surrounding area" 10 34101 3747 5640 0026 0044 NA
+04 12366 5048 3290 0 "A possible hid out ?" 04 12366 5012 3336 0090 0086 NA
+04 12366 3010 2208 0 "a blue object" 04 12366 2977 2268 0081 0070 NA
+14 56986 4060 0532 0 "two piles of wood where someone could lie in between" 14 56986 4025 0611 0181 0080 NA
+08 27437 2945 3518 0 "Probably a person lying on his side with bent knees, wearing shoes, with bare legs" 08 27437 2929 3527 0027 0034 NA
+04 12366 4138 0062 0 "white floating object" 04 12366 4104 0086 0062 0066 NA
+08 27433 2500 2775 0 "Possible shelter: logs stacked next to each other. It looks like they are lying on the ground. But if there is a hole underneath, then this place can be used as a shelter." 08 27433 2484 2792 0036 0036 NA
+08 27433 4145 5858 0 "Possible shelter: logs stacked next to each other. It looks like they are lying on the ground. But if there is a hole underneath, then this place can be used as a shelter." 08 27433 4120 5902 0092 0049 NA
+10 34176 1468 0548 0 "An olive colored, to perfectly round spot with a shape of a person lying next to / sitting on it: Head/face north, beige brown top darker trousers, feet south." 10 34176 1455 0562 0027 0026 NA
+10 34202 2045 2547 0 "A shape reminding of a person/body wearing a light white/greenish top, dark belt, beige/brown trousers head north, feet south, lying on the ground." 10 34202 2032 2554 0019 0021 NA
+08 27440 4570 4910 0 "Possible shelter" 08 27440 4552 4920 0026 0036 NA
+14 57005 4844 0282 0 "dont know, maybe sth" 14 57005 4833 0290 0019 0019 NA
+14 57020 3243 0591 0 "different color, > 1 m^2" 14 57020 3218 0608 0031 0061 NA
+14 57026 3950 0346 0 "different color" 14 57026 3937 0353 0019 0016 NA
+07 23223 3943 0196 0 "Looks like some figure, maybe seems to be" 07 23223 4027 0161 0024 0026 NA
+14 57031 2434 0209 0 "a shed?" 14 57031 2410 0219 0037 0058 NA
+07 23596 2765 2180 0 "a long orange/yellow object laying on the ground" 07 23596 2754 2211 0044 0017 NA
+15 61336 4133 2150 0 "This "pile" looks artificial to me and keeps its shape over the range of images where it is in view" 15 61336 4123 2164 0021 0021 NA
+10 34270 2000 3166 0 "Unidentifiable round shape" 10 34270 1989 3184 0032 0038 NA
+14 57052 0236 0255 0 "sth dark" 14 57052 0180 0339 0128 0093 NA
+07 23343 0285 1701 0 "Looks like a humanlike shape with orange clothing, or wrapped in orange/bright plastic" 07 23343 0251 1752 0083 0083 NA
+07 23366 1456 2182 0 "Looks like a red tarpaulin/cover like something one would use to provisionally build a shelter. Could also be a random red container in the woods" 07 23366 1418 2230 0118 0099 NA
+07 23668 0077 2396 0 "yellow pixel under a tree so i could not distinguish what it was exactly" 07 23668 0069 2402 0011 0014 NA
+06 19415 2145 0190 0 "An orange and a blue stuff at the lake shore" 06 19415 2131 0199 0023 0030 NA
+01 03169 1479 1627 0 "cannot exactly define what it is; it is a white area but looks kind of weird to me" 01 03169 1418 1694 0132 0115 NA
+01 03153 3391 5656 0 "oval black spot on the ground" 01 03153 3364 5675 0043 0044 NA
+06 19260 1444 0294 0 "a blue-ish looking object" 06 19260 1423 0338 0053 0049 NA
+06 19265 1083 0203 0 "a blue elongated object" 06 19265 1068 0228 0059 0032 NA
+11 40964 0143 5462 0 "Pile of tree branches, it looks kind of man-made. Could maybe be used to hide." 11 40964 0000 5599 0262 0367 NA
+11 40995 7226 3934 0 "Could be a person standing with its arms wide. Could be more in the same area." 11 40995 7210 3977 0068 0031 NA
+08 27437 4140 5285 0 "Possible shelter" 08 27437 4107 5307 0043 0073 NA
+08 27437 1991 5353 0 "Possible shelter" 08 27437 1919 5423 0147 0128 NA
+05 16602 5964 3541 0 "blue pixel (different color than the forrest) - similar to a bust shape." 05 16602 5959 3555 0030 0038 NA
+05 16621 6179 0194 0 "Color anomaly - red stain/dot" 05 16621 6166 0199 0025 0021 NA
+05 16524 0916 0405 0 "Odd coloring!" 05 16524 0905 0416 0044 0034 NA
+11 40410 0593 0593 0 "shelter" 11 40410 0555 0667 0040 0031 NA
+11 40410 5766 5766 0 "might be a shelter" 11 40410 5732 5799 0074 0075 NA
+11 40412 0561 2394 0 "shelter" 11 40412 0515 2617 0368 0386 NA
+11 40412 0872 2435 0 "shelter" 11 40412 0853 2443 0023 0032 NA
+11 40412 0877 2496 0 "shelter" 11 40412 0854 2504 0029 0035 NA
+11 40414 6438 0142 0 "Maybe a shelter or a boundary" 11 40414 6355 0216 0117 0148 NA
+14 57137 1137 0513 0 "maybe something like a shelter" 14 57137 1096 0541 0055 0083 NA
+14 57428 1292 0149 0 "Not sure what exactly this is" 14 57428 1249 0174 0048 0060 NA
+14 57152 1798 0339 0 "something wooden, in an almost L shape" 14 57152 1749 0338 0023 0083 NA
+14 57485 8026 0251 0 "Looks like fire place?" 14 57485 8007 0267 0034 0040 NA
+06 19514 1296 0434 0 "potential hide" 06 19514 1288 0448 0024 0012 NA
+06 19516 3984 0404 0 "Looks like man made structure" 06 19516 3978 0416 0024 0013 NA
+11 40422 7764 1014 0 "Maybe a body" 11 40422 7737 1022 0022 0022 NA
+05 16287 4255 4241 0 "Dark object close to a tree, does not match the other shadows in this area, seems to have a white spot on it, also does not seem to belong to the vegetation" 05 16287 4227 4272 0063 0063 NA
+06 19555 6454 0134 0 "looks like a shirt" 06 19555 6445 0136 0018 0017 NA
+11 40440 4706 2076 0 "body maybe" 11 40440 4690 2089 0027 0031 NA
+11 40440 3853 3853 0 "human" 11 40440 3847 3866 0028 0021 NA
+11 40440 4185 0588 0 "human" 11 40440 4164 0602 0029 0038 NA
+11 40440 3849 1935 0 "human" 11 40440 3838 1952 0026 0018 NA
+11 40441 3835 3835 0 "human" 11 40441 3823 3869 0048 0045 NA
+11 40443 5556 0109 0 "human" 11 40443 5544 0133 0034 0024 NA
+08 27380 2785 4562 0 "Possible Shelter and Not Familiar Colors with the forest( Red ), anomalies show up also." 08 27380 2727 4600 0077 0115 NA
+09 30572 6712 0248 0 "An image" 09 30572 6703 0263 0023 0018 NA
+09 30571 6821 0077 0 "Two legs" 09 30571 6810 0094 0026 0027 NA
+12 44677 1216 1440 0 "might be something wrapped" 12 44677 1191 1482 0071 0046 NA
+11 40449 4117 4117 0 "human" 11 40449 4058 4185 0097 0100 NA
+11 40449 4117 3275 0 "human" 11 40449 4100 3287 0027 0025 NA
+11 40449 4113 2849 0 "human" 11 40449 4104 2856 0014 0015 NA
+10 34408 2187 3976 0 "not really sure, might be a branch but it looks different from other branches. it could possibly be a piece of cloth or part of a body." 10 34408 2171 3979 0018 0077 NA
+11 40449 4392 2460 0 "human" 11 40449 4376 2467 0021 0023 NA
+11 40449 4817 3317 0 "human" 11 40449 4810 3323 0021 0022 NA
+11 40449 4971 3393 0 "human" 11 40449 4946 3402 0029 0039 NA
+11 40451 6793 1310 0 "human" 11 40451 6780 1315 0020 0023 NA
+10 34408 3182 3710 0 "looks like a standing person" 10 34408 3168 3720 0021 0023 NA
+14 57769 3461 0167 0 "car" 14 57769 3376 0228 0144 0147 NA
+11 40514 5773 0193 0 "human" 11 40514 5725 0227 0077 0088 NA
+05 16120 7679 0587 0 "Looks like an unusual color for a forest. May be some kind of improvised roofing." 05 16120 7613 0680 0220 0229 NA
+05 16184 7216 2658 0 "An apparent human-made structure with a purpose I do not recognize" 05 16184 7185 2691 0061 0057 NA
+06 19803 6145 0085 0 "the pixels surrounding looks like a red pile , not sure what but definitely seems out of place, given the surroundings and proximity to houses , its unlikely what we are looking for but it definitely seems out of place" 06 19803 6123 0108 0043 0036 NA
+08 27389 8350 4429 0 "Looks like a hole with branches collapsed. Possible hiding spot." 08 27389 8315 4461 0119 0099 NA
+08 27377 3003 5682 0 "Looks like a body with logs covering it. Cant know for sure because of the resolution, maybe some logs and branches." 08 27377 2939 5744 0089 0092 NA
+04 12598 6242 0198 0 "discoloration" 04 12598 6217 0257 0074 0081 NA
+04 12634 6494 1661 0 "Blue patch in the woods." 04 12634 6485 1670 0015 0013 NA
+04 12054 2837 3948 0 "Looks like a letter Z" 04 12054 2821 3959 0029 0028 NA
+04 12162 4730 0513 0 "unusual car track in the meadow between the road and the side path." 04 12162 4685 0548 0094 0088 NA
+04 12302 6367 1005 0 "Car track in the meadow" 04 12302 6332 1034 0063 0062 NA
+04 12658 1054 4958 0 "Car tracks in the field between the houses" 04 12658 1025 5003 0079 0058 NA
+04 12592 7072 2013 0 "Car lane? over road in meadow/vegetation" 04 12592 6897 2094 0106 0221 NA
+04 12607 7633 2709 0 "interesting discolorated shape" 04 12607 7596 2734 0063 0079 NA
+07 23763 1353 4397 0 "Seems to be an orange pile of leaves but also not. Very out of place" 07 23763 1324 4426 0068 0061 NA
+07 23812 2800 0565 0 "Seems to be a cover, it has uniform color with an oval shape with a color similar to leaves but different from it." 07 23812 2593 0646 0251 0331 NA
+07 23820 4090 0040 0 "Could be a stomp but it looks very weird." 07 23820 4015 0124 0124 0141 NA
+07 23840 7230 4500 0 "Putting it here just to be sure, It seems like someone laying down but its both near a shed and it also looks too big to be human but I would've felt bad leaving it out" 07 23840 7198 4524 0039 0059 NA
+03 09397 3610 0521 0 "could be a lying person, either sleeping or dead" 03 09397 3596 0548 0046 0024 NA
+03 09387 5919 0585 0 "not sure, but it looks abnormal, could be a person, an animal or just part of a tree" 03 09387 5903 0605 0046 0033 NA
+05 16283 5742 3246 0 "suspicious shape, could be a shelter" 05 16283 5719 3255 0022 0033 NA
+05 15865 2071 1647 0 "something above the tree; couldnt verify" 05 15865 2067 1655 0010 0010 NA
+05 15914 1316 2030 0 "unsual colour" 05 15914 1271 2065 0076 0088 NA
+14 57326 2609 0015 0 "Something red leaning on a fallen tree trunk. Perhaps Blood? Bloody Clothes? Or Body? Cant be certain." 14 57326 2568 0016 0016 0103 NA
+07 23857 0619 1549 0 "cyclist ?" 07 23857 0587 1568 0036 0051 NA
+15 61592 6610 0674 0 "a blue thing in the forest with size of a body" 15 61592 6597 0702 0056 0022 NA
+08 27012 2440 4609 0 "seems like colored pixel laying on the ground" 08 27012 2421 4625 0046 0039 NA
+07 23473 6077 0547 0 "red pixels under the tree, very hard to make out what it actually seems to be but it is quite the contrast to the greens of the tree around it" 07 23473 6065 0564 0039 0020 NA
+07 23355 1476 0215 0 "roof, tarp" 07 23355 1421 0278 0118 0097 NA
+07 23358 3790 5285 0 "could be a dead body" 07 23358 3763 5325 0075 0054 NA
+10 33779 4000 5500 0 "Weird shape, I guess its just red sticks or something but it kind of has a weird shape and maybe could be looked at a second time, but quiet unlikely that it might be a body" 10 33779 3989 5510 0024 0023 NA
+07 23703 1025 2845 0 "Body" 07 23703 0996 2879 0061 0070 NA
+07 23730 3753 0367 0 "Person standing" 07 23730 3744 0390 0050 0028 NA
+05 15953 4704 2189 0 "There is something blue between the trees that cannot be described in more detail. The object is depicted as a blue anomaly." 05 15953 4696 2199 0018 0017 NA
+05 15974 5286 4345 0 "The object cannot be described in more detail. This is not recognizable in the normal image and only becomes visible as an anomaly." 05 15974 5280 4350 0012 0017 NA
+15 61616 0222 0604 0 "Looks like a person lying on his stomach or a shadow." 15 61616 0184 0627 0052 0050 NA
+11 40723 4068 4588 0 "An anomaly in the shape of a cross is displayed. A dark spot can be detected between the trees. However, the area is in the immediate vicinity of a forest path. Therefore, probably irrelevant." 11 40723 4059 4593 0013 0021 NA
+02 05651 4158 3908 0 "Left of a warehouse something looks like a body." 02 05651 4114 3945 0091 0087 NA
+12 44116 2336 0266 0 "Dark object leaned against a fallen tree, backpack?" 12 44116 2308 0279 0038 0047 NA
+15 61602 0192 0395 0 "Unknown blue object near a tree." 15 61602 0175 0406 0040 0039 NA
+15 61693 7133 0109 0 "Unknown grey/blue objekt." 15 61693 7126 0111 0007 0012 NA
+11 40617 2142 4146 0 "Abnormal Color" 11 40617 2012 4249 0234 0226 NA
+15 61187 1506 0629 0 "lying person" 15 61187 1450 0670 0058 0065 NA
+11 41064 3113 0584 0 "Looks like a blue/white structure, unsure if it is meant to be there." 11 41064 3080 0595 0052 0063 NA
+11 40676 6215 0963 0 "Possible Campsite / Looks Manmade" 11 40676 6202 0979 0024 0016 NA
+11 40676 5090 2857 0 "Studying the Object over multiple Images, it appears it and or the shadow is moving" 11 40676 5072 2865 0021 0027 NA
+11 41037 2452 0267 0 "A shelter like structure." 11 41037 2436 0281 0024 0031 NA
+11 40783 4419 3944 0 "Over the course of the images the Object appears to be moving" 11 40783 4377 3963 0067 0147 NA
+01 03070 4334 5525 0 "A circle form that has (I think) something attached, to the right side. Tried to zoom in and out to get a better understanding, but I could not." 01 03070 4315 5536 0028 0042 NA
+01 02988 0644 2956 0 "I do not know if it just me, but when I zoom in enough, that seems like a face to me. I might be wrong, although, lakes and places with water are worth investigating in such cases as this one." 01 02988 0569 2972 0098 0100 NA
+06 19551 0459 5225 0 "A blue, unnatural thing of about 2x2 metres. This could be a tent or shelter." 06 19551 0447 5234 0020 0025 NA
+13 47789 4735 2550 0 "board (planks) - shelter (roof)?" 13 47789 4706 2562 0047 0052 NA
+06 19640 3764 5486 0 "looks like a woman with light hair" 06 19640 3759 5504 0030 0012 NA
+08 27123 3108 2042 0 "red/orange spot, single person sitting, maybe just a tree stump" 08 27123 3086 2057 0037 0047 NA
+08 27131 3690 0740 0 "yellow (abnnormal colour), maybe sleeping bag or jacket" 08 27131 3670 0759 0051 0031 NA
+11 40937 1694 0965 0 "Unnatural Color" 11 40937 1676 0976 0025 0040 NA
+11 41118 6728 0323 0 "Person standing under a tree, next to the road wearing brown clothes" 11 41118 6709 0337 0034 0027 NA
+11 40976 8157 0652 0 "Possible Pool of Blood / Body Parts" 11 40976 8119 0711 0100 0089 NA
+06 19604 2104 5260 0 "looks like someone lying under the tree" 06 19604 2078 5271 0030 0035 NA
+01 03240 1533 1599 0 "walking person" 01 03240 1499 1593 0062 0053 NA
+06 19592 3211 5753 0 "a bike" 06 19592 3194 5773 0044 0034 NA
+03 09481 7556 5328 0 "it looks suspicious, it could be a covered person or corpse. It looks like a tarpaulin that covers something that has human form" 03 09481 7535 5348 0062 0058 NA
+03 09382 8146 4900 0 "that doesn't fit into the terrain, it could be body parts, or a lifeless body" 03 09382 8124 4923 0044 0074 NA
+06 19551 0806 1071 0 "This could be a person" 06 19551 0727 1109 0108 0139 NA
+06 19551 5591 1538 0 "This could be a hiding place" 06 19551 5566 1556 0038 0057 NA
+06 19583 4118 2715 0 "This could be a person" 06 19583 4022 2829 0174 0202 NA
+06 19701 8075 1747 0 "looks like a person standing but the shadow suggests otherwise" 06 19701 8061 1757 0019 0027 NA
+06 19701 8316 0950 0 "looks like a person but the shadow suggests otherwise" 06 19701 8292 0974 0035 0042 NA
+06 19733 8080 0235 0 "Its probably a tree judging by the ones that are parallel to it but it does not look like a tree. 30 by 9 pixels wide, oval/fish like shape, has stripes and a yellow head" 06 19733 8075 0244 0024 0039 NA
