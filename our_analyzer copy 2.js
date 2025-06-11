@@ -543,98 +543,98 @@
     setTimeout(() => gotoBtn.click(), 0);
   }
 
-  // ————— Load image & capture its size —————
-  function loadImage() {
-    // ——— Detect missing mask ———
-    if (channel === 'rgb_mask') {
-      const maskUrl = images[idx].rgb_mask || '';
-      if (maskUrl.trim() === '') {
-        alert('⚠️ No mask image available for this frame.');
-        // fall back to RGB
-        channel = 'rgb';
-        applyGamma();
-        // if you’d prefer to abort entirely instead of loading RGB, uncomment:
-        // return;
-      }
-    }
-
-    // remove any old spinner
-    document.getElementById('spinner')?.remove();
-    // create & show new spinner
-    const spinner = document.createElement('div');
-    spinner.id = 'spinner';
-    Object.assign(spinner.style, {
-      display: 'block',
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%,-50%)',
-      width: '40px',
-      height: '40px',
-      border: '4px solid rgba(0,0,0,0.1)',
-      borderTop: '4px solid #333',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite',
-      zIndex: '1001'
-    });
-    viewerEl.appendChild(spinner);
-
-    // remember zoom & center (so we don’t snap back to home each time)
-    let oldZoom, oldCenter;
-    if (!isFirst) {
-      oldZoom   = viewer.viewport.getZoom();
-      oldCenter = viewer.viewport.getCenter();
-    }
-
-    // actually load the image (either rgb or rgb_mask)
-    viewer.open({ type: 'image', url: images[idx][channel] });
-    viewer.addOnceHandler('open', () => {
-      spinner.style.display = 'none';
-
-      // capture true pixel dims
-      const tiledImg = viewer.world.getItemAt(0);
-      if (tiledImg && tiledImg.getContentSize) {
-        const size = tiledImg.getContentSize();
-        imageWidth  = size.x;
-        imageHeight = size.y;
-      }
-
-      // on very first load, goHome; otherwise restore view
-      if (isFirst) {
-        viewer.viewport.goHome(true);
-        isFirst = false;
-      } else {
-        viewer.viewport.zoomTo(oldZoom, null, true);
-        viewer.viewport.panTo(oldCenter, true);
-      }
-
-      // update strip/image info and gamma label
-      stripEl.textContent = `Strip: ${rawStrip} | Image: ${rawImage}/${lastImageID}`;
+// ————— Load image & capture its size —————
+function loadImage() {
+  // ——— Detect missing mask ———
+  if (channel === 'rgb_mask') {
+    const maskUrl = images[idx].rgb_mask || '';
+    if (maskUrl.trim() === '') {
+      alert('⚠️ No mask image available for this frame.');
+      // fall back to RGB
+      channel = 'rgb';
       applyGamma();
-
-      // redraw any shapes
-      if (rectCoordinates)   drawRectangle();
-      if (markerCoordinates) drawMarker();
-
-      // center viewport on shape if requested via “Go”
-      if (pendingGoto) {
-        if (rectCoordinates) {
-          const cx = rectCoordinates.x + rectCoordinates.width  / 2;
-          const cy = rectCoordinates.y + rectCoordinates.height / 2;
-          const vp = viewer.viewport.imageToViewportCoordinates(
-            new OpenSeadragon.Point(cx, cy)
-          );
-          viewer.viewport.panTo(vp, true);
-        } else if (markerCoordinates) {
-          const vp = viewer.viewport.imageToViewportCoordinates(
-            new OpenSeadragon.Point(markerCoordinates.x, markerCoordinates.y)
-          );
-          viewer.viewport.panTo(vp, true);
-        }
-        pendingGoto = false;
-      }
-    });
+      // if you’d prefer to abort entirely instead of loading RGB, uncomment:
+      // return;
+    }
   }
+
+  // remove any old spinner
+  document.getElementById('spinner')?.remove();
+  // create & show new spinner
+  const spinner = document.createElement('div');
+  spinner.id = 'spinner';
+  Object.assign(spinner.style, {
+    display: 'block',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%,-50%)',
+    width: '40px',
+    height: '40px',
+    border: '4px solid rgba(0,0,0,0.1)',
+    borderTop: '4px solid #333',
+    borderRadius: '50%',
+    animation: 'spin 1s linear infinite',
+    zIndex: '1001'
+  });
+  viewerEl.appendChild(spinner);
+
+  // remember zoom & center (so we don’t snap back to home each time)
+  let oldZoom, oldCenter;
+  if (!isFirst) {
+    oldZoom   = viewer.viewport.getZoom();
+    oldCenter = viewer.viewport.getCenter();
+  }
+
+  // actually load the image (either rgb or rgb_mask)
+  viewer.open({ type: 'image', url: images[idx][channel] });
+  viewer.addOnceHandler('open', () => {
+    spinner.style.display = 'none';
+
+    // capture true pixel dims
+    const tiledImg = viewer.world.getItemAt(0);
+    if (tiledImg && tiledImg.getContentSize) {
+      const size = tiledImg.getContentSize();
+      imageWidth  = size.x;
+      imageHeight = size.y;
+    }
+
+    // on very first load, goHome; otherwise restore view
+    if (isFirst) {
+      viewer.viewport.goHome(true);
+      isFirst = false;
+    } else {
+      viewer.viewport.zoomTo(oldZoom, null, true);
+      viewer.viewport.panTo(oldCenter, true);
+    }
+
+    // update strip/image info and gamma label
+    stripEl.textContent = `Strip: ${rawStrip} | Image: ${rawImage}/${lastImageID}`;
+    applyGamma();
+
+    // redraw any shapes
+    if (rectCoordinates)   drawRectangle();
+    if (markerCoordinates) drawMarker();
+
+    // center viewport on shape if requested via “Go”
+    if (pendingGoto) {
+      if (rectCoordinates) {
+        const cx = rectCoordinates.x + rectCoordinates.width  / 2;
+        const cy = rectCoordinates.y + rectCoordinates.height / 2;
+        const vp = viewer.viewport.imageToViewportCoordinates(
+          new OpenSeadragon.Point(cx, cy)
+        );
+        viewer.viewport.panTo(vp, true);
+      } else if (markerCoordinates) {
+        const vp = viewer.viewport.imageToViewportCoordinates(
+          new OpenSeadragon.Point(markerCoordinates.x, markerCoordinates.y)
+        );
+        viewer.viewport.panTo(vp, true);
+      }
+      pendingGoto = false;
+    }
+  });
+}
 
 
   // ───── When “Save” is clicked ─────

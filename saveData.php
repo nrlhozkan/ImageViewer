@@ -1,5 +1,29 @@
 <?php
-// saveData.php
+// 0) Hard-coded users — replace with your own list or load from secure storage
+$validUsers = [
+  'nrl' => '12',
+  // …etc…
+];
+
+// Read POST & decode as you already do
+$raw = file_get_contents('php://input');
+$data = json_decode($raw, true);
+
+// 0a) Reject missing creds
+if (empty($data['user']) || empty($data['pass'])) {
+    header('Content-Type: application/json');
+    echo json_encode(['success'=>false,'error'=>'Invalid credentials']);
+    exit;
+}
+
+// 0b) Validate
+$u = $data['user'];
+$p = $data['pass'];
+if (! array_key_exists($u, $validUsers) || $validUsers[$u] !== $p) {
+    header('Content-Type: application/json');
+    echo json_encode(['success'=>false,'error'=>'Invalid credentials']);
+    exit;
+}
 
 // 1) Return JSON to the client
 header('Content-Type: application/json');

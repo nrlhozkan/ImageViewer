@@ -1,4 +1,3 @@
-// our_analyzer_v2.js
 (async function(){
   // ————— Base strip URL prefix —————
   const STRIP_BASE = window.location.protocol === 'file:'
@@ -10,26 +9,68 @@
       );
 
   // ————— UI elements —————
-  const viewerEl       = document.getElementById('viewer');
-  const gotoInputEl    = document.getElementById('gotoInput');
-  const gotoBtn        = document.getElementById('gotoBtn');
-  const clearBtn       = document.getElementById('clearBtn');     // renamed
-  const restoreBtn     = document.getElementById('restoreBtn');
-  const downloadZipBtn = document.getElementById('downloadZipBtn');
-  const infoURLsEl     = document.getElementById('infoURLs');
-  const stripEl        = document.getElementById('stripImageInfo');
-  const gammaEl        = document.getElementById('gammaInfo');
-  const rectInfoEl     = document.getElementById('rectInfo');
-  const markerInfoEl   = document.getElementById('markerInfo');
+  const viewerEl         = document.getElementById('viewer');
+  const gotoInputEl      = document.getElementById('gotoInput');
+  const gotoBtn          = document.getElementById('gotoBtn');
+  const clearBtn         = document.getElementById('clearBtn');
+  const restoreBtn       = document.getElementById('restoreBtn');
+  const downloadZipBtn   = document.getElementById('downloadZipBtn');
+  const downloadDataBtn  = document.getElementById('downloadDataBtn');
+  const infoURLsEl       = document.getElementById('infoURLs');
+  const stripEl          = document.getElementById('stripImageInfo');
+  const gammaEl          = document.getElementById('gammaInfo');
+  const rectInfoEl       = document.getElementById('rectInfo');
+  const markerInfoEl     = document.getElementById('markerInfo');
+  const classPanelEl     = document.getElementById('classPanel');
+  const classSelectEl    = document.getElementById('classSelect');
+  const classInfoEl      = document.getElementById('classInfo');
+  const saveClassBtn     = document.getElementById('saveClassBtn');
 
-  // ───── “Classes” panel elements ─────
-  const classPanelEl   = document.getElementById('classPanel');
-  const classSelectEl  = document.getElementById('classSelect');
-  const classInfoEl    = document.getElementById('classInfo');
-  const saveClassBtn   = document.getElementById('saveClassBtn');
+  // Auth modal elements
+  const authModal        = document.getElementById('authModal');
+  const authUserEl       = document.getElementById('authUser');
+  const authPassEl       = document.getElementById('authPass');
+  const authSubmitBtn    = document.getElementById('authSubmit');
 
-  // ————— Constants —————
-  const PANEL_GAP = 8; // 8px gap between stacked panels
+  // Download-range modal elements
+  const downloadModal    = document.getElementById('downloadModal');
+  const dlStrip          = document.getElementById('dlStrip');
+  const dlStart          = document.getElementById('dlStart');
+  const dlEnd            = document.getElementById('dlEnd');
+  const dlCancel         = document.getElementById('dlCancel');
+  const dlConfirm        = document.getElementById('dlConfirm');
+
+  // ————— Authentication state —————
+  let auth = { user: '', pass: '' };
+
+  function ensureAuth(done) {
+    if (auth.user && auth.pass) return done();
+    authModal.style.display = 'flex';
+    authSubmitBtn.onclick = () => {
+      const u = authUserEl.value.trim();
+      const p = authPassEl.value;
+      if (!u || !p) {
+        alert('Please enter both user ID and password.');
+        return;
+      }
+      auth.user = u;
+      auth.pass = p;
+      localStorage.setItem('viewer_user', u);
+      localStorage.setItem('viewer_pass', p);
+      authModal.style.display = 'none';
+      done();
+    };
+  }
+  [authUserEl, authPassEl].forEach(el => {
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        authSubmitBtn.click();
+      }
+    });
+  });
+
+  const PANEL_GAP = 8;
 
   // ————— Inject custom cursors —————
   const style = document.createElement('style');
@@ -50,7 +91,8 @@
     }
   `;
   document.head.appendChild(style);
-    // ————— State —————
+
+  // ————— State —————
   const deletionStack = [];   // <-- stack of deleted shapes
   let viewer, images = [], idx = 0, channel = 'rgb', gamma = 1.0;
   let stripId, lastImageID;
@@ -158,9 +200,11 @@
     markerInfoEl.textContent = '';
 
     if (!rectCoordinates) {
+      // No rectangle: hide panel and reset markerInfo
       classPanelEl.style.display = 'none';
       markerInfoEl.style.top = '180px';
     } else {
+      // Rectangle still exists: stack rectInfo → markerInfo → classPanel
       rectInfoEl.style.display = 'block';
       const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
       markerInfoEl.style.top = rectBottom + 'px';
@@ -185,13 +229,16 @@
     }
     rectCoordinates = null;
 
+    // Hide rectInfo element entirely
     rectInfoEl.style.display = 'none';
     rectInfoEl.textContent = '';
 
     if (!markerCoordinates) {
+      // No marker: hide panel and reset markerInfo
       classPanelEl.style.display = 'none';
       markerInfoEl.style.top = '180px';
     } else {
+      // Marker still exists: stack markerInfo → classPanel
       markerInfoEl.style.top = '180px';
       const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
       classPanelEl.style.top  = markerBottom + 'px';
@@ -220,6 +267,7 @@
     viewer.addOverlay({ element: marker, location: vp, placement: OpenSeadragon.Placement.CENTER });
     viewer._lastMarker = marker;
 
+    // Position markerInfo
     if (rectCoordinates) {
       rectInfoEl.style.display = 'block';
       const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
@@ -230,6 +278,7 @@
     markerInfoEl.textContent =
       `Marker\nX pixel: ${pad4(Math.round(markerCoordinates.x))}, Y pixel: ${pad4(Math.round(markerCoordinates.y))}`;
 
+    // Always place classPanel immediately below markerInfo:
     const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
     classPanelEl.style.top  = markerBottom + 'px';
     classPanelEl.style.left = '10px';
@@ -247,6 +296,7 @@
       viewer.removeHandler('update-viewport', updateHandler);
     }
 
+    // Ensure rectInfo is visible, then update its contents
     rectInfoEl.style.display = 'block';
     const x0 = Math.round(rectCoordinates.x);
     const y0 = Math.round(rectCoordinates.y + rectCoordinates.height);
@@ -255,6 +305,7 @@
       `X pixel: ${pad4(x0)}, Y pixel: ${pad4(y0)}\n` +
       `Height: ${pad4(Math.round(rectCoordinates.height))}, Width: ${pad4(Math.round(rectCoordinates.width))}`;
 
+    // Create/update the rectangle overlay
     rectOverlayEl = document.createElement('div');
     Object.assign(rectOverlayEl.style, {
       position:'absolute', border:'4px solid blue',
@@ -276,7 +327,9 @@
     viewer.addHandler('update-viewport', updateHandler);
     updateHandler();
 
+    // Now position panels:
     if (markerCoordinates) {
+      // Both rectangle & marker exist:
       const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
       markerInfoEl.style.top = rectBottom + 'px';
       const markerBottom = markerInfoEl.offsetTop + markerInfoEl.offsetHeight + PANEL_GAP;
@@ -284,10 +337,12 @@
       classPanelEl.style.left = '10px';
       classPanelEl.style.display = 'block';
     } else {
+      // Only rectangle exists:
       const rectBottom = rectInfoEl.offsetTop + rectInfoEl.offsetHeight + PANEL_GAP;
       classPanelEl.style.top  = rectBottom + 'px';
       classPanelEl.style.left = '10px';
       classPanelEl.style.display = 'block';
+      // Hide markerInfo off-screen:
       markerInfoEl.style.top = '180px';
       markerInfoEl.textContent = '';
     }
@@ -375,7 +430,7 @@
     downloadZipBtn.style.display = 'inline-block';
     loadImage();
   });
-
+  
   clearBtn.addEventListener('click',   clearAll);
   restoreBtn.addEventListener('click', restoreLast);
 
@@ -436,8 +491,9 @@
 
   // ————— Keyboard nav & gamma —————
   window.addEventListener('keydown', e => {
-    if (classPanelEl.style.display === 'block' && classPanelEl.contains(e.target)) {
-      return;
+    if ((classPanelEl.style.display === 'block' && classPanelEl.contains(e.target)) ||
+        (authModal.style.display   === 'flex'  && authModal.contains(e.target))) {
+    return;
     }
     const k = e.key.toLowerCase();
     if (!['a','d','w','s','+','-',' '].includes(k) && e.code !== 'Space') return;
@@ -475,25 +531,84 @@
     loadImage();
   });
 
-  // ————— Download ZIP —————
-  downloadZipBtn.addEventListener('click', async () => {
-    if (!images.length) return alert('No images loaded');
-    const obj = images[idx], zip = new JSZip();
-    try {
-      const [r1,r2] = await Promise.all([fetch(obj.rgb), fetch(obj.rgb_mask)]);
-      if (!r1.ok||!r2.ok) throw new Error();
-      const [b1,b2] = await Promise.all([r1.blob(), r2.blob()]);
-      zip.file(obj.rgb.split('/').pop(), b1);
-      zip.file(obj.rgb_mask.split('/').pop(), b2);
-      const blob = await zip.generateAsync({ type:'blob' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `${rawStrip}_${rawImage}.zip`;
-      document.body.appendChild(a);
-      a.click(); a.remove();
-    } catch {
-      alert('ZIP error');
+  // ───────── Download a custom strip & range of RGB images ─────────
+  downloadZipBtn.addEventListener('click', () => {
+    dlStrip.value = window.rawStrip || '';
+    dlStart.value = window.rawImage || '';
+    dlEnd.value   = window.rawImage || '';
+    downloadModal.style.display = 'flex';
+  });
+
+  dlCancel.addEventListener('click', () => {
+    downloadModal.style.display = 'none';
+  });
+
+  dlConfirm.addEventListener('click', async () => {
+    const stripRaw = dlStrip.value.trim();
+    const startRaw = dlStart.value.trim();
+    const endRaw   = dlEnd.value.trim();
+    if (!stripRaw || !startRaw || !endRaw) {
+      return alert('Please fill all three fields');
     }
+    const stripNum = parseInt(stripRaw, 10).toString();
+    const startNum = Number(startRaw);
+    const endNum   = Number(endRaw);
+    if (isNaN(startNum) || isNaN(endNum) || startNum > endNum) {
+      return alert('Invalid start/end range');
+    }
+
+    let indexList;
+    try {
+      const res = await fetch(`${STRIP_BASE}${stripNum}/index.json`);
+      if (!res.ok) throw new Error();
+      indexList = await res.json();
+    } catch {
+      alert(`Could not load strip ${stripNum}`);
+      return;
+    }
+
+    const toDownload = indexList
+      .filter(o => Number(o.id) >= startNum && Number(o.id) <= endNum)
+      .sort((a, b) => Number(a.id) - Number(b.id));
+
+    if (!toDownload.length) {
+      return alert(`No images in strip ${stripNum} between ${startRaw} and ${endRaw}`);
+    }
+
+    const zip = new JSZip();
+    for (const obj of toDownload) {
+      try {
+        const resp = await fetch(obj.rgb);
+        if (!resp.ok) throw new Error();
+        const blob = await resp.blob();
+        const filename = obj.rgb.split('/').pop();
+        zip.file(filename, blob);
+      } catch (e) {
+        console.warn(`Failed to fetch ${obj.rgb}`, e);
+      }
+    }
+
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `strip${stripNum}_${startRaw}-${endRaw}.zip`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    downloadModal.style.display = 'none';
+  });
+
+
+  // ───────── NEW: Download data.txt (no PHP) ─────────
+  downloadDataBtn.addEventListener('click', () => {
+    // Create a temporary <a> so that “download” attribute is honored
+    const a = document.createElement('a');
+    a.href = 'data.txt';         // assumes data.txt is served at this relative path
+    a.download = 'data.txt';     // tells browser to save it as “data.txt”
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   });
 
   // ————— Auto-goto on page load —————
@@ -506,27 +621,53 @@
 
   // ————— Load image & capture its size —————
   function loadImage() {
+    // ——— Detect missing mask ———
+    if (channel === 'rgb_mask') {
+      const maskUrl = images[idx].rgb_mask || '';
+      if (maskUrl.trim() === '') {
+        alert('⚠️ No mask image available for this frame.');
+        // fall back to RGB
+        channel = 'rgb';
+        applyGamma();
+        // if you’d prefer to abort entirely instead of loading RGB, uncomment:
+        // return;
+      }
+    }
+
+    // remove any old spinner
     document.getElementById('spinner')?.remove();
+    // create & show new spinner
     const spinner = document.createElement('div');
     spinner.id = 'spinner';
     Object.assign(spinner.style, {
-      display:'block', position:'absolute', top:'50%', left:'50%',
-      transform:'translate(-50%,-50%)', width:'40px', height:'40px',
-      border:'4px solid rgba(0,0,0,0.1)', borderTop:'4px solid #333',
-      borderRadius:'50%', animation:'spin 1s linear infinite', zIndex:'1001'
+      display: 'block',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%,-50%)',
+      width: '40px',
+      height: '40px',
+      border: '4px solid rgba(0,0,0,0.1)',
+      borderTop: '4px solid #333',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite',
+      zIndex: '1001'
     });
     viewerEl.appendChild(spinner);
 
+    // remember zoom & center (so we don’t snap back to home each time)
     let oldZoom, oldCenter;
     if (!isFirst) {
       oldZoom   = viewer.viewport.getZoom();
       oldCenter = viewer.viewport.getCenter();
     }
 
-    viewer.open({ type:'image', url: images[idx][channel] });
+    // actually load the image (either rgb or rgb_mask)
+    viewer.open({ type: 'image', url: images[idx][channel] });
     viewer.addOnceHandler('open', () => {
       spinner.style.display = 'none';
 
+      // capture true pixel dims
       const tiledImg = viewer.world.getItemAt(0);
       if (tiledImg && tiledImg.getContentSize) {
         const size = tiledImg.getContentSize();
@@ -534,6 +675,7 @@
         imageHeight = size.y;
       }
 
+      // on very first load, goHome; otherwise restore view
       if (isFirst) {
         viewer.viewport.goHome(true);
         isFirst = false;
@@ -542,17 +684,22 @@
         viewer.viewport.panTo(oldCenter, true);
       }
 
+      // update strip/image info and gamma label
       stripEl.textContent = `Strip: ${rawStrip} | Image: ${rawImage}/${lastImageID}`;
       applyGamma();
 
-      if (rectCoordinates) drawRectangle();
+      // redraw any shapes
+      if (rectCoordinates)   drawRectangle();
       if (markerCoordinates) drawMarker();
 
+      // center viewport on shape if requested via “Go”
       if (pendingGoto) {
         if (rectCoordinates) {
-          const cx = rectCoordinates.x + rectCoordinates.width/2;
-          const cy = rectCoordinates.y + rectCoordinates.height/2;
-          const vp = viewer.viewport.imageToViewportCoordinates(new OpenSeadragon.Point(cx, cy));
+          const cx = rectCoordinates.x + rectCoordinates.width  / 2;
+          const cy = rectCoordinates.y + rectCoordinates.height / 2;
+          const vp = viewer.viewport.imageToViewportCoordinates(
+            new OpenSeadragon.Point(cx, cy)
+          );
           viewer.viewport.panTo(vp, true);
         } else if (markerCoordinates) {
           const vp = viewer.viewport.imageToViewportCoordinates(
@@ -567,28 +714,67 @@
 
   // ───── When “Save” is clicked ─────
   saveClassBtn.addEventListener('click', () => {
-    const chosenClass = classSelectEl.value;
-    const extraInfo   = classInfoEl.value.trim();
+    ensureAuth(async () => {
+      const chosenClass = classSelectEl.value;
+      const extraInfo   = classInfoEl.value.trim();
 
-    console.log('=== Annotation Saved ===');
-    console.log('  Class/Info: ' + chosenClass + (extraInfo ? ` (${extraInfo})` : ''));
+      // Gather marker & rect coords (or empty strings)
+      let mx = '', my = '', rx = '', ry = '', rw = '', rh = '';
+      if (markerCoordinates) {
+        mx = Math.round(markerCoordinates.x);
+        my = Math.round(markerCoordinates.y);
+      }
+      if (rectCoordinates) {
+        rx = Math.round(rectCoordinates.x);
+        ry = Math.round(rectCoordinates.y);
+        rw = Math.round(rectCoordinates.width);
+        rh = Math.round(rectCoordinates.height);
+      }
 
-    if (markerCoordinates) {
-      const mx = Math.round(markerCoordinates.x);
-      const my = Math.round(markerCoordinates.y);
-      console.log(`  → Marker → x:${pad4(mx)}, y:${pad4(my)}`);
-    }
-    if (rectCoordinates) {
-      const rx = Math.round(rectCoordinates.x);
-      const ry = Math.round(rectCoordinates.y);
-      const rw = Math.round(rectCoordinates.width);
-      const rh = Math.round(rectCoordinates.height);
-      console.log(`  → Rect   → x:${pad4(rx)}, y:${pad4(ry)}, w:${pad4(rw)}, h:${pad4(rh)}`);
-    }
+      const payload = {
+        strip:    rawStrip   || '',
+        image:    rawImage   || '',
+        class:    chosenClass,
+        info:     extraInfo  || '',
+        marker_x: mx,
+        marker_y: my,
+        rect_x:   rx,
+        rect_y:   ry,
+        rect_w:   rw,
+        rect_h:   rh,
+        // attach credentials
+        user:     auth.user,
+        pass:     auth.pass
+      };
 
-    classInfoEl.value   = '';
-    classSelectEl.value = 'none';
-    classPanelEl.style.display = 'none';
+      try {
+        const response = await fetch('saveData.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!result.success) {
+          alert('Save failed: ' + (result.error || 'Unknown error'));
+          if (result.error === 'Invalid credentials') {
+            // clear bad creds
+            localStorage.removeItem('viewer_user');
+            localStorage.removeItem('viewer_pass');
+            auth.user = auth.pass = '';
+          }
+        } else {
+          alert('✅ Saved successfully');
+        }
+      } catch (err) {
+        alert('Could not contact server');
+        console.error(err);
+      }
+
+      // Clear & hide the panel
+      classInfoEl.value   = '';
+      classSelectEl.value = '';
+      classPanelEl.style.display = 'none';
+    });
   });
 
 })();

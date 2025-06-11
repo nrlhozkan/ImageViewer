@@ -32,14 +32,6 @@
       border-radius:4px; cursor:pointer; z-index:1000;
     }
 
-    /* NEW: Download data.txt button: place it just below the ZIP button */
-    #downloadDataBtn {
-      position:absolute; top:50px; right:10px;
-      padding:6px 12px; font-size:14px;
-      background:rgba(255,255,255,0.8); border:none;
-      border-radius:4px; cursor:pointer; z-index:1000;
-    }
-
     #infoPanel {
       position:absolute; top:80px; left:10px;
       background:rgba(255,255,255,0.9); color:#000;
@@ -126,16 +118,11 @@
     <div id="gotoContainer">
       <input id="gotoInput" placeholder="04 03220 3749 2319  or  04 03220"/>
       <button id="gotoBtn">Go</button>
-      <button id="clearBtn" disabled>Clear Marker</button>
-      <button id="clearRectBtn" disabled>Clear Rectangle</button>
-      <button id="restoreBtn" disabled>Restore Marker</button>
+      <button id="clearBtn" disabled>Clear</button>
+      <button id="restoreBtn" disabled>Restore</button>
     </div>
 
-    <!-- Existing ZIP-download button -->
-    <button id="downloadZipBtn">Download Images</button>
-
-    <!-- NEW: Download data.txt button -->
-    <button id="downloadDataBtn">Download Data</button>
+    <button id="downloadZipBtn">Download the Image Pair</button>
 
     <div id="infoPanel">
       <strong>Image URLs + Deep-link</strong>
@@ -175,7 +162,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
-  <!-- Make sure this points to your JS file name -->
-  <script src="our_analyzer copy 2.js"></script>
+  <script src="our_analyzer_v2.js"></script>
 </body>
 </html>

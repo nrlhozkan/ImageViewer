@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Dynamic ImageViewer</title>
   <script src="https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/openseadragon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
   <style>
     html, body { margin:0; padding:0; height:100%; overflow:hidden; }
     #viewer { width:100%; height:100%; background: #888; position:relative; }
@@ -126,9 +127,8 @@
     <div id="gotoContainer">
       <input id="gotoInput" placeholder="04 03220 3749 2319  or  04 03220"/>
       <button id="gotoBtn">Go</button>
-      <button id="clearBtn" disabled>Clear Marker</button>
-      <button id="clearRectBtn" disabled>Clear Rectangle</button>
-      <button id="restoreBtn" disabled>Restore Marker</button>
+      <button id="clearBtn" disabled>Clear</button>
+      <button id="restoreBtn" disabled>Restore</button>
     </div>
 
     <!-- Existing ZIP-download button -->
@@ -174,8 +174,61 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
-  <!-- Make sure this points to your JS file name -->
-  <script src="our_analyzer copy 2.js"></script>
+  <!-- Authentication Modal -->
+  <div id="authModal" style="
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.5);
+      align-items:center; justify-content:center;
+      z-index:2000;
+  ">
+    <div style="
+        background:white; padding:20px; border-radius:6px;
+        width: 300px; box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    ">
+      <h3 style="margin-top:0">Please log in</h3>
+      <label>User ID:<br>
+        <input type="text" id="authUser" style="width:100%; margin-bottom:8px">
+      </label><br>
+      <label>Password:<br>
+        <input type="password" id="authPass" style="width:100%; margin-bottom:12px">
+      </label><br>
+      <button id="authSubmit" style="width:100%; padding:6px">Sign in</button>
+    </div>
+  </div>
+
+  <!-- Download-range Modal -->
+  <div id="downloadModal" style="
+      display: none;
+      position: fixed; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+      align-items: center; justify-content: center;
+      z-index: 2000;
+  ">
+    <div style="
+        background: white; padding: 20px; border-radius: 6px;
+        width: 320px; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    ">
+      <h3 style="margin-top:0; margin-bottom:12px">Download Images</h3>
+      <label>Strip #<br>
+        <input type="number" id="dlStrip" placeholder="e.g. 6"
+               style="width:100%; margin-bottom:8px;" min="1">
+      </label><br>
+      <label>From image #<br>
+        <input type="number" id="dlStart" placeholder="e.g. 566"
+               style="width:100%; margin-bottom:8px;" min="0">
+      </label><br>
+      <label>To image #<br>
+        <input type="number" id="dlEnd" placeholder="e.g. 1006"
+               style="width:100%; margin-bottom:16px;" min="0">
+      </label><br>
+      <div style="display:flex; gap:8px;">
+        <button id="dlCancel" style="flex:1; padding:6px 0;">Cancel</button>
+        <button id="dlConfirm" style="flex:1; padding:6px 0;">Download</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="our_analyzer_user copy.js"></script>
 </body>
 </html>

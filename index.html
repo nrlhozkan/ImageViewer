@@ -6,87 +6,162 @@
   <script src="https://cdn.jsdelivr.net/npm/openseadragon@4.0/build/openseadragon/openseadragon.min.js"></script>
   <style>
     html, body { margin:0; padding:0; height:100%; overflow:hidden; }
-    #loader {
-      position: absolute; top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      background: rgba(0,0,0,0.75);
-      padding:20px; border-radius:8px;
-      color:#fff; text-align:center;
-      z-index:1000;
-    }
-    #loader input { width:300px; padding:4px; }
-    #viewer { width:100%; height:100%; background:#000; display:none; position:relative; }
+    #viewer { width:100%; height:100%; background: #888; position:relative; }
 
-    /* Info tab styling */
-    #infoTab {
-      position: absolute;
-      bottom: 10px; right: 10px;
-      max-width: 250px;
-      background: rgba(0,0,0,0.6);
-      color: #fff; font-size: 13px; line-height:1.4;
-      padding: 10px; border-radius:6px; z-index:999;
+    /* “Go to” controls */
+    #gotoContainer {
+      position: absolute; bottom: 40px; left: 10px;
+      z-index: 1000; background: rgba(255,255,255,0.85);
+      padding: 6px 8px; border-radius: 4px;
+      display: flex; gap: 4px; font-size:13px;
     }
-    #infoTab h4 { margin:0 0 6px; font-size:14px;
-                  text-align:center; text-decoration:underline; }
-    #infoTab p  { margin:4px 0; }
-    #infoTab code { background: rgba(255,255,255,0.1);
-                    padding:2px 4px; border-radius:3px;
-                    font-family:monospace; }
+    #gotoContainer input {
+      width:220px; padding:4px; font-size:13px;
+      border:1px solid #aaa; border-radius:3px;
+    }
+    #gotoContainer button {
+      padding:4px 8px; font-size:13px;
+      border:1px solid #888; border-radius:3px;
+      background:#eee; cursor:pointer;
+    }
+
+    #downloadZipBtn {
+      position:absolute; top:10px; right:10px;
+      padding:6px 12px; font-size:14px;
+      background:rgba(255,255,255,0.8); border:none;
+      border-radius:4px; cursor:pointer; z-index:1000;
+    }
+
+    #infoPanel {
+      position:absolute; top:80px; left:10px;
+      background:rgba(255,255,255,0.9); color:#000;
+      padding:8px; font-family:sans-serif;
+      font-size:14px; border-radius:4px; z-index:1000;
+    }
+    #infoPanel code {
+      display:block; font-size:12px;
+      white-space:pre-wrap;
+    }
+
+    #stripImageInfo, #gammaInfo {
+      position:absolute; background:rgba(0,0,0,0.6);
+      color:#fff; padding:4px 8px; border-radius:4px;
+      font-size:14px; z-index:1000;
+    }
+    #stripImageInfo { top:40px; left:10px; }
+    #gammaInfo      { bottom:10px; left:10px; }
+
+    #rectInfo, #markerInfo {
+      position:absolute; left:10px;
+      background:rgba(255,255,255,0.9); color:#000;
+      padding:6px 8px; border-radius:4px;
+      font-family:sans-serif; font-size:13px;
+      z-index:1000; white-space:pre-wrap;
+      margin-top:4px;
+    }
+    /* Initially, rectInfo sits at top:180px; markerInfo will be positioned dynamically */
+    #rectInfo   { top: 180px; }
+    #markerInfo { /* top is set by JS */ }
+
+    #infoTab {
+      position:absolute; bottom:10px; right:10px;
+      max-width:250px; background:rgba(0,0,0,0.6);
+      color:#fff; font-size:13px; line-height:1.4;
+      padding:10px; border-radius:6px; z-index:999;
+    }
+    #infoTab h4 {
+      margin:0 0 6px; font-size:14px;
+      text-align:center; text-decoration:underline;
+    }
+    #infoTab p { margin:4px 0; }
+    #infoTab code {
+      background:rgba(255,255,255,0.1);
+      padding:2px 4px; border-radius:3px;
+      font-family:monospace;
+    }
+
+    /* ─── “Classes” panel: position set by JS ─── */
+    #classPanel {
+      position: absolute;
+      /* top/left will be calculated in JS */
+      width: 200px;
+      background: white;
+      border: 1px solid #bbb;
+      padding: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      z-index: 1002;
+      display: none;
+    }
+    #classPanel h3 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
+    #classPanel select {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    #classPanel textarea {
+      width: 100%;
+      resize: vertical;
+      margin-bottom: 8px;
+    }
+    #classPanel button {
+      width: 100%;
+      padding: 6px 0;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
-  <div id="loader">
-    <p>Enter the URL of your batch folder:</p>
-    <input id="jsonUrl" type="text" placeholder="link" />
-    <p>Number of first image:</p>
-    <input id="startIndex" type="text" placeholder="like 02858"
-           style="width:80px; padding:4px;" /><br><br>
-    <button id="loadBtn">OK</button>
-  </div>
-
   <div id="viewer">
-    <!-- ZIP download button -->
-    <button
-      id="downloadZipBtn"
-      style="position:absolute; top:10px; right:10px; display:none;
-             padding:6px 12px; font-size:14px; border:none; border-radius:4px;
-             background:rgba(255,255,255,0.8); cursor:pointer; z-index:1000;"
-    >
-      Download the Image Pair
-    </button>
+    <div id="gotoContainer">
+      <input id="gotoInput" placeholder="04 03220 3749 2319  or  04 03220"/>
+      <button id="gotoBtn">Go</button>
+      <button id="clearBtn" disabled>Clear</button>
+      <button id="restoreBtn" disabled>Restore</button>
+    </div>
 
-    <!-- Strip & Image overlay (top-left) -->
-    <div
-      id="stripImageInfo"
-      style="position:absolute; top:50px; left:10px; z-index:1000;
-             background:rgba(0,0,0,0.6); color:#fff; padding:4px 8px;
-             border-radius:4px; font-size:14px;"
-    ></div>
+    <button id="downloadZipBtn">Download the Image Pair</button>
 
-    <!-- Gamma overlay (bottom-left) -->
-    <div
-      id="gammaInfo"
-      style="position:absolute; bottom:10px; left:10px; z-index:1000;
-             background:rgba(0,0,0,0.6); color:#fff; padding:4px 8px;
-             border-radius:4px; font-size:14px;"
-    ></div>
+    <div id="infoPanel">
+      <strong>Image URLs + Deep-link</strong>
+      <code id="infoURLs"></code>
+    </div>
 
-    <!-- Controls info -->
+    <div id="stripImageInfo"></div>
+    <div id="gammaInfo"></div>
+    <div id="rectInfo"></div>
+    <div id="markerInfo"></div>
+
+    <!-- “Classes” panel -->
+    <div id="classPanel">
+      <h3>Classes</h3>
+      <select id="classSelect">
+        <option value="" disabled selected>Select a class</option>
+        <option value="objects">Objects</option>
+        <option value="shelters">Shelters</option>
+        <option value="persons">Persons</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <textarea id="classInfo" placeholder="Enter info…" rows="3"></textarea>
+      <button id="saveClassBtn">Save</button>
+    </div>
+
     <div id="infoTab">
       <h4>Controls</h4>
       <p><code>A</code> / <code>D</code> : prev / next image</p>
       <p><code>W</code> / <code>S</code> : image / anomalies</p>
-      <p><code>Space</code> : reset image</p>
+      <p><code>Space</code> : reset view</p>
       <p><code>mouse wheel</code> : zoom</p>
-      <p><code>arrow keys / left mouse button</code>: pan</p>
-      <p><code>+ / -</code> : brightness</p>
-      <p><code>CTRL + left mouse button</code>: to update finding parameters </p>
+      <p><code>arrow keys</code> / left mouse : pan</p>
+      <p><code>+</code> / <code>-</code> : brightness</p>
+      <p><code>Ctrl + click</code> : place/update marker</p>
+      <p><code>Alt + drag</code> : draw/update bounding box</p>
     </div>
   </div>
 
-  <!-- JSZip + your viewer logic -->
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
-  <script src="viewer.js"></script>
+  <script src="analyzer.js"></script>
 </body>
 </html>

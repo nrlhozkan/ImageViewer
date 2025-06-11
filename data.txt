@@ -236,170 +236,170 @@
 06 19712 3665 0811 3 "cyclist on the road" 06 19712 3647 0846 0065 0054 "Cyclist, excluded - not checked"
 06 19743 5245 0767 1 "a nice roof, in front of a bench in front of a road. It could be a small shed or (probably) a bus stop with a nice roof" 06 19743 5217 0796 0068 0051 "Covered sign"
 06 19762 7295 0865 1 "Its not clear what it is. It could be a very shed behind the bushes with a wooden contraption next to it" 06 19762 7265 0896 0064 0050 "Hunting stand, good geolocation"
-01 03199 6733 0342 0 "Looks like a body/trash bag - the shadow from the tree nearby makes it hard to determine the actual shape" 01 03199 6711 0360 0039 0035 NA
-01 03192 6357 0464 0 "There is a Human" 01 03192 6346 0474 0017 0017 NA
-07 23205 5561 1428 0 "Since the pictures of my batch were taken near some village , I dont think that something should be there , but I see some strange object in this area , maybe broken tree , but I am not sure" 07 23205 5550 1433 0010 0021 NA
-05 16390 0372 1440 0 "Bright green color anomaly" 05 16390 0360 1451 0024 0026 NA
-03 09345 0155 3286 0 "Bright orange spots near waterline - potentially washed up clothing or tarp" 03 09345 0025 3329 0147 0170 NA
-05 16494 2119 1540 0 "Possible shelter" 05 16494 2083 1568 0036 0042 NA
-08 27243 1716 1363 0 "possibly a shelter structure (but really hard to identify)" 08 27243 1682 1398 0083 0077 NA
-08 27307 1363 2722 0 "human-aligned tree logs reminding me of a wooden shelter, but hard to tell from above if the tree logs are just beside each other or if its really a shelter" 08 27307 1327 2747 0063 0087 NA
-08 27328 0388 2758 0 "Shelter with 2 shelters directly next to it" 08 27328 0215 2845 0146 0232 NA
-06 19341 0515 5798 0 "A blue thing which does not seem as it was created by nature" 06 19341 0501 5809 0026 0025 NA
+01 03199 6733 0342 2 "Looks like a body/trash bag - the shadow from the tree nearby makes it hard to determine the actual shape" 01 03199 6711 0360 0039 0035 NA
+01 03192 6357 0464 2 "There is a Human" 01 03192 6346 0474 0017 0017 NA
+07 23205 5561 1428 2 "Since the pictures of my batch were taken near some village , I dont think that something should be there , but I see some strange object in this area , maybe broken tree , but I am not sure" 07 23205 5550 1433 0010 0021 NA
+05 16390 0372 1440 2 "Bright green color anomaly" 05 16390 0360 1451 0024 0026 NA
+03 09345 0155 3286 2 "Bright orange spots near waterline - potentially washed up clothing or tarp" 03 09345 0025 3329 0147 0170 NA
+05 16494 2119 1540 2 "Possible shelter" 05 16494 2083 1568 0036 0042 NA
+08 27243 1716 1363 2 "possibly a shelter structure (but really hard to identify)" 08 27243 1682 1398 0083 0077 NA
+08 27307 1363 2722 2 "human-aligned tree logs reminding me of a wooden shelter, but hard to tell from above if the tree logs are just beside each other or if its really a shelter" 08 27307 1327 2747 0063 0087 NA
+08 27328 0388 2758 2 "Shelter with 2 shelters directly next to it" 08 27328 0215 2845 0146 0232 NA
+06 19341 0515 5798 2 "A blue thing which does not seem as it was created by nature" 06 19341 0501 5809 0026 0025 NA
 06 19341 6740 0509 0 "Something laying there but it could be just a root" 06 19341 6730 0535 0038 0022 NA
-07 23658 0149 0256 0 "It looks a lot like a person standing besides the road/path." 07 23658 0130 0278 0039 0043 NA
-07 23658 5270 5540 0 "It could be just wood but the shape is slightly suspicious." 07 23658 5256 5549 0050 0034 NA
-07 23658 3463 5111 0 "In this particular image, this region of about 14 pixels wide looks like the face of a rotten, dead body." 07 23658 3454 5120 0019 0016 NA
+07 23658 0149 0256 2 "It looks a lot like a person standing besides the road/path." 07 23658 0130 0278 0039 0043 NA
+07 23658 5270 5540 2 "It could be just wood but the shape is slightly suspicious." 07 23658 5256 5549 0050 0034 NA
+07 23658 3463 5111 2 "In this particular image, this region of about 14 pixels wide looks like the face of a rotten, dead body." 07 23658 3454 5120 0019 0016 NA
 07 23658 8378 5631 0 "It looks like something black in the water pond and it doesn't look natural." 07 23658 8375 5632 0008 0009 NA
 07 23689 7898 2067 0 "Region of 30 pixels that somehow stands out from the surrounding." 07 23689 7870 2092 0051 0050 NA
-07 23689 7252 1092 0 "A long-ish (few metres long) something that has unusual blue tones." 07 23689 7227 1107 0039 0040 NA
-08 26805 3849 0290 0 "orange colour like someone is sited" 08 26805 3840 0313 0038 0025 NA
-07 23767 7462 0318 0 "Could be some sort of shelter." 07 23767 7419 0360 0093 0079 NA
-07 23719 5376 1055 0 "There are two apparently abandoned buildings which could be possible shelter." 07 23719 5135 1593 0829 0485 NA
-03 09305 3049 0522 0 "Shape looks out of place, not sure if its something though" 03 09305 3008 0548 0096 0091 NA
-11 40827 5751 0128 0 "I am quite unsure of what I found and what to describe it. I see a circle like form (could be a rock) and a bit to the right, it seems like there is a continuation of some sort, something attached to that. All this seemed weird to me and I said it is better to report it." 11 40827 5724 0156 0049 0054 NA
+07 23689 7252 1092 2 "A long-ish (few metres long) something that has unusual blue tones." 07 23689 7227 1107 0039 0040 NA
+08 26805 3849 0290 2 "orange colour like someone is sited" 08 26805 3840 0313 0038 0025 NA
+07 23767 7462 0318 1 "Could be some sort of shelter." 07 23767 7419 0360 0093 0079 NA
+07 23719 5376 1055 1 "There are two apparently abandoned buildings which could be possible shelter." 07 23719 5135 1593 0829 0485 NA
+03 09305 3049 0522 2 "Shape looks out of place, not sure if its something though" 03 09305 3008 0548 0096 0091 NA
+11 40827 5751 0128 2 "I am quite unsure of what I found and what to describe it. I see a circle like form (could be a rock) and a bit to the right, it seems like there is a continuation of some sort, something attached to that. All this seemed weird to me and I said it is better to report it." 11 40827 5724 0156 0049 0054 NA
 11 40407 1916 0704 0 "shelter or a car" 11 40407 1889 0728 0059 0054 NA
 03 09187 5833 0961 0 "weirdly rectangular object in a forest (camouflaged tent?)" 03 09187 5772 0996 0081 0092 NA
-05 15974 4116 0564 0 "Two white stripes of something in the shadow." 05 15974 4097 0585 0040 0056 NA
-09 31244 6714 4149 0 "Looks like a person lying down" 09 31244 6704 4174 0036 0028 NA
-14 56961 1483 0887 0 "different colored area of approx. 2  m^2, possibly a canvas or tarp" 14 56961 1468 0913 0047 0029 NA
-03 09072 4497 0371 0 "something wrapped in a human body shape" 03 09072 4457 0383 0032 0072 NA
-10 34101 3772 5629 0 "An olive triangle not fitting into the surrounding area" 10 34101 3747 5640 0026 0044 NA
-04 12366 5048 3290 0 "A possible hid out ?" 04 12366 5012 3336 0090 0086 NA
-04 12366 3010 2208 0 "a blue object" 04 12366 2977 2268 0081 0070 NA
-14 56986 4060 0532 0 "two piles of wood where someone could lie in between" 14 56986 4025 0611 0181 0080 NA
-08 27437 2945 3518 0 "Probably a person lying on his side with bent knees, wearing shoes, with bare legs" 08 27437 2929 3527 0027 0034 NA
-04 12366 4138 0062 0 "white floating object" 04 12366 4104 0086 0062 0066 NA
-08 27433 2500 2775 0 "Possible shelter: logs stacked next to each other. It looks like they are lying on the ground. But if there is a hole underneath, then this place can be used as a shelter." 08 27433 2484 2792 0036 0036 NA
-08 27433 4145 5858 0 "Possible shelter: logs stacked next to each other. It looks like they are lying on the ground. But if there is a hole underneath, then this place can be used as a shelter." 08 27433 4120 5902 0092 0049 NA
-10 34176 1468 0548 0 "An olive colored, to perfectly round spot with a shape of a person lying next to / sitting on it: Head/face north, beige brown top darker trousers, feet south." 10 34176 1455 0562 0027 0026 NA
+05 15974 4116 0564 2 "Two white stripes of something in the shadow." 05 15974 4097 0585 0040 0056 NA
+09 31244 6714 4149 2 "Looks like a person lying down" 09 31244 6704 4174 0036 0028 NA
+14 56961 1483 0887 2 "different colored area of approx. 2  m^2, possibly a canvas or tarp" 14 56961 1468 0913 0047 0029 NA
+03 09072 4497 0371 2 "something wrapped in a human body shape" 03 09072 4457 0383 0032 0072 NA
+10 34101 3772 5629 2 "An olive triangle not fitting into the surrounding area" 10 34101 3747 5640 0026 0044 NA
+04 12366 5048 3290 2 "A possible hid out ?" 04 12366 5012 3336 0090 0086 NA
+04 12366 3010 2208 2 "a blue object" 04 12366 2977 2268 0081 0070 NA
+14 56986 4060 0532 2 "two piles of wood where someone could lie in between" 14 56986 4025 0611 0181 0080 NA
+08 27437 2945 3518 2 "Probably a person lying on his side with bent knees, wearing shoes, with bare legs" 08 27437 2929 3527 0027 0034 NA
+04 12366 4138 0062 2 "white floating object" 04 12366 4104 0086 0062 0066 NA
+08 27433 2500 2775 2 "Possible shelter: logs stacked next to each other. It looks like they are lying on the ground. But if there is a hole underneath, then this place can be used as a shelter." 08 27433 2484 2792 0036 0036 NA
+08 27433 4145 5858 2 "Possible shelter: logs stacked next to each other. It looks like they are lying on the ground. But if there is a hole underneath, then this place can be used as a shelter." 08 27433 4120 5902 0092 0049 NA
+10 34176 1468 0548 2 "An olive colored, to perfectly round spot with a shape of a person lying next to / sitting on it: Head/face north, beige brown top darker trousers, feet south." 10 34176 1455 0562 0027 0026 NA
 10 34202 2045 2547 0 "A shape reminding of a person/body wearing a light white/greenish top, dark belt, beige/brown trousers head north, feet south, lying on the ground." 10 34202 2032 2554 0019 0021 NA
-08 27440 4570 4910 0 "Possible shelter" 08 27440 4552 4920 0026 0036 NA
-14 57005 4844 0282 0 "dont know, maybe sth" 14 57005 4833 0290 0019 0019 NA
+08 27440 4570 4910 1 "Possible shelter" 08 27440 4552 4920 0026 0036 NA
+14 57005 4844 0282 2 "dont know, maybe sth" 14 57005 4833 0290 0019 0019 NA
 14 57020 3243 0591 0 "different color, > 1 m^2" 14 57020 3218 0608 0031 0061 NA
-14 57026 3950 0346 0 "different color" 14 57026 3937 0353 0019 0016 NA
-07 23223 3943 0196 0 "Looks like some figure, maybe seems to be" 07 23223 4027 0161 0024 0026 NA
-14 57031 2434 0209 0 "a shed?" 14 57031 2410 0219 0037 0058 NA
-07 23596 2765 2180 0 "a long orange/yellow object laying on the ground" 07 23596 2754 2211 0044 0017 NA
-15 61336 4133 2150 0 "This "pile" looks artificial to me and keeps its shape over the range of images where it is in view" 15 61336 4123 2164 0021 0021 NA
+14 57026 3950 0346 2 "different color" 14 57026 3937 0353 0019 0016 NA
+07 23223 3943 0196 2 "Looks like some figure, maybe seems to be" 07 23223 4027 0161 0024 0026 NA
+14 57031 2434 0209 2 "a shed?" 14 57031 2410 0219 0037 0058 NA
+07 23596 2765 2180 2 "a long orange/yellow object laying on the ground" 07 23596 2754 2211 0044 0017 NA
+15 61336 4133 2150 2 "This "pile" looks artificial to me and keeps its shape over the range of images where it is in view" 15 61336 4123 2164 0021 0021 NA
 10 34270 2000 3166 0 "Unidentifiable round shape" 10 34270 1989 3184 0032 0038 NA
 14 57052 0236 0255 0 "sth dark" 14 57052 0180 0339 0128 0093 NA
 07 23343 0285 1701 0 "Looks like a humanlike shape with orange clothing, or wrapped in orange/bright plastic" 07 23343 0251 1752 0083 0083 NA
-07 23366 1456 2182 0 "Looks like a red tarpaulin/cover like something one would use to provisionally build a shelter. Could also be a random red container in the woods" 07 23366 1418 2230 0118 0099 NA
+07 23366 1456 2182 1 "Looks like a red tarpaulin/cover like something one would use to provisionally build a shelter. Could also be a random red container in the woods" 07 23366 1418 2230 0118 0099 NA
 07 23668 0077 2396 0 "yellow pixel under a tree so i could not distinguish what it was exactly" 07 23668 0069 2402 0011 0014 NA
-06 19415 2145 0190 0 "An orange and a blue stuff at the lake shore" 06 19415 2131 0199 0023 0030 NA
-01 03169 1479 1627 0 "cannot exactly define what it is; it is a white area but looks kind of weird to me" 01 03169 1418 1694 0132 0115 NA
-01 03153 3391 5656 0 "oval black spot on the ground" 01 03153 3364 5675 0043 0044 NA
-06 19260 1444 0294 0 "a blue-ish looking object" 06 19260 1423 0338 0053 0049 NA
-06 19265 1083 0203 0 "a blue elongated object" 06 19265 1068 0228 0059 0032 NA
-11 40964 0143 5462 0 "Pile of tree branches, it looks kind of man-made. Could maybe be used to hide." 11 40964 0000 5599 0262 0367 NA
-11 40995 7226 3934 0 "Could be a person standing with its arms wide. Could be more in the same area." 11 40995 7210 3977 0068 0031 NA
-08 27437 4140 5285 0 "Possible shelter" 08 27437 4107 5307 0043 0073 NA
-08 27437 1991 5353 0 "Possible shelter" 08 27437 1919 5423 0147 0128 NA
-05 16602 5964 3541 0 "blue pixel (different color than the forrest) - similar to a bust shape." 05 16602 5959 3555 0030 0038 NA
-05 16621 6179 0194 0 "Color anomaly - red stain/dot" 05 16621 6166 0199 0025 0021 NA
-05 16524 0916 0405 0 "Odd coloring!" 05 16524 0905 0416 0044 0034 NA
-11 40410 0593 0593 0 "shelter" 11 40410 0555 0667 0040 0031 NA
-11 40410 5766 5766 0 "might be a shelter" 11 40410 5732 5799 0074 0075 NA
-11 40412 0561 2394 0 "shelter" 11 40412 0515 2617 0368 0386 NA
-11 40412 0872 2435 0 "shelter" 11 40412 0853 2443 0023 0032 NA
-11 40412 0877 2496 0 "shelter" 11 40412 0854 2504 0029 0035 NA
-11 40414 6438 0142 0 "Maybe a shelter or a boundary" 11 40414 6355 0216 0117 0148 NA
-14 57137 1137 0513 0 "maybe something like a shelter" 14 57137 1096 0541 0055 0083 NA
+06 19415 2145 0190 2 "An orange and a blue stuff at the lake shore" 06 19415 2131 0199 0023 0030 NA
+01 03169 1479 1627 2 "cannot exactly define what it is; it is a white area but looks kind of weird to me" 01 03169 1418 1694 0132 0115 NA
+01 03153 3391 5656 2 "oval black spot on the ground" 01 03153 3364 5675 0043 0044 NA
+06 19260 1444 0294 3 "a blue-ish looking object" 06 19260 1423 0338 0053 0049 NA
+06 19265 1083 0203 2 "a blue elongated object" 06 19265 1068 0228 0059 0032 NA
+11 40964 0143 5462 2 "Pile of tree branches, it looks kind of man-made. Could maybe be used to hide." 11 40964 0000 5599 0262 0367 NA
+11 40995 7226 3934 2 "Could be a person standing with its arms wide. Could be more in the same area." 11 40995 7210 3977 0068 0031 NA
+08 27437 4140 5285 2 "Possible shelter" 08 27437 4107 5307 0043 0073 NA
+08 27437 1991 5353 2 "Possible shelter" 08 27437 1919 5423 0147 0128 NA
+05 16602 5964 3541 2 "blue pixel (different color than the forrest) - similar to a bust shape." 05 16602 5959 3555 0030 0038 NA
+05 16621 6179 0194 2 "Color anomaly - red stain/dot" 05 16621 6166 0199 0025 0021 NA
+05 16524 0916 0405 2 "Odd coloring!" 05 16524 0905 0416 0044 0034 NA
+11 40410 0593 0593 1 "shelter" 11 40410 0555 0667 0040 0031 NA
+11 40410 5766 5766 2 "might be a shelter" 11 40410 5732 5799 0074 0075 NA
+11 40412 0561 2394 1 "shelter" 11 40412 0515 2617 0368 0386 NA
+11 40412 0872 2435 1 "shelter" 11 40412 0853 2443 0023 0032 NA
+11 40412 0877 2496 1 "shelter" 11 40412 0854 2504 0029 0035 NA
+11 40414 6438 0142 2 "Maybe a shelter or a boundary" 11 40414 6355 0216 0117 0148 NA
+14 57137 1137 0513 2 "maybe something like a shelter" 14 57137 1096 0541 0055 0083 NA
 14 57428 1292 0149 0 "Not sure what exactly this is" 14 57428 1249 0174 0048 0060 NA
-14 57152 1798 0339 0 "something wooden, in an almost L shape" 14 57152 1749 0338 0023 0083 NA
-14 57485 8026 0251 0 "Looks like fire place?" 14 57485 8007 0267 0034 0040 NA
-06 19514 1296 0434 0 "potential hide" 06 19514 1288 0448 0024 0012 NA
-06 19516 3984 0404 0 "Looks like man made structure" 06 19516 3978 0416 0024 0013 NA
+14 57152 1798 0339 2 "something wooden, in an almost L shape" 14 57152 1749 0338 0023 0083 NA
+14 57485 8026 0251 2 "Looks like fire place?" 14 57485 8007 0267 0034 0040 NA
+06 19514 1296 0434 2 "potential hide" 06 19514 1288 0448 0024 0012 NA
+06 19516 3984 0404 2 "Looks like man made structure" 06 19516 3978 0416 0024 0013 NA
 11 40422 7764 1014 0 "Maybe a body" 11 40422 7737 1022 0022 0022 NA
-05 16287 4255 4241 0 "Dark object close to a tree, does not match the other shadows in this area, seems to have a white spot on it, also does not seem to belong to the vegetation" 05 16287 4227 4272 0063 0063 NA
-06 19555 6454 0134 0 "looks like a shirt" 06 19555 6445 0136 0018 0017 NA
-11 40440 4706 2076 0 "body maybe" 11 40440 4690 2089 0027 0031 NA
-11 40440 3853 3853 0 "human" 11 40440 3847 3866 0028 0021 NA
-11 40440 4185 0588 0 "human" 11 40440 4164 0602 0029 0038 NA
-11 40440 3849 1935 0 "human" 11 40440 3838 1952 0026 0018 NA
-11 40441 3835 3835 0 "human" 11 40441 3823 3869 0048 0045 NA
-11 40443 5556 0109 0 "human" 11 40443 5544 0133 0034 0024 NA
-08 27380 2785 4562 0 "Possible Shelter and Not Familiar Colors with the forest( Red ), anomalies show up also." 08 27380 2727 4600 0077 0115 NA
-09 30572 6712 0248 0 "An image" 09 30572 6703 0263 0023 0018 NA
-09 30571 6821 0077 0 "Two legs" 09 30571 6810 0094 0026 0027 NA
-12 44677 1216 1440 0 "might be something wrapped" 12 44677 1191 1482 0071 0046 NA
-11 40449 4117 4117 0 "human" 11 40449 4058 4185 0097 0100 NA
-11 40449 4117 3275 0 "human" 11 40449 4100 3287 0027 0025 NA
-11 40449 4113 2849 0 "human" 11 40449 4104 2856 0014 0015 NA
-10 34408 2187 3976 0 "not really sure, might be a branch but it looks different from other branches. it could possibly be a piece of cloth or part of a body." 10 34408 2171 3979 0018 0077 NA
-11 40449 4392 2460 0 "human" 11 40449 4376 2467 0021 0023 NA
-11 40449 4817 3317 0 "human" 11 40449 4810 3323 0021 0022 NA
-11 40449 4971 3393 0 "human" 11 40449 4946 3402 0029 0039 NA
-11 40451 6793 1310 0 "human" 11 40451 6780 1315 0020 0023 NA
-10 34408 3182 3710 0 "looks like a standing person" 10 34408 3168 3720 0021 0023 NA
-14 57769 3461 0167 0 "car" 14 57769 3376 0228 0144 0147 NA
-11 40514 5773 0193 0 "human" 11 40514 5725 0227 0077 0088 NA
-05 16120 7679 0587 0 "Looks like an unusual color for a forest. May be some kind of improvised roofing." 05 16120 7613 0680 0220 0229 NA
-05 16184 7216 2658 0 "An apparent human-made structure with a purpose I do not recognize" 05 16184 7185 2691 0061 0057 NA
-06 19803 6145 0085 0 "the pixels surrounding looks like a red pile , not sure what but definitely seems out of place, given the surroundings and proximity to houses , its unlikely what we are looking for but it definitely seems out of place" 06 19803 6123 0108 0043 0036 NA
-08 27389 8350 4429 0 "Looks like a hole with branches collapsed. Possible hiding spot." 08 27389 8315 4461 0119 0099 NA
-08 27377 3003 5682 0 "Looks like a body with logs covering it. Cant know for sure because of the resolution, maybe some logs and branches." 08 27377 2939 5744 0089 0092 NA
-04 12598 6242 0198 0 "discoloration" 04 12598 6217 0257 0074 0081 NA
-04 12634 6494 1661 0 "Blue patch in the woods." 04 12634 6485 1670 0015 0013 NA
-04 12054 2837 3948 0 "Looks like a letter Z" 04 12054 2821 3959 0029 0028 NA
-04 12162 4730 0513 0 "unusual car track in the meadow between the road and the side path." 04 12162 4685 0548 0094 0088 NA
-04 12302 6367 1005 0 "Car track in the meadow" 04 12302 6332 1034 0063 0062 NA
-04 12658 1054 4958 0 "Car tracks in the field between the houses" 04 12658 1025 5003 0079 0058 NA
-04 12592 7072 2013 0 "Car lane? over road in meadow/vegetation" 04 12592 6897 2094 0106 0221 NA
-04 12607 7633 2709 0 "interesting discolorated shape" 04 12607 7596 2734 0063 0079 NA
-07 23763 1353 4397 0 "Seems to be an orange pile of leaves but also not. Very out of place" 07 23763 1324 4426 0068 0061 NA
-07 23812 2800 0565 0 "Seems to be a cover, it has uniform color with an oval shape with a color similar to leaves but different from it." 07 23812 2593 0646 0251 0331 NA
-07 23820 4090 0040 0 "Could be a stomp but it looks very weird." 07 23820 4015 0124 0124 0141 NA
-07 23840 7230 4500 0 "Putting it here just to be sure, It seems like someone laying down but its both near a shed and it also looks too big to be human but I would've felt bad leaving it out" 07 23840 7198 4524 0039 0059 NA
-03 09397 3610 0521 0 "could be a lying person, either sleeping or dead" 03 09397 3596 0548 0046 0024 NA
-03 09387 5919 0585 0 "not sure, but it looks abnormal, could be a person, an animal or just part of a tree" 03 09387 5903 0605 0046 0033 NA
-05 16283 5742 3246 0 "suspicious shape, could be a shelter" 05 16283 5719 3255 0022 0033 NA
-05 15865 2071 1647 0 "something above the tree; couldnt verify" 05 15865 2067 1655 0010 0010 NA
-05 15914 1316 2030 0 "unsual colour" 05 15914 1271 2065 0076 0088 NA
-14 57326 2609 0015 0 "Something red leaning on a fallen tree trunk. Perhaps Blood? Bloody Clothes? Or Body? Cant be certain." 14 57326 2568 0016 0016 0103 NA
-07 23857 0619 1549 0 "cyclist ?" 07 23857 0587 1568 0036 0051 NA
-15 61592 6610 0674 0 "a blue thing in the forest with size of a body" 15 61592 6597 0702 0056 0022 NA
-08 27012 2440 4609 0 "seems like colored pixel laying on the ground" 08 27012 2421 4625 0046 0039 NA
+05 16287 4255 4241 2 "Dark object close to a tree, does not match the other shadows in this area, seems to have a white spot on it, also does not seem to belong to the vegetation" 05 16287 4227 4272 0063 0063 NA
+06 19555 6454 0134 2 "looks like a shirt" 06 19555 6445 0136 0018 0017 NA
+11 40440 4706 2076 2 "body maybe" 11 40440 4690 2089 0027 0031 NA
+11 40440 3853 3853 2 "human" 11 40440 3847 3866 0028 0021 NA
+11 40440 4185 0588 2 "human" 11 40440 4164 0602 0029 0038 NA
+11 40440 3849 1935 2 "human" 11 40440 3838 1952 0026 0018 NA
+11 40441 3835 3835 2 "human" 11 40441 3823 3869 0048 0045 NA
+11 40443 5556 0109 2 "human" 11 40443 5544 0133 0034 0024 NA
+08 27380 2785 4562 2 "Possible Shelter and Not Familiar Colors with the forest( Red ), anomalies show up also." 08 27380 2727 4600 0077 0115 NA
+09 30572 6712 0248 2 "An image" 09 30572 6703 0263 0023 0018 NA
+09 30571 6821 0077 2 "Two legs" 09 30571 6810 0094 0026 0027 NA
+12 44677 1216 1440 2 "might be something wrapped" 12 44677 1191 1482 0071 0046 NA
+11 40449 4117 4117 2 "human" 11 40449 4058 4185 0097 0100 NA
+11 40449 4117 3275 2 "human" 11 40449 4100 3287 0027 0025 NA
+11 40449 4113 2849 2 "human" 11 40449 4104 2856 0014 0015 NA
+10 34408 2187 3976 2 "not really sure, might be a branch but it looks different from other branches. it could possibly be a piece of cloth or part of a body." 10 34408 2171 3979 0018 0077 NA
+11 40449 4392 2460 2 "human" 11 40449 4376 2467 0021 0023 NA
+11 40449 4817 3317 2 "human" 11 40449 4810 3323 0021 0022 NA
+11 40449 4971 3393 2 "human" 11 40449 4946 3402 0029 0039 NA
+11 40451 6793 1310 2 "human" 11 40451 6780 1315 0020 0023 NA
+10 34408 3182 3710 2 "looks like a standing person" 10 34408 3168 3720 0021 0023 NA
+14 57769 3461 0167 1 "car" 14 57769 3376 0228 0144 0147 NA
+11 40514 5773 0193 2 "human" 11 40514 5725 0227 0077 0088 NA
+05 16120 7679 0587 2 "Looks like an unusual color for a forest. May be some kind of improvised roofing." 05 16120 7613 0680 0220 0229 NA
+05 16184 7216 2658 1 "An apparent human-made structure with a purpose I do not recognize" 05 16184 7185 2691 0061 0057 NA
+06 19803 6145 0085 2 "the pixels surrounding looks like a red pile , not sure what but definitely seems out of place, given the surroundings and proximity to houses , its unlikely what we are looking for but it definitely seems out of place" 06 19803 6123 0108 0043 0036 NA
+08 27389 8350 4429 2 "Looks like a hole with branches collapsed. Possible hiding spot." 08 27389 8315 4461 0119 0099 NA
+08 27377 3003 5682 2 "Looks like a body with logs covering it. Cant know for sure because of the resolution, maybe some logs and branches." 08 27377 2939 5744 0089 0092 NA
+04 12598 6242 0198 2 "discoloration" 04 12598 6217 0257 0074 0081 NA
+04 12634 6494 1661 2 "Blue patch in the woods." 04 12634 6485 1670 0015 0013 NA
+04 12054 2837 3948 2 "Looks like a letter Z" 04 12054 2821 3959 0029 0028 NA
+04 12162 4730 0513 2 "unusual car track in the meadow between the road and the side path." 04 12162 4685 0548 0094 0088 NA
+04 12302 6367 1005 2 "Car track in the meadow" 04 12302 6332 1034 0063 0062 NA
+04 12658 1054 4958 2 "Car tracks in the field between the houses" 04 12658 1025 5003 0079 0058 NA
+04 12592 7072 2013 2 "Car lane? over road in meadow/vegetation" 04 12592 6897 2094 0106 0221 NA
+04 12607 7633 2709 2 "interesting discolorated shape" 04 12607 7596 2734 0063 0079 NA
+07 23763 1353 4397 2 "Seems to be an orange pile of leaves but also not. Very out of place" 07 23763 1324 4426 0068 0061 NA
+07 23812 2800 0565 2 "Seems to be a cover, it has uniform color with an oval shape with a color similar to leaves but different from it." 07 23812 2593 0646 0251 0331 NA
+07 23820 4090 0040 2 "Could be a stomp but it looks very weird." 07 23820 4015 0124 0124 0141 NA
+07 23840 7230 4500 2 "Putting it here just to be sure, It seems like someone laying down but its both near a shed and it also looks too big to be human but I would've felt bad leaving it out" 07 23840 7198 4524 0039 0059 NA
+03 09397 3610 0521 2 "could be a lying person, either sleeping or dead" 03 09397 3596 0548 0046 0024 NA
+03 09387 5919 0585 2 "not sure, but it looks abnormal, could be a person, an animal or just part of a tree" 03 09387 5903 0605 0046 0033 NA
+05 16283 5742 3246 2 "suspicious shape, could be a shelter" 05 16283 5719 3255 0022 0033 NA
+05 15865 2071 1647 2 "something above the tree; couldnt verify" 05 15865 2067 1655 0010 0010 NA
+05 15914 1316 2030 2 "unsual colour" 05 15914 1271 2065 0076 0088 NA
+14 57326 2609 0015 2 "Something red leaning on a fallen tree trunk. Perhaps Blood? Bloody Clothes? Or Body? Cant be certain." 14 57326 2568 0016 0016 0103 NA
+07 23857 0619 1549 3 "cyclist ?" 07 23857 0587 1568 0036 0051 NA
+15 61592 6610 0674 2 "a blue thing in the forest with size of a body" 15 61592 6597 0702 0056 0022 NA
+08 27012 2440 4609 2 "seems like colored pixel laying on the ground" 08 27012 2421 4625 0046 0039 NA
 07 23473 6077 0547 0 "red pixels under the tree, very hard to make out what it actually seems to be but it is quite the contrast to the greens of the tree around it" 07 23473 6065 0564 0039 0020 NA
-07 23355 1476 0215 0 "roof, tarp" 07 23355 1421 0278 0118 0097 NA
-07 23358 3790 5285 0 "could be a dead body" 07 23358 3763 5325 0075 0054 NA
-10 33779 4000 5500 0 "Weird shape, I guess its just red sticks or something but it kind of has a weird shape and maybe could be looked at a second time, but quiet unlikely that it might be a body" 10 33779 3989 5510 0024 0023 NA
-07 23703 1025 2845 0 "Body" 07 23703 0996 2879 0061 0070 NA
-07 23730 3753 0367 0 "Person standing" 07 23730 3744 0390 0050 0028 NA
-05 15953 4704 2189 0 "There is something blue between the trees that cannot be described in more detail. The object is depicted as a blue anomaly." 05 15953 4696 2199 0018 0017 NA
-05 15974 5286 4345 0 "The object cannot be described in more detail. This is not recognizable in the normal image and only becomes visible as an anomaly." 05 15974 5280 4350 0012 0017 NA
-15 61616 0222 0604 0 "Looks like a person lying on his stomach or a shadow." 15 61616 0184 0627 0052 0050 NA
-11 40723 4068 4588 0 "An anomaly in the shape of a cross is displayed. A dark spot can be detected between the trees. However, the area is in the immediate vicinity of a forest path. Therefore, probably irrelevant." 11 40723 4059 4593 0013 0021 NA
-02 05651 4158 3908 0 "Left of a warehouse something looks like a body." 02 05651 4114 3945 0091 0087 NA
-12 44116 2336 0266 0 "Dark object leaned against a fallen tree, backpack?" 12 44116 2308 0279 0038 0047 NA
-15 61602 0192 0395 0 "Unknown blue object near a tree." 15 61602 0175 0406 0040 0039 NA
-15 61693 7133 0109 0 "Unknown grey/blue objekt." 15 61693 7126 0111 0007 0012 NA
-11 40617 2142 4146 0 "Abnormal Color" 11 40617 2012 4249 0234 0226 NA
-15 61187 1506 0629 0 "lying person" 15 61187 1450 0670 0058 0065 NA
-11 41064 3113 0584 0 "Looks like a blue/white structure, unsure if it is meant to be there." 11 41064 3080 0595 0052 0063 NA
-11 40676 6215 0963 0 "Possible Campsite / Looks Manmade" 11 40676 6202 0979 0024 0016 NA
-11 40676 5090 2857 0 "Studying the Object over multiple Images, it appears it and or the shadow is moving" 11 40676 5072 2865 0021 0027 NA
-11 41037 2452 0267 0 "A shelter like structure." 11 41037 2436 0281 0024 0031 NA
-11 40783 4419 3944 0 "Over the course of the images the Object appears to be moving" 11 40783 4377 3963 0067 0147 NA
-01 03070 4334 5525 0 "A circle form that has (I think) something attached, to the right side. Tried to zoom in and out to get a better understanding, but I could not." 01 03070 4315 5536 0028 0042 NA
-01 02988 0644 2956 0 "I do not know if it just me, but when I zoom in enough, that seems like a face to me. I might be wrong, although, lakes and places with water are worth investigating in such cases as this one." 01 02988 0569 2972 0098 0100 NA
-06 19551 0459 5225 0 "A blue, unnatural thing of about 2x2 metres. This could be a tent or shelter." 06 19551 0447 5234 0020 0025 NA
-13 47789 4735 2550 0 "board (planks) - shelter (roof)?" 13 47789 4706 2562 0047 0052 NA
-06 19640 3764 5486 0 "looks like a woman with light hair" 06 19640 3759 5504 0030 0012 NA
-08 27123 3108 2042 0 "red/orange spot, single person sitting, maybe just a tree stump" 08 27123 3086 2057 0037 0047 NA
-08 27131 3690 0740 0 "yellow (abnnormal colour), maybe sleeping bag or jacket" 08 27131 3670 0759 0051 0031 NA
-11 40937 1694 0965 0 "Unnatural Color" 11 40937 1676 0976 0025 0040 NA
-11 41118 6728 0323 0 "Person standing under a tree, next to the road wearing brown clothes" 11 41118 6709 0337 0034 0027 NA
-11 40976 8157 0652 0 "Possible Pool of Blood / Body Parts" 11 40976 8119 0711 0100 0089 NA
-06 19604 2104 5260 0 "looks like someone lying under the tree" 06 19604 2078 5271 0030 0035 NA
-01 03240 1533 1599 0 "walking person" 01 03240 1499 1593 0062 0053 NA
-06 19592 3211 5753 0 "a bike" 06 19592 3194 5773 0044 0034 NA
-03 09481 7556 5328 0 "it looks suspicious, it could be a covered person or corpse. It looks like a tarpaulin that covers something that has human form" 03 09481 7535 5348 0062 0058 NA
-03 09382 8146 4900 0 "that doesn't fit into the terrain, it could be body parts, or a lifeless body" 03 09382 8124 4923 0044 0074 NA
-06 19551 0806 1071 0 "This could be a person" 06 19551 0727 1109 0108 0139 NA
-06 19551 5591 1538 0 "This could be a hiding place" 06 19551 5566 1556 0038 0057 NA
-06 19583 4118 2715 0 "This could be a person" 06 19583 4022 2829 0174 0202 NA
-06 19701 8075 1747 0 "looks like a person standing but the shadow suggests otherwise" 06 19701 8061 1757 0019 0027 NA
-06 19701 8316 0950 0 "looks like a person but the shadow suggests otherwise" 06 19701 8292 0974 0035 0042 NA
-06 19733 8080 0235 0 "Its probably a tree judging by the ones that are parallel to it but it does not look like a tree. 30 by 9 pixels wide, oval/fish like shape, has stripes and a yellow head" 06 19733 8075 0244 0024 0039 NA
+07 23355 1476 0215 1 "roof, tarp" 07 23355 1421 0278 0118 0097 NA
+07 23358 3790 5285 2 "could be a dead body" 07 23358 3763 5325 0075 0054 NA
+10 33779 4000 5500 2 "Weird shape, I guess its just red sticks or something but it kind of has a weird shape and maybe could be looked at a second time, but quiet unlikely that it might be a body" 10 33779 3989 5510 0024 0023 NA
+07 23703 1025 2845 2 "Body" 07 23703 0996 2879 0061 0070 NA
+07 23730 3753 0367 2 "Person standing" 07 23730 3744 0390 0050 0028 NA
+05 15953 4704 2189 2 "There is something blue between the trees that cannot be described in more detail. The object is depicted as a blue anomaly." 05 15953 4696 2199 0018 0017 NA
+05 15974 5286 4345 2 "The object cannot be described in more detail. This is not recognizable in the normal image and only becomes visible as an anomaly." 05 15974 5280 4350 0012 0017 NA
+15 61616 0222 0604 2 "Looks like a person lying on his stomach or a shadow." 15 61616 0184 0627 0052 0050 NA
+11 40723 4068 4588 2 "An anomaly in the shape of a cross is displayed. A dark spot can be detected between the trees. However, the area is in the immediate vicinity of a forest path. Therefore, probably irrelevant." 11 40723 4059 4593 0013 0021 NA
+02 05651 4158 3908 2 "Left of a warehouse something looks like a body." 02 05651 4114 3945 0091 0087 NA
+12 44116 2336 0266 2 "Dark object leaned against a fallen tree, backpack?" 12 44116 2308 0279 0038 0047 NA
+15 61602 0192 0395 1 "Unknown blue object near a tree." 15 61602 0175 0406 0040 0039 NA
+15 61693 7133 0109 2 "Unknown grey/blue objekt." 15 61693 7126 0111 0007 0012 NA
+11 40617 2142 4146 2 "Abnormal Color" 11 40617 2012 4249 0234 0226 NA
+15 61187 1506 0629 2 "lying person" 15 61187 1450 0670 0058 0065 NA
+11 41064 3113 0584 1 "Looks like a blue/white structure, unsure if it is meant to be there." 11 41064 3080 0595 0052 0063 NA
+11 40676 6215 0963 2 "Possible Campsite / Looks Manmade" 11 40676 6202 0979 0024 0016 NA
+11 40676 5090 2857 2 "Studying the Object over multiple Images, it appears it and or the shadow is moving" 11 40676 5072 2865 0021 0027 NA
+11 41037 2452 0267 2 "A shelter like structure." 11 41037 2436 0281 0024 0031 NA
+11 40783 4419 3944 2 "Over the course of the images the Object appears to be moving" 11 40783 4377 3963 0067 0147 NA
+01 03070 4334 5525 2 "A circle form that has (I think) something attached, to the right side. Tried to zoom in and out to get a better understanding, but I could not." 01 03070 4315 5536 0028 0042 NA
+01 02988 0644 2956 2 "I do not know if it just me, but when I zoom in enough, that seems like a face to me. I might be wrong, although, lakes and places with water are worth investigating in such cases as this one." 01 02988 0569 2972 0098 0100 NA
+06 19551 0459 5225 2 "A blue, unnatural thing of about 2x2 metres. This could be a tent or shelter." 06 19551 0447 5234 0020 0025 NA
+13 47789 4735 2550 2 "board (planks) - shelter (roof)?" 13 47789 4706 2562 0047 0052 NA
+06 19640 3764 5486 2 "looks like a woman with light hair" 06 19640 3759 5504 0030 0012 NA
+08 27123 3108 2042 2 "red/orange spot, single person sitting, maybe just a tree stump" 08 27123 3086 2057 0037 0047 NA
+08 27131 3690 0740 2 "yellow (abnnormal colour), maybe sleeping bag or jacket" 08 27131 3670 0759 0051 0031 NA
+11 40937 1694 0965 2 "Unnatural Color" 11 40937 1676 0976 0025 0040 NA
+11 41118 6728 0323 2 "Person standing under a tree, next to the road wearing brown clothes" 11 41118 6709 0337 0034 0027 NA
+11 40976 8157 0652 2 "Possible Pool of Blood / Body Parts" 11 40976 8119 0711 0100 0089 NA
+06 19604 2104 5260 2 "looks like someone lying under the tree" 06 19604 2078 5271 0030 0035 NA
+01 03240 1533 1599 3 "walking person" 01 03240 1499 1593 0062 0053 NA
+06 19592 3211 5753 2 "a bike" 06 19592 3194 5773 0044 0034 NA
+03 09481 7556 5328 2 "it looks suspicious, it could be a covered person or corpse. It looks like a tarpaulin that covers something that has human form" 03 09481 7535 5348 0062 0058 NA
+03 09382 8146 4900 2 "that doesn't fit into the terrain, it could be body parts, or a lifeless body" 03 09382 8124 4923 0044 0074 NA
+06 19551 0806 1071 2 "This could be a person" 06 19551 0727 1109 0108 0139 NA
+06 19551 5591 1538 2 "This could be a hiding place" 06 19551 5566 1556 0038 0057 NA
+06 19583 4118 2715 2 "This could be a person" 06 19583 4022 2829 0174 0202 NA
+06 19701 8075 1747 2 "looks like a person standing but the shadow suggests otherwise" 06 19701 8061 1757 0019 0027 NA
+06 19701 8316 0950 2 "looks like a person but the shadow suggests otherwise" 06 19701 8292 0974 0035 0042 NA
+06 19733 8080 0235 2 "Its probably a tree judging by the ones that are parallel to it but it does not look like a tree. 30 by 9 pixels wide, oval/fish like shape, has stripes and a yellow head" 06 19733 8075 0244 0024 0039 NA
